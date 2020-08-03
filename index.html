@@ -9,115 +9,48 @@
   <title>Barkify</title>
 </head>
 
-<body class="backgroundChange">
+<body>
+  <!-- FIREBASE -->
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+
+  <script>  
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyAdYSEqzvHf9EPW4xSTjIJ6yNlyjN4ZUNE",
+      authDomain: "social-media-dog.firebaseapp.com",
+      databaseURL: "https://social-media-dog.firebaseio.com",
+      projectId: "social-media-dog",
+      storageBucket: "social-media-dog.appspot.com",
+      messagingSenderId: "1072828033940",
+      appId: "1:1072828033940:web:0750faa2cac5bbf4aafd81",
+      measurementId: "G-GMTJEHC95Q"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+  </script> 
+
   <div id="initialPage">
-    <div id="logo">
-      <img class="logoImg" src="img/logo.png" alt="logo">
-    </div>
-    <br>
-    <!-- inicio sesion -->
-    <p class="titles"><strong>Bienvenido a Barkify</strong></p>
-    <input id="userEmail" type="email" placeholder="Email">
-    <input id="userPassword" type="password" placeholder="Contraseña">
-    <button id="btnLogin">Log In</button>
-    <br>
-    <a href=" ">¿Olvidaste tus datos de inicion de sesión? <strong>Recuperar</strong></a>
-    <br>
-    <!-- ingresar con google -->
-    <div>
-      <p>Aqui va google</p>
-    </div>
-    <br>
-    <a href=" "><strong>¿No estas en Barkify aún? Regístrate</strong></a>
   </div>
 
   <!-- registrarse -->
   <div id="containerSignIn">
-    <div id="signIn">
-      <div id="titleSignIn">
-        <p class="titles">&#10094</p>
-        <p class="titles">Sign In</p>
-        <p class="titles">&#10006;</p>
-      </div>
-      <br>
-      <div id="logoSignIn">
-        <img class="logoImg" src="img/logo.png" alt="logo">
-      </div>
-      <br>
-      <div id="firstQuestionSignIn" class="hide questionSignIn">
-        <p><strong>Ingrese su nombre y apellido</strong></p>
-        <br>
-        <input type="text" id="userRealName" placeholder="Nombre y Apellido">
-        <br>
-        <button class="btnContinue" id="btnContinue">Siguiente</button>
-      </div>
-      <div id="secondQuestionSignIn" class="hide questionSignIn">
-        <p><strong>¿Cuál es tu nombre de usuario?</strong></p>
-        <br>
-        <input type="text" id="userName" placeholder="Nombre de Usuario">
-        <button class="btnContinue" id="btnContinue2">Siguiente</button>
-      </div>
-      <div id="thirdQuestionSignIn" class="hide questionSignIn">
-        <p><strong>¿Cuál es tu correo?</strong></p>
-        <br>
-        <input type="email" id="userMail" placeholder="Correo">
-        <button class="btnContinue" id="btnContinue3">Siguiente</button>
-      </div>
-      <div id="forthQuestionSignIn" class="hide questionSignIn">
-        <p><strong>Ingrese una Contraseña</strong></p>
-        <br>
-        <input type="password" id="userPassword" placeholder="Contraseña">
-        <button class="btnContinue" id="btnContinue4">Siguiente</button>
-      </div>
-      <div id="fifthQuestionSignIn" class="hide questionSignIn">
-        <p><strong>Comuna donde reside</strong></p>
-        <br>
-        <select name="Comuna" id="userSelect">
-          <option value="default" selected> Indique la comuna </option>
-          <option value="comuna"> La Reina</option>
-          <option value="comuna2"> Las Condes </option>
-          <option value="comuna3"> Ñuñoa </option>
-          <option value="comuna4"> Providencia </option>
-          <option value="comuna5">Santiago (Centro)</option>
-        </select>
-        <button class="btnContinue" id="btnContinue5">Siguiente</button>
-      </div>
-      <div id="doneSignIn" class="questionSignIn">
-        <p class="titles"><strong>Bienvenido a Barkify!!!</strong></p>
-        <br>
-        <p>Haz finalizado tu registro con exito!</p>
-        <p>Para culminar tu registro, por favor verifica tu mail</p>
-        <button class="btnContinue" id="btnHomeSignIn">Ir al home</button>
-      </div>
-    </div>
+
   </div>
+
   <div id="mainScreen">
-    <header class="header">
-      <div id="logoHeader">
-        <img class="logoImg" src="img/logo.png" alt="logo">
-      </div>
-    </header>
-    <main id="mainContentInitialPage">
-      <p>Aún no has creado un perfil para tu mascota</p>
-      <button class="btnContinue" id="btnCreateProfile">Crear Perfil</button>
-    </main>
-    <footer class="footer">
-      <div class="paw">
-        <img class="iconsFooter" src="img/heartIconNormal.png" alt="paw">
-      </div>
-      <div class="home">
-        <img class="iconsFooter" src="img/homeIconNormal.png" alt="home">
-      </div>
-      <div class="profile">
-        <img class="iconsFooter" src="img/searchIconNormal.png" alt="profile">
-      </div>
-    </footer>
+
   </div>
-
-
-
 
   <script type="module" src="main.js"></script>
+  
 </body>
 
 </html>

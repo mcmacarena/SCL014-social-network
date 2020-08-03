@@ -1,5 +1,14 @@
 // Este es el punto de entrada de tu aplicacion
 
-import { myFunction } from './lib/index.js';
+import { contentInitialPage, contentSignIn, contentHome } from './lib/index.js';
+import {registerNewUser, logInUser} from './lib/firebase.js'
 
-myFunction();
+contentInitialPage();
+
+
+// document.querySelector('#btnHomeSignIn').addEventListener('click',registerNewUser);
+document.querySelector('#btnLogin').addEventListener('click',logInUser);
+
+
+
+
