@@ -1,10 +1,9 @@
 // INITIAL PAGE
 export const contentInitialPage = () => {
   const initialPage = document.getElementById('initialPage');
-  console.log(initialPage);
   initialPage.innerHTML =
-      `<div id="logo">
-          <img class="logoImg" src="img/logo.png" alt="logo">
+    `<div id="logo">
+          <img class="logoImg" src="./img/logo.png" alt="logo">
       </div>
       <br>
       <!-- inicio sesion -->
@@ -21,15 +20,15 @@ export const contentInitialPage = () => {
           <p>Aqui va google</p>
       </div>
       <br>
-      <p id="textSignIn"><u><strong>¿No estas en Barkify aún? Regístrate</strong></u></p>`
+      <p id="textSignIn"><u><strong>¿No estas en Barkify aún? Regístrate</strong></u></p>`;
 };
-// PARTE DEL SIGNIN
+
 export const contentSignIn = () => {
   const containerSignIn = document.getElementById('containerSignIn');
   containerSignIn.innerHTML =
-      `<div id="signIn" >
+    `<div id="signIn" >
     <div id="titleSignIn">
-      <p class="titles">&#10094</p>
+      <p id="back" class="titles">&#10094</p>
       <p class="titles">Sign In</p>
       <p class="titles">&#10006;</p>
     </div>
@@ -57,26 +56,27 @@ export const contentSignIn = () => {
       <p>Para culminar tu registro, por favor verifica tu mail</p>
       <button class="btnContinue" id="btnHomeSignIn">Ir al home</button>
     </div>
-  </div>`
+  </div>`;
 
-  const nextPage = () =>{
+  const nextPage = () => {
     document.querySelector('#thirdQuestionSignIn').classList.add('hide');
     document.querySelector('#forthQuestionSignIn').classList.remove('hide');
   };
-  document.querySelector('#btnContinue3').addEventListener('click',nextPage);
+  document.querySelector('#btnContinue3').addEventListener('click', nextPage);
 
-  const finishRegistration = () =>{
+  const finishRegistration = () => {
     document.querySelector('#forthQuestionSignIn').classList.add('hide');
     document.querySelector('#doneSignIn').classList.remove('hide');
   };
-  document.querySelector('#btnContinue4').addEventListener('click',finishRegistration);
+  document.querySelector('#btnContinue4').addEventListener('click', finishRegistration);
 };
 
-//PARTE DEL HOME 
+
+// PARTE DEL HOME 
 export const contentHome = () => {
-  const mainScreen= document.getElementById('mainScreen');
+  const mainScreen = document.getElementById('mainScreen');
   initialPage.innerHTML =
-  `<header class="header">
+    `<header class="header">
     <div id="logoHeader">
       <img class="logoImg" src="img/logo.png" alt="logo">
     </div>
@@ -95,17 +95,15 @@ export const contentHome = () => {
     <div class="profile">
       <img class="iconsFooter" src="img/searchIconNormal.png" alt="profile">
     </div>
-  </footer>`
+  </footer>`;
 
-}; 
-
-
+};
 
 /* <div id="firstQuestionSignIn" class="hide questionSignIn">
       <p><strong>Ingrese su nombre y apellido</strong></p>
       <br>
       <button class="btnContinue" id="btnContinue">Siguiente</button>
-    </div> 
+    </div>
     <div id="secondQuestionSignIn" class="hide questionSignIn">
       <p><strong>¿Cuál es tu nombre de usuario?</strong></p>
       <br>
