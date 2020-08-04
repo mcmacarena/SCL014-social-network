@@ -12,7 +12,7 @@ body{
 }
 
 /* PÁGINA DE INICIO */
-.titles{
+.titles, .titleProfile{
     color: #393e46;
     font-size:18px;
 }
@@ -136,7 +136,49 @@ footer{
     width:100%;
 }
 
-/* #doneSignIn{
-    display:none;
-} */
+/* PROFILE */
+
+#myProfile{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+#profilePicInfo, #personalitySchedule{
+    display: flex;
+    flex-direction: row;
+    justify-self: space-around;
+}
+.imgProfilePic{   
+    width: 150px;
+    height: auto;
+}
+#myProfilePic{
+    width: 100%;
+}
+.nameInfo{
+    height: 100px;
+}
+#infoPersonality{
+    width: 118px;
+    height: 45px;
+}
+
+#infoSchedule{
+    width: 112px;
+    height: 45px;
+}
+#infoPlaces, #infoBio{
+    width: 266px;
+    height: auto;
+    
+}
+.styleContener{
+    background-color: #E6E3F4;;
+    border-radius: 10px;
+}
+.texts, .infoBasic{
+    font-size: 15px;
+    line-height: 18px;
+}
+
 
