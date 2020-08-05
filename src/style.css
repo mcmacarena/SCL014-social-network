@@ -70,7 +70,7 @@ body{
     margin-bottom: 50px;
     font-weight: bold;
 }
-#newUserPassword,#newUserEmail{
+.inputs{
     width: 230px;
     height: 25px;
     border: none;
@@ -142,6 +142,7 @@ footer{
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
+    padding-top: 100px;
 }
 #profilePicInfo, #personalitySchedule{
     display: flex;
@@ -172,7 +173,7 @@ footer{
     height: auto;
     
 }
-.styleContener{
+.styleContainerProfile{
     background-color: #E6E3F4;;
     border-radius: 10px;
 }

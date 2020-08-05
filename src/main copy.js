@@ -1,31 +1,27 @@
 // Este es el punto de entrada de tu aplicacion
-import { contentInitialPage, contentSignIn, contentHome } from './lib/index.js';
-import { registerNewUser, logInUser } from './lib/firebase.js'
+import { contentInitialPage, contentSignIn, contentHome } from './lib/index copy.js';
+import { registerNewUser, logInUser, mailAutentification } from './lib/firebase.js'
 
 const render = (hash) => {
   const screen = document.getElementById('screens');
   if(hash === ''){
-    contentInitialPage();
+    return screen.innerHTML=contentInitialPage();
   }
   if (hash === '#/SignIn') {
     screen.innerHTML='';
-    contentSignIn()
+    return screen.innerHTML=contentSignIn()
   }
   else if (hash === '#/createProfile') {
     screen.innerHTML='';
-    contentHome()
+    return screen.innerHTML=contentHome()
   } 
 }
-const changePage = () => {
-  render(window.location.hash);
-}
-window.addEventListener('hashchange', changePage);
-window.addEventListener('load', changePage)
+
+
 
 
 
   
-
   
 
 
