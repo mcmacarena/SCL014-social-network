@@ -51,6 +51,23 @@ export const watchMen = () => {
       var uid = user.uid;
       var providerData = user.providerData;
       // ...
+
+
+  //     const db = firebase.firestore()
+
+
+  //   db.collection("users").add({
+  //   first: "Ada",
+  //   last: "Lovelace",
+  //   born: 1815
+  // })
+  //   .then(function (docRef) {
+  //     console.log("Document written with ID: ", docRef.id);
+  //   })
+  //   .catch(function (error) {
+  //     console.error("Error adding document: ", error);
+  //   });
+
     } else {
       // User is signed out.
       // ...
@@ -62,13 +79,14 @@ export const watchMen = () => {
 export const googleSignIn = (provider) => {
   firebase.auth().signInWithPopup(provider)
     .then(function (result) {
-      window.location.hash= '#/Home';
+      window.location.hash = '#/Home';
       // This gives you a Google Access Token. You can use it to access the Google API.
       var token = result.credential.accessToken;
       // The signed-in user info.
       var user = result.user;
       // ...
     }).catch(function (error) {
+      console.log('error en loguearse con google')
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
@@ -80,3 +98,24 @@ export const googleSignIn = (provider) => {
     });
 };
 
+
+
+
+// db.collection("users").add({
+//   first: "Alan",
+//   middle: "Mathison",
+//   last: "Turing",
+//   born: 1912
+// })
+//   .then(function (docRef) {
+//     console.log("Document written with ID: ", docRef.id);
+//   })
+//   .catch(function (error) {
+//     console.error("Error adding document: ", error);
+//   });
+
+// db.collection("users").get().then((querySnapshot) => {
+//   querySnapshot.forEach((doc) => {
+//     console.log(`${doc.id} => ${doc.data()}`);
+//   });
+// });

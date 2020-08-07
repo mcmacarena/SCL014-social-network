@@ -124,3 +124,7 @@ export const createProfileNext15 = () => {
   document.querySelector('#schedulePreferencesDogQuestion').classList.add('hide');
   document.querySelector('#finishPreferencesDogQuestion').classList.remove('hide');
 }
+
+export const createProfileNext = [createProfileNext1, createProfileNext2, createProfileNext3,createProfileNext4,createProfileNext5,
+  createProfileNext6,createProfileNext7,createProfileNext8,createProfileNext9,createProfileNext10,createProfileNext11,
+  createProfileNext12,createProfileNext13,createProfileNext14, createProfileNext15]
