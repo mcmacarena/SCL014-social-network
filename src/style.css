@@ -33,12 +33,12 @@ body{
 }
 
 /* SIGN IN */
-#containerSignIn {
+#containerSignIn, #containerCreateProfile {
     margin-top: 80px;
     display: flex;
     justify-content: center;
 }
-#signIn { 
+#signIn, #createProfile { 
     display: flex;
     flex-flow: column;
     width: 261px;
@@ -49,20 +49,20 @@ body{
     border-radius: 20px;
     padding:10px;
 }
-.questionSignIn{
+.questionSignIn, .questionCreateProfile{
     display: flex;
     flex-flow: column;
     align-items: center;
     text-align: center ;
     padding: 10px;
 }
-#logoSignIn{
+#logoSignIn, #logoCreateProfile{
     display: flex;
     width: 100px; 
     align-self: center;
     margin-bottom: 5px;    
 }
-#titleSignIn{
+#titleSignIn, #titleCreateProfile{
     display:flex;
     flex-direction: row;
     justify-content: space-around;
@@ -223,4 +223,10 @@ footer{
       background:#1669F2;
     } */
   
+.paw{
+ width: 10px;
+}
 
+#iconPawLikes{
+    width:100%;
+}
