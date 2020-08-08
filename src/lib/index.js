@@ -1,4 +1,4 @@
-import { registerNewUser, logInUser, googleSignIn } from './firebase.js'
+import { registerNewUser, logInUser, googleSignIn, watchMen, uploadInfo } from './firebase.js'
 
 // INITIAL PAGE
 // Funcionalidad Log in
@@ -125,6 +125,20 @@ export const createProfileNext15 = () => {
   document.querySelector('#finishPreferencesDogQuestion').classList.remove('hide');
 }
 
-export const createProfileNext = [createProfileNext1, createProfileNext2, createProfileNext3,createProfileNext4,createProfileNext5,
-  createProfileNext6,createProfileNext7,createProfileNext8,createProfileNext9,createProfileNext10,createProfileNext11,
-  createProfileNext12,createProfileNext13,createProfileNext14, createProfileNext15]
+export const createProfileNext = [createProfileNext1, createProfileNext2, createProfileNext3, createProfileNext4, createProfileNext5,
+  createProfileNext6, createProfileNext7, createProfileNext8, createProfileNext9, createProfileNext10, createProfileNext11,
+  createProfileNext12, createProfileNext13, createProfileNext14, createProfileNext15]
+
+export const infoProfile = () => {
+  const nameDog = document.querySelector('#nameDog').value;
+  const sexDog = document.querySelector('#sexDog').value;
+  const ageDog = document.querySelector('#ageDog').value;
+  const locationDog = document.querySelector('#locationDog').value;
+  const placeDog1 = document.querySelector('#placeDog1').value;
+  const placeDog2 = document.querySelector('#placeDog2').value;
+  const placeDog3 = document.querySelector('#placeDog3').value;
+  const sizeDog = document.querySelector('#sizeDog').value;
+  const biographyDog = document.querySelector('#biographyDog').value;
+  const sexPreferenceDog = document.querySelector('#sexPreferenceDog').value;
+  uploadInfo(nameDog, sexDog, ageDog, locationDog, placeDog1, placeDog2, placeDog3, sizeDog, biographyDog, sexPreferenceDog);
+}
