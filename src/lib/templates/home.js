@@ -8,7 +8,7 @@ export const contentHome = () => {
       </header>
       <main id="mainContentInitialPage">
         <p>Aún no has creado un perfil para tu mascota</p>
-        <a type="button" href="#/createProfile" class="btnContinue" id="btnCreateProfile">Crear Perfil</button>
+        <a type="button" href="#/createProfile" class="btnContinue" id="btnCreateProfile">Crear Perfil</a>
       </main>
       <footer>
         <div class="paw">
@@ -18,7 +18,7 @@ export const contentHome = () => {
           <img class="iconsFooter" src="img/homeIconNormal.png" alt="home">
         </div>
         <div class="profile">
-          <img class="iconsFooter" src="img/searchIconNormal.png" alt="profile">
+          <a href="#/myProfile" id="myProfileIcon"><img class="iconsFooter" src="img/searchIconNormal.png" alt="profile"></a>
         </div>
       </footer>
     </div>`;

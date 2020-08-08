@@ -130,15 +130,15 @@ export const createProfileNext = [createProfileNext1, createProfileNext2, create
   createProfileNext12, createProfileNext13, createProfileNext14, createProfileNext15]
 
 export const infoProfile = () => {
-  const nameDog = document.querySelector('#nameDog').value;
-  const sexDog = document.querySelector('#sexDog').value;
-  const ageDog = document.querySelector('#ageDog').value;
-  const locationDog = document.querySelector('#locationDog').value;
-  const placeDog1 = document.querySelector('#placeDog1').value;
-  const placeDog2 = document.querySelector('#placeDog2').value;
-  const placeDog3 = document.querySelector('#placeDog3').value;
-  const sizeDog = document.querySelector('#sizeDog').value;
-  const biographyDog = document.querySelector('#biographyDog').value;
-  const sexPreferenceDog = document.querySelector('#sexPreferenceDog').value;
-  uploadInfo(nameDog, sexDog, ageDog, locationDog, placeDog1, placeDog2, placeDog3, sizeDog, biographyDog, sexPreferenceDog);
+  const nameDogLocal = document.querySelector('#nameDog').value;
+  const sexDogLocal = document.querySelector('#sexDog').value;
+  const ageDogLocal = document.querySelector('#ageDog').value;
+  const locationDogLocal = document.querySelector('#locationDog').value;
+  const placeDog1Local = document.querySelector('#placeDog1').value;
+  const placeDog2Local = document.querySelector('#placeDog2').value;
+  const placeDog3Local = document.querySelector('#placeDog3').value;
+  const sizeDogLocal = document.querySelector('#sizeDog').value;
+  const biographyDogLocal = document.querySelector('#biographyDog').value;
+  const sexPreferenceDogLocal = document.querySelector('#sexPreferenceDog').value;
+  uploadInfo(nameDogLocal, sexDogLocal, ageDogLocal, locationDogLocal, placeDog1Local, placeDog2Local, placeDog3Local, sizeDogLocal, biographyDogLocal, sexPreferenceDogLocal);
 }

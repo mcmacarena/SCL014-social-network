@@ -6,6 +6,7 @@ import { contentMyProfile } from './lib/templates/myProfile.js';
 import { contentlikedDog } from './lib/templates/likedDog.js';
 import { contentCreateProfile } from './lib/templates/createProfile.js'
 import { logIn, signInGoogle, nextPage, finishRegistration, signIn, createProfileNext, infoProfile } from './lib/index.js';
+import { watchMen, accessData } from './lib/firebase.js';
 
 const render = (hash) => {
   const screen = document.getElementById('screens');
@@ -25,7 +26,7 @@ const render = (hash) => {
   }
   if (hash === '#/myProfile') {
     screen.innerHTML = contentMyProfile();
-
+    accessData()
   }
   if (hash === '#/LikedDogs') {
     screen.innerHTML = contentlikedDog();

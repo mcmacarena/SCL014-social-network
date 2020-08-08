@@ -17,10 +17,10 @@ export const contentMyProfile = () => {
           <img id="myProfilePic" src="img/osa.jfif">
         </div>
         <div class="nameInfo">
-          <p class="titles">Osita</p>
-          <p class="infoBasic">8 años</p>
-          <p class="infoBasic">Hembra</p>
-          <p class="infoBasic">Grande</p>
+          <p id="nameDogCloud" class="titles"></p>
+          <p id="ageDogCloud" class="infoBasic"></p>
+          <p id="sexDogCloud" class="infoBasic"></p>
+          <p id="sizeDogCloud" class="infoBasic"></p>
         </div>
       </div>
       <div id="personalitySchedule">
@@ -34,7 +34,7 @@ export const contentMyProfile = () => {
         <div>
           <p class="titleProfile">Horarios de paseo</p>
           <div id="infoSchedule" class="styleContainerProfile">
-            <p class="texts">Mañana</p>
+            <p class="texts">mañana</p>
             <p class="texts">Tarde</p>
           </div>
         </div>
@@ -42,14 +42,13 @@ export const contentMyProfile = () => {
       <div>
         <p class="titleProfile">Plaza o lugares frecuentes</p>
           <div id="infoPlaces" class="styleContainerProfile">
-            <p class="texts">Parque Inés de Suarez</p>
+            <p id "places" class="texts"></p>
           </div>
       </div>
       <div>
         <p class="titleProfile">Biografía</p>
         <div id="infoBio" class="styleContainerProfile"> 
-          <p class="texts">Soy un poco floja, pero bien sociable.
-              me gusta que me acaricien y la comidita.
+          <p id="biographyDogCloud" class="texts"> 
           </p>
         </div>
       </div>
