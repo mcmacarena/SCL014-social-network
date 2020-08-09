@@ -12,7 +12,7 @@ body{
 }
 
 /* PÁGINA DE INICIO */
-.titles, .titleProfile{
+.titles, .titleProfile, .titleProfilePerso, .titleProfileSchedule, .titleProfilePlaces, .titleProfileBio{
     color: #393e46;
     font-size:18px;
 }
@@ -37,6 +37,7 @@ body{
     margin-top: 80px;
     display: flex;
     justify-content: center;
+    text-align: center;
 }
 #signIn, #createProfile { 
     display: flex;
@@ -79,7 +80,7 @@ body{
     margin: 5px;
 }
 
-#btnLogin, .btnContinue{
+#btnLogin, .btnContinue, .btnCreateProfile{
     width: 236px;
     height: 25px;
     border: none;
@@ -87,7 +88,14 @@ body{
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 12px;
     color: white;  
+    text-align: center;
+    padding: 1px;
 }
+.btnCreateProfile, #btnCreateProfile16{
+    text-decoration: none;
+    padding: 5px 100px;
+}
+
 .btnContinue, .hideButton{
    margin-top: 100px;
 }
@@ -149,47 +157,79 @@ footer{
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    padding-top: 100px;
+    padding-top: 60px;
 }
-#profilePicInfo, #personalitySchedule{
+#profilePicInfo, #personalitySchedule, #containerPawLikes{
     display: flex;
     flex-direction: row;
     justify-self: space-around;
+    margin-top: -10px;
 }
-.imgProfilePic{   
-    width: 150px;
-    height: auto;
+.imgProfilePic{  
+    width: 140px;
+    object-fit: cover;
 }
 #myProfilePic{
     width: 100%;
 }
+.nametitles{
+    font-size: 22px;
+    line-height: 26px;
+    color: #1E3250;
+}
 .nameInfo{
+    margin: 0px  40px;
+    width: auto;
     height: 100px;
+    color: #1E3250;
+    text-align: center;
+}
+.titleProfilePerso{
+    width: 65px;
+    height: 13px;
+    margin-top: 20px;
+    margin-bottom: 5px;
 }
 #infoPersonality{
-    width: 118px;
-    height: 45px;
+    width: 100px;
+    height: auto;
+    margin-top: 10px;
+    margin-right:20px;
 }
-
+.titleProfileSchedule{
+    margin-top:18px;
+    margin-bottom: 5px;
+}
 #infoSchedule{
-    width: 112px;
-    height: 45px;
+    width: 120px;
+    height: auto;
+}
+.titleProfilePlaces, .titleProfileBio{
+    margin-top: 15px;
+    margin-bottom: 5px;
 }
 #infoPlaces, #infoBio{
     width: 266px;
-    height: auto;
-    
+    height: auto; 
 }
 .styleContainerProfile{
     background-color: #E6E3F4;;
     border-radius: 10px;
+    padding: 5px 10px;
 }
 .texts, .infoBasic{
     font-size: 15px;
     line-height: 18px;
 }
+#contenidoDeLikes{
+  margin-top: 30px;
+  margin-left: 10px;
+}
+#iconPawMyprofile{
+    margin-left: -140px;
+    margin-top: 20px;
+}
 /* google btn */
-
 .google-btn {
     width: 184px;
     height: 42px;
@@ -229,18 +269,43 @@ footer{
     /* .google-btn:active {
       background:#1669F2;
     } */
-  
+
+
 .paw{
- width: 10px;
+  width: 40px;
 }
 
 #iconPawLikes{
     width:100%;
 }
+/* claramente un error mensaje */
 .erromensaje{
     font-size: 13px;
     color:red;
     font-weight: bold;
     margin-left: 20px;
-
 }   
+/* input del perro foto */
+#photoDog{
+    display: none;
+}
+/* nuevo input personalizado */
+.avatar{
+    display: inline-block;
+    color: black;
+    width: 150px;
+    padding: 5px 20px;
+    border-radius: 13px;
+    background-color: #dddddd;
+    cursor: pointer;
+}
+/* botones del formualrio con estilo propio */
+#btnCreateProfile6, #btnCreateProfile8, #btnCreateProfile14{
+    margin-top: 20px;
+}
+/* perfil */
+.titleMyProfile{
+   margin-top: 10px;
+    color: #647482;
+    font-size: 22px;
+}
