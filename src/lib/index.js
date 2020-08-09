@@ -1,4 +1,4 @@
-import { registerNewUser, logInUser, googleSignIn, watchMen, uploadInfo } from './firebase.js'
+import { registerNewUser, logInUser, googleSignIn, watchMen, uploadInfo , uploadProfilePhoto } from './firebase.js'
 
 // INITIAL PAGE
 // Funcionalidad Log in
@@ -41,7 +41,6 @@ export const disabledButton = () => {
     document.querySelector('#btnCreateProfile' + i + '').disabled = true;
   }
   document.querySelector('#btnCreateProfile11').disabled = false;
-  document.querySelector('#btnCreateProfile3').disabled = false;
 }
 
 // first question 
@@ -78,13 +77,15 @@ export const createProfileNext1 = () => {
 export const createProfileNext2 = () => {
   document.querySelector('#sexDogQuestion').classList.add('hide');
   document.querySelector('#photoDogQuestion').classList.remove('hide');
-  // if (document.querySelector('#photoDog').value !== null) {
-  //   document.querySelector('#btnCreateProfile3').disabled = false;
-  //   document.querySelector('#btnCreateProfile3').classList.remove('hideButton');
-  //   document.querySelector('#btnCreateProfile3').classList.add('btnContinue');
-  // }else{
-  //   document.querySelector('#btnCreateProfile2').disabled = true;
-  // }
+  if (document.querySelector('#uploader').value !== null) {
+    document.querySelector('#btnCreateProfile3').disabled = false;
+    document.querySelector('#btnCreateProfile3').classList.remove('hideButton');
+    document.querySelector('#btnCreateProfile3').classList.add('btnContinue');
+  }else{
+    document.querySelector('#btnCreateProfile3').disabled = true;
+    document.querySelector('#btnCreateProfile3').classList.add('hideButton');
+    document.querySelector('#btnCreateProfile3').classList.remove('btnContinue');
+  }
 }
 
 // question 3 to question 4
@@ -397,5 +398,14 @@ export const infoProfile = () => {
     personalitysDogPreferenceLocalValues[3], personalitysDogPreferenceLocalValues[4], personalitysDogPreferenceLocalValues[5],
     personalitysDogPreferenceLocalValues[6], scheduleDogPreferenceLocalValues[0], scheduleDogPreferenceLocalValues[1], scheduleDogPreferenceLocalValues[2])
 }
+
+// SUBIR FOTO
+export const photoProfile = () => {
+  document.querySelector('#photoDog').addEventListener('change', (e) => {
+    const photoDogLocal = e.target.files[0]
+    uploadProfilePhoto(photoDogLocal);
+  })
+}
+
 
 

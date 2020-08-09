@@ -169,7 +169,23 @@ export const uploadInfo = (nameDog, sexDog, ageDog, locationDog, placeDog1, plac
     });
 };
 
-// ola maca ola solcito
+// subir fotos
+export const uploadProfilePhoto = (photoDog) => {
+  const storageRef = firebase.storage().ref('photo-dog/' + photoDog.name);
+  const task = storageRef.put(photoDog);
+  task.on('state_changed',
+    function progress(snapshot) {
+      const percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      document.querySelector('#uploader').value = percentage;
+    },
+    function error(err) {
+
+    },
+    function complete() {
+
+    });
+}
+
 
 export const accessData = () => {
   db.collection('doggys').get().then((querySnapshot) => {
