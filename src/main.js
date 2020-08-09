@@ -5,7 +5,7 @@ import { contentHome } from './lib/templates/home.js';
 import { contentMyProfile } from './lib/templates/myProfile.js';
 import { contentlikedDog } from './lib/templates/likedDog.js';
 import { contentCreateProfile } from './lib/templates/createProfile.js'
-import { logIn, signInGoogle, nextPage, finishRegistration, signIn, createProfileNext, infoProfile } from './lib/index.js';
+import { logIn, signInGoogle, nextPage, finishRegistration, signIn, createProfileNext, infoProfile , disabledButton, createProfileBegin} from './lib/index.js';
 import { watchMen, accessData } from './lib/firebase.js';
 
 const render = (hash) => {
@@ -26,6 +26,7 @@ const render = (hash) => {
   }
   if (hash === '#/myProfile') {
     screen.innerHTML = contentMyProfile();
+
     accessData()
   }
   if (hash === '#/LikedDogs') {
@@ -33,10 +34,12 @@ const render = (hash) => {
   }
   if (hash === '#/createProfile') {
     screen.innerHTML = contentCreateProfile();
+    disabledButton();
     for (let i = 1; i < 16; i++) {
       document.querySelector('#btnCreateProfile' + i + '').addEventListener('click', createProfileNext[i - 1]);
     }
     document.querySelector('#btnCreateProfile16').addEventListener('click', infoProfile)
+    document.querySelector('#nameDog').addEventListener('keyup', createProfileBegin)
   }
 }
 
