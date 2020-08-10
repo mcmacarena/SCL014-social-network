@@ -14,7 +14,7 @@ export const contentMyProfile = () => {
       </div>
       <div id="profilePicInfo">
         <div class="imgProfilePic">
-          <img id="myProfilePic" src="img/osa.jfif">
+          <img id="myProfilePic" >
         </div>
         <div class="nameInfo">
           <p id="nameDogCloud" class="nametitles"></p>

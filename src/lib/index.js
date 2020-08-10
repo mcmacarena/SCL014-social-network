@@ -1,4 +1,4 @@
-import { registerNewUser, logInUser, googleSignIn, watchMen, uploadInfo , uploadProfilePhoto } from './firebase.js'
+import { registerNewUser, logInUser, googleSignIn, watchMen, uploadInfo, uploadProfilePhoto, downloadProfilePhoto } from './firebase.js'
 
 // INITIAL PAGE
 // Funcionalidad Log in
@@ -7,6 +7,7 @@ export const logIn = () => {
   const email = document.querySelector('#userEmail').value;
   const password = document.querySelector('#userPassword').value;
   buttonLogin.addEventListener('click', logInUser(email, password));
+
 }
 // Funcionalidad Register/LogIn con Google
 export const signInGoogle = () => {
@@ -32,6 +33,7 @@ export const signIn = () => {
   const email = document.querySelector('#newUserEmail').value;
   const password = document.querySelector('#newUserPassword').value;
   document.querySelector('#btnDoneSignIn').addEventListener('mouseup', registerNewUser(email, password));
+
 }
 
 // CREATE PROFILE
@@ -81,7 +83,7 @@ export const createProfileNext2 = () => {
     document.querySelector('#btnCreateProfile3').disabled = false;
     document.querySelector('#btnCreateProfile3').classList.remove('hideButton');
     document.querySelector('#btnCreateProfile3').classList.add('btnContinue');
-  }else{
+  } else {
     document.querySelector('#btnCreateProfile3').disabled = true;
     document.querySelector('#btnCreateProfile3').classList.add('hideButton');
     document.querySelector('#btnCreateProfile3').classList.remove('btnContinue');
@@ -400,12 +402,17 @@ export const infoProfile = () => {
 }
 
 // SUBIR FOTO
-export const photoProfile = () => {
+export const photoProfileUpload = () => {
   document.querySelector('#photoDog').addEventListener('change', (e) => {
     const photoDogLocal = e.target.files[0]
     uploadProfilePhoto(photoDogLocal);
   })
-}
+};
+
+export const photoProfileDownload = () => {
+  downloadProfilePhoto();
+};
+
 
 
 
