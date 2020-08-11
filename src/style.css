@@ -71,13 +71,17 @@ body{
     margin-bottom: 50px;
     font-weight: bold;
 }
-.inputs{
+.inputs, .inputSelect{
     width: 230px;
     height: 25px;
     border: none;
     background: #E6E3F4;
     padding:5px;
     margin: 5px;
+}
+.inputSelect{
+    height: 30px;
+    font-size:14px;
 }
 
 #btnLogin, .btnContinue, .btnCreateProfile{
@@ -120,6 +124,7 @@ body{
 }
 header{
     position: fixed;
+    
     width: 100%;
     height: auto;
     background: #D3BBF2;
@@ -154,6 +159,7 @@ footer{
 /* PROFILE */
 
 #myProfile{
+    overflow: scroll;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -178,7 +184,7 @@ footer{
     color: #1E3250;
 }
 .nameInfo{
-    margin: 0px  40px;
+    margin: 20px  40px 0px 40px;
     width: auto;
     height: 100px;
     color: #1E3250;
@@ -191,10 +197,10 @@ footer{
     margin-bottom: 5px;
 }
 #infoPersonality{
-    width: 100px;
-    height: auto;
-    margin-top: 10px;
-    margin-right:20px;
+    width: 80px;
+    height: 75px;
+    margin-top: 15px;
+    margin-right:40px;
 }
 .titleProfileSchedule{
     margin-top:18px;
@@ -202,7 +208,7 @@ footer{
 }
 #infoSchedule{
     width: 120px;
-    height: auto;
+    height: 75px;
 }
 .titleProfilePlaces, .titleProfileBio{
     margin-top: 15px;
@@ -210,16 +216,22 @@ footer{
 }
 #infoPlaces, #infoBio{
     width: 266px;
-    height: auto; 
+    height: 60px; 
+}
+#infoBio{
+    height: auto;
 }
 .styleContainerProfile{
     background-color: #E6E3F4;;
     border-radius: 10px;
     padding: 5px 10px;
 }
-.texts, .infoBasic{
+.texts, .infoBasic, .textsShedule{
     font-size: 15px;
     line-height: 18px;
+}
+.textsShedule{
+    font-size: 13px;
 }
 #contenidoDeLikes{
   margin-top: 30px;
@@ -271,13 +283,7 @@ footer{
     } */
 
 
-.paw{
-  width: 40px;
-}
 
-#iconPawLikes{
-    width:100%;
-}
 /* claramente un error mensaje */
 .erromensaje{
     font-size: 13px;
@@ -308,4 +314,80 @@ footer{
    margin-top: 10px;
     color: #647482;
     font-size: 22px;
+}
+
+/* Liked Dogs */
+#likesProfiles{
+    display: flex;
+    flex-flow: row wrap;
+
+}
+#imgProfileDog, #imgProfileDogFeed, #iconPawLikesFeed{
+    width: 100%;
+}
+#containerImgProfileDog{
+    width:150px;
+    height:140px;
+}
+/* creo que seria bueno cambiar el nombre de este */
+#containerDoggys{
+    width: 150px;
+    height: 218px;
+    margin-left: 20px;
+    padding:10px 0px 30px 0px;
+    background: #FFFFFF;
+    border: 0.5px solid rgba(100, 116, 130, 0.5);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    margin-bottom: 10px;
+    margin-top:20px;
+}
+#nameDogLikedDogs, #location, #nameDogFeed, #locationFeed{
+    font-weight: bold;
+    font-size: 16px;
+    padding: 4px;
+    color: #1E3250;
+    text-align: center;
+}
+#location{
+    font-weight: normal;
+    font-size: 12px;
+    margin-top:10px;
+}
+.pawLikedPaw{
+    margin-left: 10px;
+    width: 20px;
+}
+#iconPawLikes{
+    margin-top: 10px;
+    width:100%;
+}
+#contentLikes{
+    margin-left:35px;
+    margin-top:-22px; 
+}
+/* Home dos kieeeperokie */
+#profilesDogsHome{
+    width: 291px;
+    /* margin-top: 40px; */
+    height: 459px;
+    background: #FFFFFF;
+    border: 0.5px solid rgba(100, 116, 130, 0.5);
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px; 
+}
+#nameDogFeed{
+    font-size: 25px;
+}
+#locationFeed{
+    font-size: 19px;
+    font-weight: normal;
+}
+.pawLikedPawFeed{
+    width: 30px;
+    margin: 40px 0px 20px 20px;
+}
+#contentLikesFeed{
+    font-size: 16px;
+    margin: -50px 0px 0px 60px;
 }

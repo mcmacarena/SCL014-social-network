@@ -39,9 +39,9 @@ export const contentMyProfile = () => {
         <div>
           <p class="titleProfileSchedule">Horarios de paseo</p>
           <div id="infoSchedule" class="styleContainerProfile">
-            <p id='scheduleDogCloud1' class='texts'><p>
-            <p id='scheduleDogCloud2' class='texts'><p>
-            <p id='scheduleDogCloud3' class='texts'><p>
+            <p id='scheduleDogCloud1' class='textsShedule'><p>
+            <p id='scheduleDogCloud2' class='textsShedule'><p>
+            <p id='scheduleDogCloud3' class='textsShedule'><p>
           </div>
         </div>
       </div>
@@ -62,7 +62,7 @@ export const contentMyProfile = () => {
       </div>
       <div id="containerPawLikes">
         <div class="paw" id="iconPawMyprofile">
-          <img class="iconsFooter" src="img/heartIconNormal.png" alt="paw">
+          <img class="iconsFooter" src="./img/iconPawLiked.png" alt="paw">
         </div>
         <p id="contenidoDeLikes" class="texts">HOLAMUNDO</p>
       </div>
@@ -70,13 +70,13 @@ export const contentMyProfile = () => {
 
     <footer>
       <div class="paw">
-        <img class="iconsFooter" src="img/heartIconNormal.png" alt="paw">
+        <img class="iconsFooter" src="./img/iconPaw.png" alt="paw">
       </div>
       <div class="home">
-        <img class="iconsFooter" src="img/homeIconNormal.png" alt="home">
+        <img class="iconsFooter" src="./img/homeIconNormal.png" alt="home">
       </div>
       <div class="profile">
-       <img class="iconsFooter" src="img/searchIconNormal.png" alt="profile">
+       <img class="iconsFooter"  src="./img/iconProfileLiked.png" alt="profile">
       </div>
    </footer>`;
 return myProfile
