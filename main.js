@@ -8,7 +8,7 @@ import { contentHomeTwo} from './lib/templates/home2.js';
 import { contentCreateProfile } from './lib/templates/createProfile.js';
 import { logIn, signInGoogle, nextPage, finishRegistration, signIn, createProfileNext, infoProfile , disabledButton, createProfileBegin, 
   photoProfileUpload,photoProfileDownload} from './lib/index.js';
-import { watchMen, accessData } from './lib/firebase.js';
+import { watchMen, accessData, showDogHome} from './lib/firebase.js';
 
 const render = (hash) => {
   const screen = document.getElementById('screens');
@@ -28,11 +28,12 @@ const render = (hash) => {
   }
   if (hash === '#/myProfile') {
     screen.innerHTML = contentMyProfile();
-    accessData()
+    accessData();
     photoProfileDownload();
   }
   if( hash === '#/HomeTwoPorelmomento'){
     screen.innerHTML = contentHomeTwo();
+    showDogHome();
   }
   if (hash === '#/LikedDogs') {
     screen.innerHTML = contentlikedDog();
