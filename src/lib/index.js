@@ -206,7 +206,7 @@ export const createProfileNext8 = () => {
 export const createProfileNext9 = () => {
   document.querySelector('#scheduleDogQuestion').classList.add('hide');
   document.querySelector('#biographyDogQuestion').classList.remove('hide');
-  document.querySelector('#biographyDog').addEventListener('change', () => {
+  document.querySelector('#biographyDog').addEventListener('keyup', () => {
     if (document.querySelector('#biographyDog').value !== '') {
       document.querySelector('#btnCreateProfile10').disabled = false;
       document.querySelector('#btnCreateProfile10').classList.remove('hideButton');
@@ -412,7 +412,4 @@ export const photoProfileUpload = () => {
 export const photoProfileDownload = () => {
   downloadProfilePhoto();
 };
-
-
-
 

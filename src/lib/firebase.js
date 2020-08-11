@@ -1,3 +1,4 @@
+// registrar nuevo usuario
 export const registerNewUser = (email, password) => {
   firebase.auth().createUserWithEmailAndPassword(email, password)
     .then(
@@ -24,7 +25,7 @@ export const registerNewUser = (email, password) => {
     });
 };
 
-
+// log in 
 export const logInUser = (email, password) => {
   firebase.auth().signInWithEmailAndPassword(email, password)
     .then((data) => {
@@ -69,7 +70,6 @@ export const logInUser = (email, password) => {
     });
 };
 
-
 export const watchMen = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
@@ -88,6 +88,7 @@ export const watchMen = () => {
   });
 };
 
+//google log in
 export const googleSignIn = (provider) => {
   firebase.auth().signInWithPopup(provider)
     .then((googleUser) => {
@@ -106,7 +107,7 @@ export const googleSignIn = (provider) => {
       let errorGoogle = error.message;
       if (errorGoogle === 'This operation has been cancelled due to another conflicting popup being opened.') {
         errorGoogle = 'Esta operación se canceló debido a que se abrió otra ventana emergente en conflicto.';
-      } 
+      }
       if (errorGoogle === 'The popup has been closed by the user before finalizing the operation.') {
         errorGoogle = 'La ventana emergente ha sido cerrada por el usuario antes de finalizar la operación.';
       }
@@ -121,6 +122,7 @@ export const googleSignIn = (provider) => {
 
 const db = firebase.firestore();
 
+// subir información luego de la creación del perfil del perro
 export const uploadInfo = (nameDog, sexDog, ageDog, locationDog, placeDog1, placeDog2, placeDog3, sizeDog, biographyDog, personalityDog1, personalityDog2,
   personalityDog3, personalityDog4, personalityDog5, personalityDog6, personalityDog7, scheduleDog1, scheduleDog2, scheduleDog3, sexDogPreference1,
   sexDogPreference2, sizeDogPreference1, sizeDogPreference2, sizeDogPreference3, personalityDogPreference1, personalityDogPreference2, personalityDogPreference3,
@@ -204,6 +206,7 @@ export const uploadProfilePhoto = (photoDog) => {
     });
 }
 
+// bajar fotos
 export const downloadProfilePhoto = () => {
   const storageRef = firebase.storage().ref('photo-dog/' + JSON.parse(sessionStorage.userBarkify).uid);
   storageRef.getDownloadURL()
@@ -235,7 +238,8 @@ export const downloadProfilePhoto = () => {
     });
 }
 
-export const accessData = ( ) => {
+// bajar data y mostrar en perfil
+export const accessData = () => {
   db.collection('doggys').get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
       if (doc.data().uid === JSON.parse(sessionStorage.userBarkify).uid) {
@@ -261,3 +265,35 @@ export const accessData = ( ) => {
     });
   });
 };
+
+export const showDogHome = () => {
+  const db = firebase.firestore();
+  db.collection('doggys').get().then((querySnapshot) => {
+    const homeTwo = document.querySelector('#contentHometwo');
+    let sumShowDog = "";
+    querySnapshot.forEach((doc) => {
+      firebase.storage().ref('photo-dog/'+doc.data().uid).getDownloadURL()
+      .then(function(url){ 
+        let oli=url
+        sumShowDog +=
+        `<div id="profilesDogsHome">
+        <h1 id="nameDogFeed">${doc.data().nameDog}</h1>
+          <div id="containerImgProfileDogFeed">
+            <img id="imgProfileDogFeed" src="${oli}">
+          </div> 
+          <p id="locationFeed">${doc.data().locationDog}</p>
+          <div id="containerLikesDogFeed">
+            <div class="pawLikedPawFeed">
+              <img id="iconPawLikesFeed" src="./img/iconPawLiked.png" id="iconPawProfiles" alt="paw">
+            </div>
+            <p id="contentLikesFeed" class="texts">HolaMundillo</p>
+          </div>
+        </div>`
+    homeTwo.innerHTML = sumShowDog;
+      })   
+    });
+  });
+};
+
+
+
