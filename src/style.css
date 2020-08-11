@@ -323,7 +323,7 @@ footer{
     padding-top: 60px;
 
 }
-#imgProfileDog, #imgProfileDogFeed, #iconPawLikesFeed{
+#imgProfileDog, #imgProfileDogFeed, .iconPawLikesFeed{
     width: 100%;
 }
 #containerImgProfileDog{
