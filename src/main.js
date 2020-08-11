@@ -4,7 +4,8 @@ import { contentSignIn } from './lib/templates/signIn.js';
 import { contentHome } from './lib/templates/home.js';
 import { contentMyProfile } from './lib/templates/myProfile.js';
 import { contentlikedDog } from './lib/templates/likedDog.js';
-import { contentCreateProfile } from './lib/templates/createProfile.js'
+import { contentHomeTwo} from './lib/templates/home2.js';
+import { contentCreateProfile } from './lib/templates/createProfile.js';
 import { logIn, signInGoogle, nextPage, finishRegistration, signIn, createProfileNext, infoProfile , disabledButton, createProfileBegin, 
   photoProfileUpload,photoProfileDownload} from './lib/index.js';
 import { watchMen, accessData } from './lib/firebase.js';
@@ -29,6 +30,9 @@ const render = (hash) => {
     screen.innerHTML = contentMyProfile();
     accessData()
     photoProfileDownload();
+  }
+  if( hash === '#/HomeTwoPorelmomento'){
+    screen.innerHTML = contentHomeTwo();
   }
   if (hash === '#/LikedDogs') {
     screen.innerHTML = contentlikedDog();
