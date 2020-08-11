@@ -413,3 +413,18 @@ export const photoProfileDownload = () => {
   downloadProfilePhoto();
 };
 
+
+export const likepeyito = (e) => {
+  const db = firebase.firestore();
+  db.collection('doggys').get().then((querySnapshot) => {
+    const homeTwo = document.querySelector('#contentLikesFeed');
+    querySnapshot.forEach((doc) => {
+      if(e.target.id == doc.data().uid){
+        console.log('ayua')
+      
+      }
+
+    })
+  })
+};
+

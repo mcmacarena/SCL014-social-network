@@ -130,6 +130,7 @@ export const uploadInfo = (nameDog, sexDog, ageDog, locationDog, placeDog1, plac
   scheduleDogPreference3) => {
   db.collection("doggys").add({
     uid: JSON.parse(sessionStorage.userBarkify).uid,
+    like: 0 ,
     nameDog: nameDog,
     sexDog: sexDog,
     ageDog: ageDog,
@@ -284,9 +285,9 @@ export const showDogHome = () => {
           <p id="locationFeed">${doc.data().locationDog}</p>
           <div id="containerLikesDogFeed">
             <div class="pawLikedPawFeed">
-              <img id="iconPawLikesFeed" src="./img/iconPawLiked.png" id="iconPawProfiles" alt="paw">
+              <img id="${doc.data().uid}" class="iconPawLikesFeed" src="./img/iconPawLiked.png"  alt="paw">
             </div>
-            <p id="contentLikesFeed" class="texts">HolaMundillo</p>
+            <p id="contentLikesFeed" class="texts">${doc.data().like}</p>
           </div>
         </div>`
     homeTwo.innerHTML = sumShowDog;
@@ -294,6 +295,3 @@ export const showDogHome = () => {
     });
   });
 };
-
-
-
