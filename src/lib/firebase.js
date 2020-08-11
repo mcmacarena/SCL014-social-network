@@ -128,7 +128,7 @@ export const uploadInfo = (nameDog, sexDog, ageDog, locationDog, placeDog1, plac
   sexDogPreference2, sizeDogPreference1, sizeDogPreference2, sizeDogPreference3, personalityDogPreference1, personalityDogPreference2, personalityDogPreference3,
   personalityDogPreference4, personalityDogPreference5, personalityDogPreference6, personalityDogPreference7, scheduleDogPreference1, scheduleDogPreference2,
   scheduleDogPreference3) => {
-  db.collection("doggys").add({
+  db.collection("doggys").doc("oli").set({
     uid: JSON.parse(sessionStorage.userBarkify).uid,
     like: 0 ,
     nameDog: nameDog,
@@ -180,10 +180,8 @@ export const uploadInfo = (nameDog, sexDog, ageDog, locationDog, placeDog1, plac
       scheduleDogPreference3: scheduleDogPreference3,
     }
   })
-    .then((docRef) => {
-      console.log('Document written with ID: ', docRef.id);
-      let idPhoto = docRef.id;
-      accessData(idPhoto);
+    .then(() => {
+    
     })
     .catch((error) => {
       console.error('Error adding document: ', error);
