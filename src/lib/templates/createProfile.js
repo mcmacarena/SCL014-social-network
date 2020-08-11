@@ -94,7 +94,7 @@ const createProfile=
       <div id="biographyDogQuestion" class="hide questionCreatreProfile">
         <p><strong>Cúentanos un poco sobre tu perro</strong></p>
         <br>
-        <input class="inputs" type="text" id="biographyDog" placeholder="Agregar pequeña biografía">
+        <input class="inputBio" type="text" id="biographyDog" placeholder="Agregar pequeña biografía">
         <button class="hideButton" id="btnCreateProfile10">Finalizar</button>
       </div>
       <div id="screenOtherDogQuestion" class="hide questionCreatreProfile">
