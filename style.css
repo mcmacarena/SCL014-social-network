@@ -333,15 +333,15 @@ footer{
     padding-top: 60px;
 
 }
-#imgProfileDog, #imgProfileDogFeed, .iconPawLikesFeed{
+.imgProfileDog, .imgProfileDogFeed, .iconPawLikesFeed{
     width: 100%;
 }
-#containerImgProfileDog{
+.containerImgProfileDog{
     width:150px;
     height:140px;
 }
 /* creo que seria bueno cambiar el nombre de este */
-#containerDoggys{
+.containerDoggys{
     width: 150px;
     height: 218px;
     margin-left: 20px;
@@ -353,14 +353,14 @@ footer{
     margin-bottom: 10px;
     margin-top:20px;
 }
-#nameDogLikedDogs, #location, #nameDogFeed, #locationFeed{
+.nameDogLikedDogs, .location, .nameDogFeed, .locationFeed{
     font-weight: bold;
     font-size: 16px;
     padding: 4px;
     color: #1E3250;
     text-align: center;
 }
-#location{
+.location{
     font-weight: normal;
     font-size: 12px;
     margin-top:10px;
@@ -369,11 +369,11 @@ footer{
     margin-left: 10px;
     width: 20px;
 }
-#iconPawLikes{
+.iconPawLikes{
     margin-top: 10px;
     width:100%;
 }
-#contentLikes{
+.contentLikes{
     margin-left:35px;
     margin-top:-22px; 
 }
@@ -385,7 +385,7 @@ footer{
     align-items: center;
     margin-bottom:40px;
 }
-#profilesDogsHome{
+.profilesDogsHome{
     width: 291px;
     height: 459px;
     background: #FFFFFF;
@@ -394,10 +394,10 @@ footer{
     border-radius: 20px; 
     margin-bottom:40px;
 }
-#nameDogFeed{
+.nameDogFeed{
     font-size: 25px;
 }
-#locationFeed{
+.locationFeed{
     font-size: 19px;
     font-weight: normal;
 }
@@ -405,7 +405,7 @@ footer{
     width: 30px;
     margin: 40px 0px 20px 20px;
 }
-#contentLikesFeed{
+.contentLikesFeed{
     font-size: 16px;
     margin: -50px 0px 0px 60px;
 }
