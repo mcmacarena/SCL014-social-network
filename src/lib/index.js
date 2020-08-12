@@ -94,7 +94,8 @@ export const createProfileNext2 = () => {
     document.querySelector('#btnCreateProfile3').classList.add('hideButton');
     document.querySelector('#btnCreateProfile3').classList.remove('btnContinue');
   }
-}
+};
+
 
 // question 3 to question 4
 export const createProfileNext3 = () => {
