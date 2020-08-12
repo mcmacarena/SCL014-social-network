@@ -140,7 +140,7 @@ export const uploadInfo = (nameDog, sexDog, ageDog, locationDog, placeDog1, plac
   sexDogPreference2, sizeDogPreference1, sizeDogPreference2, sizeDogPreference3, personalityDogPreference1, personalityDogPreference2, personalityDogPreference3,
   personalityDogPreference4, personalityDogPreference5, personalityDogPreference6, personalityDogPreference7, scheduleDogPreference1, scheduleDogPreference2,
   scheduleDogPreference3) => {
-  db.collection("doggys").doc("oli").set({
+  db.collection("doggys").doc(JSON.parse(sessionStorage.userBarkify).uid).set({
     uid: JSON.parse(sessionStorage.userBarkify).uid,
     like: 0 ,
     nameDog: nameDog,
