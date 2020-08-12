@@ -7,7 +7,7 @@ import { contentlikedDog } from './lib/templates/likedDog.js';
 import { contentHomeTwo} from './lib/templates/home2.js';
 import { contentCreateProfile } from './lib/templates/createProfile.js';
 import { logIn, signInGoogle, nextPage, finishRegistration, signIn, createProfileNext, infoProfile , disabledButton, createProfileBegin, 
-  photoProfileUpload,photoProfileDownload, likepeyito} from './lib/index.js';
+  photoProfileUpload,photoProfileDownload, likepeyito, closesession} from './lib/index.js';
 import { watchMen, accessData, showDogHome} from './lib/firebase.js';
 
 const render = (hash) => {
@@ -25,6 +25,7 @@ const render = (hash) => {
   }
   if (hash === '#/Home') {
     screen.innerHTML = contentHome();
+    document.querySelector('#cerrarbtn').addEventListener('click', closesession);
   }
   if (hash === '#/myProfile') {
     screen.innerHTML = contentMyProfile();
@@ -57,4 +58,5 @@ const changePage = () => {
 
 window.addEventListener('hashchange', changePage);
 window.addEventListener('load', changePage);
+
 
