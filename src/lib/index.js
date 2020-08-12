@@ -1,4 +1,4 @@
-import { registerNewUser, logInUser, googleSignIn, watchMen, uploadInfo, uploadProfilePhoto, downloadProfilePhoto } from './firebase.js'
+import { registerNewUser, logInUser, googleSignIn, watchMen, uploadInfo, uploadProfilePhoto, downloadProfilePhoto, close} from './firebase.js'
 
 // INITIAL PAGE
 // Funcionalidad Log in
@@ -21,7 +21,13 @@ export const nextPage = () => {
   document.querySelector('#mailQuestionSignIn').classList.add('hide');
   document.querySelector('#passwordQuestionSignIn').classList.remove('hide');
 };
-
+//salir
+export const closesession = () => {
+  watchMen();
+  close();
+  watchMen();
+}
+  
 // Movernos en el SignIn de la contraseña a pantalla final registro
 export const finishRegistration = () => {
   document.querySelector('#passwordQuestionSignIn').classList.add('hide');

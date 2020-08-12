@@ -70,6 +70,17 @@ export const logInUser = (email, password) => {
     });
 };
 
+export const close = () => {
+  console.log('entro en closeee');
+  firebase.auth().signOut()
+  .then(function(){
+    console.log('Salir');
+  })
+  .catch(function(error){
+    console.log(error);
+  })
+ }
+
 export const watchMen = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
@@ -77,7 +88,8 @@ export const watchMen = () => {
       const email = user.email;
       const emailVerified = user.emailVerified;
       const uid = user.uid;
-
+      console.log(email);
+      console.log(user.name);
       return uid;
 
     } else {
