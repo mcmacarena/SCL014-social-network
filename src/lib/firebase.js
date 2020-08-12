@@ -280,19 +280,25 @@ export const accessData = () => {
 
 export const showDogHome = () => {
   const db = firebase.firestore();
+  const homeTwo = document.querySelector('#contentHometwo');
   db.collection('doggys').get().then((querySnapshot) => {
-    const homeTwo = document.querySelector('#contentHometwo');
     let sumShowDog = "";
     querySnapshot.forEach((doc) => {
-      if (doc.data().uid !== JSON.parse(sessionStorage.userBarkify).uid) {
+      let condition=0;
+      for (let i = 0; i < (doc.data().likedDog).length; i++) {
+        if ((doc.data().likedDog)[i] === JSON.parse(sessionStorage.userBarkify).uid) {
+          condition = 2;
+        }
+      }
+      if (condition !== 2 && doc.data().uid !== JSON.parse(sessionStorage.userBarkify).uid ) {
         firebase.storage().ref('photo-dog/' + doc.data().uid).getDownloadURL()
           .then(function (url) {
-            let oli = url
+            let photoProfileDog = url
             sumShowDog +=
               `<div class="profilesDogsHome">
                   <h1 class="nameDogFeed">${doc.data().nameDog}</h1>
                   <div class="containerImgProfileDogFeed">
-                    <img class="imgProfileDogFeed" src="${oli}">
+                    <img class="imgProfileDogFeed" src="${photoProfileDog}">
                   </div> 
                   <p class="locationFeed">${doc.data().locationDog}</p>
                   <div clas="containerLikesDogFeed">
@@ -303,8 +309,9 @@ export const showDogHome = () => {
                   </div>
               </div>`
             homeTwo.innerHTML = sumShowDog;
+          
           })
-      }
+        }
     });
   });
 };
@@ -330,13 +337,16 @@ export const showLikeDog = () => {
   const screenLikedDog = document.querySelector('#likesProfiles');
   db.collection('doggys').get().then((querySnapshot) => {
     let sumShowDogLikes = "";
+    // recorre toda la data de los perros 
     querySnapshot.forEach((doc) => {
-      if (doc.data().uid !== JSON.parse(sessionStorage.userBarkify).uid) {
-        firebase.storage().ref('photo-dog/' + doc.data().uid).getDownloadURL()
-          .then(function (url) {
-            let photoLikeDog = url
-            sumShowDogLikes +=
-              `<div class="containerDoggys">
+      // for que recorre array todos los perros que han dado like a el mismo 
+      for (let i = 0; i < (doc.data().likedDog).length; i++) {
+        if ((doc.data().likedDog)[i] === JSON.parse(sessionStorage.userBarkify).uid) {
+          firebase.storage().ref('photo-dog/' + doc.data().uid).getDownloadURL()
+            .then(function (url) {
+              let photoLikeDog = url
+              sumShowDogLikes +=
+                `<div class="containerDoggys">
               <h1 class="nameDogLikedDogs">${doc.data().nameDog}</h1>
               <div class="containerImgProfileDog">
                 <img class="imgProfileDog" src="${photoLikeDog}">
@@ -349,8 +359,9 @@ export const showLikeDog = () => {
                 <p class="texts contentLikes">${doc.data().like}</p>
               </div>
             </div>`
-            screenLikedDog.innerHTML = sumShowDogLikes;
-          })
+              screenLikedDog.innerHTML = sumShowDogLikes;
+            })
+        }
       }
     });
   });
