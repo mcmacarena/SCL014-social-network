@@ -73,13 +73,13 @@ export const logInUser = (email, password) => {
 export const close = () => {
   console.log('entro en closeee');
   firebase.auth().signOut()
-  .then(function(){
-    console.log('Salir');
-  })
-  .catch(function(error){
-    console.log(error);
-  })
- }
+    .then(function () {
+      console.log('Salir');
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+}
 
 export const watchMen = () => {
   firebase.auth().onAuthStateChanged((user) => {
@@ -142,7 +142,8 @@ export const uploadInfo = (nameDog, sexDog, ageDog, locationDog, placeDog1, plac
   scheduleDogPreference3) => {
   db.collection("doggys").doc(JSON.parse(sessionStorage.userBarkify).uid).set({
     uid: JSON.parse(sessionStorage.userBarkify).uid,
-    like: 0 ,
+    like: 0,
+    likedDog: [],
     nameDog: nameDog,
     sexDog: sexDog,
     ageDog: ageDog,
@@ -193,7 +194,7 @@ export const uploadInfo = (nameDog, sexDog, ageDog, locationDog, placeDog1, plac
     }
   })
     .then(() => {
-    
+
     })
     .catch((error) => {
       console.error('Error adding document: ', error);
@@ -283,25 +284,74 @@ export const showDogHome = () => {
     const homeTwo = document.querySelector('#contentHometwo');
     let sumShowDog = "";
     querySnapshot.forEach((doc) => {
-      firebase.storage().ref('photo-dog/'+doc.data().uid).getDownloadURL()
-      .then(function(url){ 
-        let oli=url
-        sumShowDog +=
-        `<div id="profilesDogsHome">
-        <h1 id="nameDogFeed">${doc.data().nameDog}</h1>
-          <div id="containerImgProfileDogFeed">
-            <img id="imgProfileDogFeed" src="${oli}">
-          </div> 
-          <p id="locationFeed">${doc.data().locationDog}</p>
-          <div id="containerLikesDogFeed">
-            <div class="pawLikedPawFeed">
-              <img id="${doc.data().uid}" class="iconPawLikesFeed" src="./img/iconPawLiked.png"  alt="paw">
-            </div>
-            <p id="contentLikesFeed" class="texts">${doc.data().like}</p>
-          </div>
-        </div>`
-    homeTwo.innerHTML = sumShowDog;
-      })   
+      if (doc.data().uid !== JSON.parse(sessionStorage.userBarkify).uid) {
+        firebase.storage().ref('photo-dog/' + doc.data().uid).getDownloadURL()
+          .then(function (url) {
+            let oli = url
+            sumShowDog +=
+              `<div class="profilesDogsHome">
+                  <h1 class="nameDogFeed">${doc.data().nameDog}</h1>
+                  <div class="containerImgProfileDogFeed">
+                    <img class="imgProfileDogFeed" src="${oli}">
+                  </div> 
+                  <p class="locationFeed">${doc.data().locationDog}</p>
+                  <div clas="containerLikesDogFeed">
+                    <div class="pawLikedPawFeed">
+                      <img id="${doc.data().uid}" class="iconPawLikesFeed" src="./img/iconPaw.png"  alt="paw">
+                    </div>
+                    <p class="texts contentLikesFeed">${doc.data().like}</p>
+                  </div>
+              </div>`
+            homeTwo.innerHTML = sumShowDog;
+          })
+      }
+    });
+  });
+};
+
+export const likepeyito = (e) => {
+  const db = firebase.firestore();
+  let likedDog = [];
+  db.collection('doggys').get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      if (e.target.id == doc.data().uid) {
+        console.log(doc.data().uid)
+        firebase.firestore().collection('doggys').doc(doc.data().uid).update({
+          like: doc.data().like + 1,
+          likedDog: likedDog.push(JSON.parse(sessionStorage.userBarkify).uid)
+        });
+      }
+    })
+  })
+};
+
+export const showLikeDog = () => {
+  const db = firebase.firestore();
+  const screenLikedDog = document.querySelector('#likesProfiles');
+  db.collection('doggys').get().then((querySnapshot) => {
+    let sumShowDogLikes = "";
+    querySnapshot.forEach((doc) => {
+      if (doc.data().uid !== JSON.parse(sessionStorage.userBarkify).uid) {
+        firebase.storage().ref('photo-dog/' + doc.data().uid).getDownloadURL()
+          .then(function (url) {
+            let photoLikeDog = url
+            sumShowDogLikes +=
+              `<div class="containerDoggys">
+              <h1 class="nameDogLikedDogs">${doc.data().nameDog}</h1>
+              <div class="containerImgProfileDog">
+                <img class="imgProfileDog" src="${photoLikeDog}">
+              </div>
+              <p class="location">${doc.data().locationDog}</p>
+              <div class="containerLikesDog">
+                <div class="pawLikedPaw">
+                  <img class="iconPawLikes" src="./img/iconPawLiked.png"  alt="paw">
+                </div>
+                <p class="texts contentLikes">${doc.data().like}</p>
+              </div>
+            </div>`
+            screenLikedDog.innerHTML = sumShowDogLikes;
+          })
+      }
     });
   });
 };
