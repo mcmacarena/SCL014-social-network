@@ -13,10 +13,10 @@ export const contentHome = () => {
       </main>
       <footer>
         <div class="paw">
-          <img class="iconsFooter" src="./img/iconPaw.png" alt="paw">
+          <a href="#/LikedDogs" id="PawIcon"><img class="iconsFooter" src="./img/iconPaw.png" alt="paw"></a>
         </div>
         <div class="home">
-          <img class="iconsFooter" src="./img/homeIconLiked.png" alt="home">
+          <a href="#/HomeTwoPorelmomento" id="HomeIcon"><img class="iconsFooter" src="./img/homeIconLiked.png" alt="home"></a>
         </div>
         <div class="profile">
           <a href="#/myProfile" id="myProfileIcon"><img class="iconsFooter" src="./img/iconProfile.png" alt="profile"></a>
