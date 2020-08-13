@@ -139,7 +139,6 @@ body{
 }
 header{
     position: fixed;
-    
     width: 100%;
     height: auto;
     background: #D3BBF2;
@@ -414,4 +413,25 @@ footer{
 .contentLikesFeed{
     font-size: 16px;
     margin: -50px 0px 0px 60px;
+}
+#menuBar{
+    position:fixed;
+    height:200px;
+    width: 300px;    
+    /* left: -200px; */
+    transition: all 500ms linear;
+}
+
+#menuBar.active{
+    left: 0;
+}
+
+.headerHome{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.toggle{
+    font-size:20px;
+    margin-right:20px;
 }
