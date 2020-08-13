@@ -109,6 +109,7 @@ body{
     color: white;  
     text-align: center;
     padding: 1px;
+    text-decoration: none;
 }
 .btnCreateProfile, #btnCreateProfile16{
     text-decoration: none;
@@ -117,6 +118,10 @@ body{
 
 .btnContinue, .hideButton{
    margin-top: 100px;
+}
+.btnContinue{
+    margin-top:5px;
+    padding: 5px;
 }
 .hideButton{
     width: 236px;
@@ -415,23 +420,29 @@ footer{
     margin: -50px 0px 0px 60px;
 }
 #menuBar{
-    position:fixed;
-    height:200px;
-    width: 300px;    
-    /* left: -200px; */
+    display:flex;
+    margin-top:50px;
+    position: fixed;
+    justify-content: flex-end;
     transition: all 500ms linear;
 }
 
-#menuBar.active{
-    left: 0;
-}
+/* #menuBar.active{
+    right:0;
+} */
 
 .headerHome{
    display: flex;
-   justify-content: space-between;
-   align-items: center;
+   justify-items: center;
+   flex-flow: column nowrap;
 }
 .toggle{
-    font-size:20px;
-    margin-right:20px;
+    font-size:25px;
+    margin: 40px 20px 10px 0px;
+    color:black;
+}
+#logoAndToggle{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
 }
