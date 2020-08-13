@@ -72,6 +72,8 @@ export const logInUser = (email, password) => {
 
 export const close = () => {
   console.log('entro en closeee');
+  sessionStorage.removeItem('userBarkify');
+ console.log('entro en session');
   firebase.auth().signOut()
     .then(function () {
       console.log('Salir');
@@ -104,7 +106,6 @@ export const watchMen = () => {
 export const googleSignIn = (provider) => {
   firebase.auth().signInWithPopup(provider)
     .then((googleUser) => {
-
       const user = googleUser.user;
       sessionStorage.setItem('userBarkify', JSON.stringify({
         name: user.displayName,
