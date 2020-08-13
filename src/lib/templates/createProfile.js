@@ -148,7 +148,7 @@ const createProfile=
         <br>
         <p>Ahora estás listo para encontrar amigos</p>
         <br>
-        <a type='button' href='#/Home' class='btnContinue' id='btnCreateProfile16'>Empezar</a>    
+        <a type='button' href='#/Home2' class='btnContinue' id='btnCreateProfile16'>Empezar</a>    
       </div>
     </div>
   </div>`;

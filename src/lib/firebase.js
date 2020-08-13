@@ -4,24 +4,23 @@ export const registerNewUser = (email, password) => {
     .then(
       firebase.auth().currentUser.sendEmailVerification()
         .then(() => {
-          console.log('Verification email sent');
+          console.log('El correo fue enviado');
         })
         .catch((error) => {
           console.log('no se mando el correo');
         }),
     )
     .catch((error) => {
-      // Handle Errors here.
+
       const errorCode = error.code;
       const errorMessage = error.message;
-      // [START_EXCLUDE]
+ 
       if (errorCode === 'auth/weak-password') {
-        alert('The password is too weak.');
+        alert('El password es muy débil. Prueba otra vez con uno más largo');
       } else {
         alert(errorMessage);
       }
-      console.log(error);
-      // [END_EXCLUDE]
+
     });
 };
 
@@ -35,7 +34,13 @@ export const logInUser = (email, password) => {
         uid: data.user.uid,
       })
       );
-      window.location.hash = '#/Home';
+      db.collection('doggys').get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          if (doc.data().uid === JSON.parse(sessionStorage.userBarkify).uid) {
+            window.location.hash = '#/Home2';
+          } else window.location.hash = '#/Home1';
+        })
+      })
     })
     .catch((error) => {
       // const errorCode = error.code;
@@ -73,7 +78,7 @@ export const logInUser = (email, password) => {
 export const close = () => {
   console.log('entro en closeee');
   sessionStorage.removeItem('userBarkify');
- console.log('entro en session');
+  console.log('entro en sesion');
   firebase.auth().signOut()
     .then(function () {
       console.log('Salir');
@@ -83,27 +88,9 @@ export const close = () => {
     })
 }
 
-export const watchMen = () => {
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      // User is signed in.
-      const email = user.email;
-      const emailVerified = user.emailVerified;
-      const uid = user.uid;
-      console.log(email);
-      console.log(user.name);
-      return uid;
-
-    } else {
-      // User is signed out.
-      // ...
-    }
-
-  });
-};
-
 //google log in
 export const googleSignIn = (provider) => {
+  const db = firebase.firestore();
   firebase.auth().signInWithPopup(provider)
     .then((googleUser) => {
       const user = googleUser.user;
@@ -112,23 +99,23 @@ export const googleSignIn = (provider) => {
         email: user.email,
         uid: user.uid,
       }));
-      window.location.hash = '#/Home';
-
+      db.collection('doggys').get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          if (doc.data().uid === JSON.parse(sessionStorage.userBarkify).uid) {
+            window.location.hash = '#/Home2';
+          } else window.location.hash = '#/Home1';
+        })
+      })
     })
     .catch((error) => {
       console.log('error en loguearse con google');
       let errorGoogle = error.message;
       if (errorGoogle === 'This operation has been cancelled due to another conflicting popup being opened.') {
-        errorGoogle = 'Esta operación se canceló debido a que se abrió otra ventana emergente en conflicto.';
+        errorGoogle = 'Se canceló la operación debido a que hay una ventana emergente ya abierta.';
       }
       if (errorGoogle === 'The popup has been closed by the user before finalizing the operation.') {
-        errorGoogle = 'La ventana emergente ha sido cerrada por el usuario antes de finalizar la operación.';
+        errorGoogle = 'La ventana emergente fue cerrada antes de finalizar la operación';
       }
-      // This operation has been cancelled due to another conflicting popup being opened.
-      // Esta operación se canceló debido a que se abrió otra ventana emergente en conflicto.
-      // The popup  has been closed by the user before finalizing the operation
-      // La ventana emergente ha sido cerrada por el usuario antes de finalizar la operación.
-
       document.getElementById('errogoogle').innerText = errorGoogle;
     });
 };
@@ -285,13 +272,13 @@ export const showDogHome = () => {
   db.collection('doggys').get().then((querySnapshot) => {
     let sumShowDog = "";
     querySnapshot.forEach((doc) => {
-      let condition=0;
+      let condition = 0;
       for (let i = 0; i < (doc.data().likedDog).length; i++) {
         if ((doc.data().likedDog)[i] === JSON.parse(sessionStorage.userBarkify).uid) {
           condition = 2;
         }
       }
-      if (condition !== 2 && doc.data().uid !== JSON.parse(sessionStorage.userBarkify).uid ) {
+      if (condition !== 2 && doc.data().uid !== JSON.parse(sessionStorage.userBarkify).uid) {
         firebase.storage().ref('photo-dog/' + doc.data().uid).getDownloadURL()
           .then(function (url) {
             let photoProfileDog = url
@@ -310,9 +297,9 @@ export const showDogHome = () => {
                   </div>
               </div>`
             homeTwo.innerHTML = sumShowDog;
-          
+
           })
-        }
+      }
     });
   });
 };

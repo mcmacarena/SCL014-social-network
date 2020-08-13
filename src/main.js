@@ -10,7 +10,7 @@ import {
   logIn, signInGoogle, nextPage, finishRegistration, signIn, createProfileNext, infoProfile, disabledButton, createProfileBegin,
   photoProfileUpload, photoProfileDownload, closesession
 } from './lib/index.js';
-import { watchMen, accessData, showDogHome, likepeyito, showLikeDog } from './lib/firebase.js';
+import { accessData, showDogHome, likepeyito, showLikeDog } from './lib/firebase.js';
 
 const render = (hash) => {
   const screen = document.getElementById('screens');
@@ -25,7 +25,7 @@ const render = (hash) => {
     document.querySelector('#btnDoneSignIn').addEventListener('click', finishRegistration);
     document.querySelector('#btnDoneSignIn').addEventListener('mousedown', signIn);
   }
-  if (hash === '#/Home') {
+  if (hash === '#/Home1') {
     screen.innerHTML = contentHome();
     document.querySelector('#cerrarbtn').addEventListener('click', closesession);
     document.querySelector('.toggle').addEventListener('click', () => {
@@ -37,7 +37,7 @@ const render = (hash) => {
     accessData();
     photoProfileDownload();
   }
-  if (hash === '#/HomeTwoPorelmomento') {
+  if (hash === '#/Home2') {
     screen.innerHTML = contentHomeTwo();
     showDogHome();
     const reload = (e) => {
