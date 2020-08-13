@@ -2,15 +2,19 @@ export const contentHome = () => {
   const home =
     `<div id="mainScreen">
       <header class="header headerHome">
-        <div id="logoHeader">
-          <img class="logoImg" src="img/logo.png" alt="logo">
+        <div id="logoAndToggle">
+          <div id="logoHeader">
+            <img class="logoImg" src="img/logo.png" alt="logo">
+          </div>
+          <div>
+            <span class="toggle">&#9776;</span>
+          </div>
         </div>
-        <span class="toggle">&#9776;</span>
-        <div id='menuBar'>
+      </header>    
+      <div id='menuBar'>
           <p>${JSON.parse(sessionStorage.userBarkify).email}</p>
           <a href=" " class="btnContinue" id="cerrarbtn">Cerrar sesión</a>
-        </div> 
-      </header>
+      </div>
       <main id="mainContentInitialPage">
         <p>Aún no has creado un perfil para tu mascota</p>
         <br>
@@ -29,7 +33,7 @@ export const contentHome = () => {
         </div>
       </footer>
     </div>`;
-    return home
+  return home
 };
 
 
