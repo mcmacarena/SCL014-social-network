@@ -4,11 +4,13 @@ import { contentSignIn } from './lib/templates/signIn.js';
 import { contentHome } from './lib/templates/home.js';
 import { contentMyProfile } from './lib/templates/myProfile.js';
 import { contentlikedDog } from './lib/templates/likedDog.js';
-import { contentHomeTwo} from './lib/templates/home2.js';
+import { contentHomeTwo } from './lib/templates/home2.js';
 import { contentCreateProfile } from './lib/templates/createProfile.js';
-import { logIn, signInGoogle, nextPage, finishRegistration, signIn, createProfileNext, infoProfile , disabledButton, createProfileBegin, 
-  photoProfileUpload,photoProfileDownload, closesession} from './lib/index.js';
-import { watchMen, accessData, showDogHome, likepeyito, showLikeDog} from './lib/firebase.js';
+import {
+  logIn, signInGoogle, nextPage, finishRegistration, signIn, createProfileNext, infoProfile, disabledButton, createProfileBegin,
+  photoProfileUpload, photoProfileDownload, closesession
+} from './lib/index.js';
+import { watchMen, accessData, showDogHome, likepeyito, showLikeDog } from './lib/firebase.js';
 
 const render = (hash) => {
   const screen = document.getElementById('screens');
@@ -26,15 +28,21 @@ const render = (hash) => {
   if (hash === '#/Home') {
     screen.innerHTML = contentHome();
     document.querySelector('#cerrarbtn').addEventListener('click', closesession);
-  }
+    document.querySelector('.toggle').addEventListener('click', () => {
+      document.getElementById('menuBar').classList.toggle('active')
+    });
+  };
   if (hash === '#/myProfile') {
     screen.innerHTML = contentMyProfile();
     accessData();
     photoProfileDownload();
   }
-  if( hash === '#/HomeTwoPorelmomento'){
+  if (hash === '#/HomeTwoPorelmomento') {
     screen.innerHTML = contentHomeTwo();
     showDogHome();
+    const reload = (e) => {
+      console.log(e.target)
+    };
     document.querySelector('#contentHometwo').addEventListener('click', likepeyito);
   }
   if (hash === '#/LikedDogs') {
@@ -56,6 +64,11 @@ const render = (hash) => {
 const changePage = () => {
   render(window.location.hash);
 }
+
+export const reload = (e) => {
+  console.log(e.target)
+};
+// window.addEventListener('hashchange', reload);
 
 window.addEventListener('hashchange', changePage);
 window.addEventListener('load', changePage);
