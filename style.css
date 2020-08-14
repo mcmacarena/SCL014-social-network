@@ -76,7 +76,7 @@ body{
     margin-bottom: 50px;
     font-weight: bold;
 }
-.inputs, .inputSelect, .inputBio{
+.inputs, .inputSelect, #biographyDog{
     width: 230px;
     height: 25px;
     border: none;
@@ -88,7 +88,7 @@ body{
     height: 30px;
     font-size:14px;
 }
-.inputBio{
+#biographyDog{
     height: 60px;
     border-radius: 4px;
     font-size: 14px;
@@ -99,7 +99,7 @@ body{
 /* input[type=text]:focus {
     height: 60px;
 } */
-#btnLogin, .btnContinue, .btnCreateProfile{
+#btnLogin, .btnContinue, .btnCreateProfile, .btnLogOut{
     width: 236px;
     height: 25px;
     border: none;
@@ -115,13 +115,13 @@ body{
     text-decoration: none;
     padding: 5px 100px;
 }
-
-.btnContinue, .hideButton{
+.btnLogOut, .hideButton{
    margin-top: 100px;
 }
-.btnContinue{
+.btnLogOut{
     margin-top:5px;
-    padding: 5px;
+    width: 150px;
+    padding:3px 40px;
 }
 .hideButton{
     width: 236px;
@@ -421,28 +421,39 @@ footer{
 }
 #menuBar{
     display:flex;
-    margin-top:50px;
+    margin-top:59px;
     position: fixed;
-    justify-content: flex-end;
+    flex-direction: column;
+    top:-130px;
+    right:0px;
+    align-items: center;
+    background-color:#D3BBF2;
+    padding:7px;
+    border-radius:10px;
+    border: 0.5px solid #655C56;
     transition: all 500ms linear;
 }
-
-/* #menuBar.active{
-    right:0;
-} */
-
+#menuBar.active{
+    top:0;
+}
 .headerHome{
    display: flex;
-   justify-items: center;
    flex-flow: column nowrap;
 }
 .toggle{
     font-size:25px;
     margin: 40px 20px 10px 0px;
     color:black;
+    border: 0.5px solid #655C56;
+    cursor: pointer;
+    padding: 0px 2px;
 }
 #logoAndToggle{
     display: flex;
     justify-content: space-between;
     flex-direction: row;
 }
+#contentToggle{
+    padding-top: 10px;
+}
+
