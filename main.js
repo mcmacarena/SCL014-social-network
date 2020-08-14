@@ -10,7 +10,7 @@ import {
   logIn, signInGoogle, nextPage, finishRegistration, signIn, createProfileNext, infoProfile, disabledButton, createProfileBegin,
   photoProfileUpload, photoProfileDownload, closesession
 } from './lib/index.js';
-import { accessData, showDogHome, likepeyito, showLikeDog } from './lib/firebase.js';
+import { accessData, showDogHome, likepeyito, showLikeDog, deleteMyProfile } from './lib/firebase.js';
 
 const render = (hash) => {
   const screen = document.getElementById('screens');
@@ -36,11 +36,18 @@ const render = (hash) => {
     screen.innerHTML = contentMyProfile();
     accessData();
     photoProfileDownload();
+    document.querySelector('.toggle').addEventListener('click', () => {
+      document.getElementById('menuBar').classList.toggle('active')
+    });
+    document.querySelector('.eliminateProfile').addEventListener('click', deleteMyProfile);
   }
   if (hash === '#/Home2') {
     screen.innerHTML = contentHomeTwo();
     showDogHome();
     document.querySelector('#contentHometwo').addEventListener('click', likepeyito);
+    document.querySelector('.toggle').addEventListener('click', () => {
+      document.getElementById('menuBar').classList.toggle('active')
+    });
   }
   if (hash === '#/LikedDogs') {
     screen.innerHTML = contentlikedDog();
