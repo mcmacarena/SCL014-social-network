@@ -1,10 +1,20 @@
 export const contentHomeTwo = () => {
   const homeTwo = `
-    <header class="header">
+  <header class="header headerHome">
+  <div id="logoAndToggle">
     <div id="logoHeader">
       <img class="logoImg" src="img/logo.png" alt="logo">
     </div>
-  </header>
+    <div id="contentToggle">
+      <span class="toggle">&#9776;</span>
+    </div>
+  </div>
+</header>    
+<div id='menuBar'>
+    <div><p id='emailLogOut'>${JSON.parse(sessionStorage.userBarkify).email}</p></div>
+    <br>
+    <div><a href=" " class="btnLogOut" id="cerrarbtn">Cerrar sesión</a></div>
+</div>
   <main>
     <div id="contentHometwo">
     </div>    
