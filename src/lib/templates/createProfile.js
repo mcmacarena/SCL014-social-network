@@ -94,7 +94,7 @@ const createProfile=
       <div id="biographyDogQuestion" class="hide questionCreatreProfile">
         <p><strong>Cúentanos un poco sobre tu perro</strong></p>
         <br>
-        <textarea id="biographyDog" placeholder="Agregar pequeña biografía" rows="4" cols="50">
+        <textarea id="biographyDog" rows="4" cols="50">Agregar pequeña biografía</textarea>
         <button class="hideButton" id="btnCreateProfile10">Finalizar</button>
       </div>
       <div id="screenOtherDogQuestion" class="hide questionCreatreProfile">

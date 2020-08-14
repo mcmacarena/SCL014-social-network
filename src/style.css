@@ -99,7 +99,7 @@ body{
 /* input[type=text]:focus {
     height: 60px;
 } */
-#btnLogin, .btnContinue, .btnCreateProfile, .btnLogOut{
+#btnLogin, .btnContinue, .btnCreateProfile, .btnLogOut, .eliminateProfile{
     width: 236px;
     height: 25px;
     border: none;
@@ -115,7 +115,7 @@ body{
     text-decoration: none;
     padding: 5px 100px;
 }
-.btnLogOut, .hideButton{
+.btnLogOut, .hideButton, .btnContinue{
    margin-top: 100px;
 }
 .btnLogOut{
@@ -424,13 +424,12 @@ footer{
     margin-top:59px;
     position: fixed;
     flex-direction: column;
-    top:-130px;
+    top:-150px;
     right:0px;
     align-items: center;
     background-color:#D3BBF2;
     padding:7px;
     border-radius:10px;
-    border: 0.5px solid #655C56;
     transition: all 500ms linear;
 }
 #menuBar.active{
@@ -455,5 +454,9 @@ footer{
 }
 #contentToggle{
     padding-top: 10px;
+}
+textarea{
+    border:1px solid #D3BBF2;
+    border-radius:5px;
 }
 

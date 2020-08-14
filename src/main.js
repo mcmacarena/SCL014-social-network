@@ -17,7 +17,7 @@ const render = (hash) => {
   if (hash === '') {
     screen.innerHTML = contentInitialPage();
     document.querySelector('#btnLogin').addEventListener('mousedown', logIn);
-    document.querySelector('#btnGoogle').addEventListener('click', signInGoogle)
+    document.querySelector('#btnGoogle').addEventListener('click', signInGoogle);
   }
   if (hash === '#/SignIn') {
     screen.innerHTML = contentSignIn();
@@ -40,9 +40,6 @@ const render = (hash) => {
   if (hash === '#/Home2') {
     screen.innerHTML = contentHomeTwo();
     showDogHome();
-    const reload = (e) => {
-      console.log(e.target)
-    };
     document.querySelector('#contentHometwo').addEventListener('click', likepeyito);
   }
   if (hash === '#/LikedDogs') {
@@ -64,11 +61,6 @@ const render = (hash) => {
 const changePage = () => {
   render(window.location.hash);
 }
-
-export const reload = (e) => {
-  console.log(e.target)
-};
-// window.addEventListener('hashchange', reload);
 
 window.addEventListener('hashchange', changePage);
 window.addEventListener('load', changePage);
