@@ -16,6 +16,7 @@ export const contentMyProfile = () => {
       </div>
       <br>
       <div><button class="eliminateProfile">Eliminar Perfil</button></div>
+      <br>
       <div>
         <a href=" " class="btnLogOut" id="cerrarbtn">Cerrar sesión</a>
       </div>
