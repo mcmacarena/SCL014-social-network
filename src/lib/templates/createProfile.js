@@ -5,14 +5,14 @@ const createProfile=
       <div id='titleCreateProfile'>
         <p id='back' class='titles'>&#10094</p>
         <p class='titles'>Crear Perfil</p>
-        <p class='titles'>&#10006;</p>
+        <p id='closeCreateProfile' class='titles'>&#10006;</p>
       </div>
       <br>
       <div id='logoCreateProfile'>
         <img class='logoImg' src='img/logo.png' alt='logo'>
       </div>
       <br>
-      <div id='nameDogQuestion' class='questionCreatreProfile'>
+      <div id='nameDogQuestion' class='hide questionCreatreProfile'>
         <p><strong>¿Cuál es el nombre de tu perro?</strong></p>
         <br>
         <input class='inputs' type='text' id='nameDog' placeholder='Nombre'>

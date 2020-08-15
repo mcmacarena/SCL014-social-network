@@ -6,10 +6,8 @@ import { contentMyProfile } from './lib/templates/myProfile.js';
 import { contentlikedDog } from './lib/templates/likedDog.js';
 import { contentHomeTwo } from './lib/templates/home2.js';
 import { contentCreateProfile } from './lib/templates/createProfile.js';
-import {
-  logIn, signInGoogle, nextPage, finishRegistration, signIn, createProfileNext, infoProfile, disabledButton, createProfileBegin,
-  photoProfileUpload, photoProfileDownload, closesession
-} from './lib/index.js';
+import {createProfileNext, disabledButton, createProfileBegin, closeCreateProfile} from './lib/screensCreateProfile.js'
+import {signIn, logIn, signInGoogle, nextPage, finishRegistration, infoProfile, photoProfileUpload, photoProfileDownload, closeSession} from './lib/index.js';
 import { accessData, showDogHome, likeDog, showLikeDog, deleteMyProfile, dislikeDog } from './lib/firebase.js';
 
 const render = (hash) => {
@@ -27,7 +25,7 @@ const render = (hash) => {
   }
   if (hash === '#/Home1') {
     screen.innerHTML = contentHome();
-    document.querySelector('#cerrarbtn').addEventListener('click', closesession);
+    document.querySelector('#cerrarbtn').addEventListener('click', closeSession);
     document.querySelector('.toggle').addEventListener('click', () => {
       document.getElementById('menuBar').classList.toggle('active')
     });
@@ -61,8 +59,9 @@ const render = (hash) => {
       document.querySelector('#btnCreateProfile' + i + '').addEventListener('click', createProfileNext[i - 1]);
     }
     document.querySelector('#btnCreateProfile16').addEventListener('click', infoProfile);
-    document.querySelector('#nameDog').addEventListener('keyup', createProfileBegin);
+    createProfileBegin();
     photoProfileUpload();
+    closeCreateProfile();
   }
 }
 
