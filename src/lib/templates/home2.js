@@ -31,6 +31,6 @@ export const contentHomeTwo = () => {
     </div>
   </footer>
 
-    `
-  return homeTwo
+    `;
+  return homeTwo;
 };
