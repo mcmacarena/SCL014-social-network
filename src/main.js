@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 // Este es el punto de entrada de tu aplicacion
 import { contentInitialPage } from './lib/templates/initialPage.js';
 import { contentSignIn } from './lib/templates/signIn.js';
@@ -6,9 +7,16 @@ import { contentMyProfile } from './lib/templates/myProfile.js';
 import { contentlikedDog } from './lib/templates/likedDog.js';
 import { contentHomeTwo } from './lib/templates/home2.js';
 import { contentCreateProfile } from './lib/templates/createProfile.js';
-import {createProfileNext, disabledButton, createProfileBegin, closeCreateProfile} from './lib/screensCreateProfile.js'
-import {signIn, logIn, signInGoogle, nextPage, finishRegistration, infoProfile, photoProfileUpload, photoProfileDownload, closeSession} from './lib/index.js';
-import { accessData, showDogHome, likeDog, showLikeDog, deleteMyProfile, dislikeDog } from './lib/firebase.js';
+import {
+  createProfileNext, disabledButton, createProfileBegin, closeCreateProfile,
+} from './lib/screensCreateProfile.js';
+import {
+  signIn, logIn, signInGoogle, nextPage, finishRegistration, infoProfile,
+  photoProfileUpload, photoProfileDownload, closeSession,
+} from './lib/index.js';
+import {
+  accessData, showDogHome, likeDog, showLikeDog, deleteMyProfile, dislikeDog,
+} from './lib/firebase.js';
 
 const render = (hash) => {
   const screen = document.getElementById('screens');
@@ -27,15 +35,15 @@ const render = (hash) => {
     screen.innerHTML = contentHome();
     document.querySelector('#cerrarbtn').addEventListener('click', closeSession);
     document.querySelector('.toggle').addEventListener('click', () => {
-      document.getElementById('menuBar').classList.toggle('active')
+      document.getElementById('menuBar').classList.toggle('active');
     });
-  };
+  }
   if (hash === '#/myProfile') {
     screen.innerHTML = contentMyProfile();
     accessData();
     photoProfileDownload();
     document.querySelector('.toggle').addEventListener('click', () => {
-      document.getElementById('menuBar').classList.toggle('active')
+      document.getElementById('menuBar').classList.toggle('active');
     });
     document.querySelector('.eliminateProfile').addEventListener('click', deleteMyProfile);
   }
@@ -44,7 +52,7 @@ const render = (hash) => {
     setTimeout(showDogHome,300)
     document.querySelector('#contentHometwo').addEventListener('click', likeDog)
     document.querySelector('.toggle').addEventListener('click', () => {
-      document.getElementById('menuBar').classList.toggle('active')
+      document.getElementById('menuBar').classList.toggle('active');
     });
   }
   if (hash === '#/LikedDogs') {
@@ -56,18 +64,18 @@ const render = (hash) => {
     screen.innerHTML = contentCreateProfile();
     disabledButton();
     for (let i = 1; i < 16; i++) {
-      document.querySelector('#btnCreateProfile' + i + '').addEventListener('click', createProfileNext[i - 1]);
+      document.querySelector(`#btnCreateProfile${i}`).addEventListener('click', createProfileNext[i - 1]);
     }
     document.querySelector('#btnCreateProfile16').addEventListener('click', infoProfile);
     createProfileBegin();
     photoProfileUpload();
     closeCreateProfile();
   }
-}
+};
 
 const changePage = () => {
   render(window.location.hash);
-}
+};
 
 window.addEventListener('hashchange', changePage);
 window.addEventListener('load', changePage);

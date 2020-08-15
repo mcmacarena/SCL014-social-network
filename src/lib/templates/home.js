@@ -1,6 +1,5 @@
 export const contentHome = () => {
-  const home =
-    `<div id="mainScreen">
+  const home = `<div id="mainScreen">
       <header class="header headerHome">
         <div id="logoAndToggle">
           <div id="logoHeader">
@@ -34,8 +33,5 @@ export const contentHome = () => {
         </div>
       </footer>
     </div>`;
-  return home
+  return home;
 };
-
-
-

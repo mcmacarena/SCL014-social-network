@@ -1,6 +1,5 @@
 export const contentMyProfile = () => {
-  const myProfile =
-    `<header class="header headerHome">
+  const myProfile = `<header class="header headerHome">
       <div id="logoAndToggle">
         <div id="logoHeader">
           <img class="logoImg" src="img/logo.png" alt="logo">
@@ -95,5 +94,5 @@ export const contentMyProfile = () => {
       <a href="#/myProfile" id="myProfileIcon"><img class="iconsFooter"  src="./img/iconProfileLiked.png" alt="profile"></a>
       </div>
    </footer>`;
-return myProfile
+  return myProfile;
 };

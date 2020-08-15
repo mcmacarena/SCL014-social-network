@@ -1,7 +1,6 @@
 export const contentlikedDog = () => {
   // document.location.reload(true);
-  const likedDog =
-    `
+  const likedDog = `
     <header class="header">
     <div id="logoHeader">
       <img class="logoImg" src="img/logo.png" alt="logo">
@@ -23,5 +22,5 @@ export const contentlikedDog = () => {
     <a href="#/myProfile" id="myProfileIcon"><img class="iconsFooter" src="./img/iconProfile.png" alt="profile"></a>
     </div>
   </footer>`;
-  return likedDog
+  return likedDog;
 };

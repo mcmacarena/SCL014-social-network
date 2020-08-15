@@ -1,28 +1,30 @@
+/* eslint-disable max-len */
+/* eslint-disable no-loop-func */
+/* eslint-disable no-plusplus */
 // registrar nuevo usuario
 export const registerNewUser = (email, password) => {
   firebase.auth().createUserWithEmailAndPassword(email, password)
     .then(
       firebase.auth().currentUser.sendEmailVerification()
         .then(() => {
-          console.log('El correo fue enviado');
+          // console.log('El correo fue enviado');
         })
         .catch((error) => {
-          console.log('no se mando el correo');
+          console.log(`no se mando el correo error: ${error.message}`);
         }),
     )
     .catch((error) => {
       const errorCode = error.code;
-      const errorMessage = error.message;
+      // const errorMessage = error.message;
       if (errorCode === 'auth/weak-password') {
-        alert('El password es muy débil. Prueba otra vez con uno más largo');
+        // alert('El password es muy débil. Prueba otra vez con uno más largo');
       } else {
-        alert(errorMessage);
+        // alert(errorMessage);
       }
-
     });
 };
 
-// log in 
+// log in
 export const logInUser = (email, password) => {
   firebase.auth().signInWithEmailAndPassword(email, password)
     .then((data) => {
@@ -30,15 +32,15 @@ export const logInUser = (email, password) => {
         name: data.user.displayName,
         email: data.user.email,
         uid: data.user.uid,
-      })
-      );
+      }));
+      const db = firebase.firestore();
       db.collection('doggys').get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
           if (doc.data().uid === JSON.parse(sessionStorage.userBarkify).uid) {
             window.location.hash = '#/Home2';
           } else window.location.hash = '#/Home1';
-        })
-      })
+        });
+      });
     })
     .catch((error) => {
       // const errorCode = error.code;
@@ -54,21 +56,6 @@ export const logInUser = (email, password) => {
         errorMessageShow = 'Tu acceso a Barkify ha sido bloqueado.';
       }
 
-      // if (errorCode === 'There is no user record corresponding to this identifier. The user may have been deleted.') {
-      //   errorMessageShow = 'No hay ningún registro de usuario que corresponda a este identificador. Es posible que se haya eliminado al usuario.';
-      // }
-      // if (error === 'The password is invalid or the user does not have a password.') {
-      //   errorMessageShow = 'La contraseña no es válida o el usuario no tiene una contraseña.';
-      // }
-      // if (errorMessage === 'The user account has been disabled by an administrator.') {
-      //   errorMessageShow = 'La cuenta de usuario ha sido deshabilitada por un administrador.';
-      // }
-      // The email address is badly formatted.
-      // La dirección de correo electrónico tiene un formato incorrecto.
-      // No hay ningún registro de usuario que corresponda a este identificador. Es posible que se haya eliminado al usuario
-      // La contraseña no es válida o el usuario no tiene una contraseña
-      // The user account has been disabled by an administrator.
-      // La cuenta de usuario ha sido deshabilitada por un administrador.
       document.getElementById('errormensaje').innerText = errorMessageShow;
     });
 };
@@ -76,15 +63,15 @@ export const logInUser = (email, password) => {
 export const close = () => {
   sessionStorage.removeItem('userBarkify');
   firebase.auth().signOut()
-    .then(function () {
+    .then(() => {
       console.log('Cerro sesión');
     })
-    .catch(function (error) {
+    .catch((error) => {
       console.log(error);
-    })
-}
+    });
+};
 
-//google log in
+// google log in
 export const googleSignIn = (provider) => {
   const db = firebase.firestore();
   firebase.auth().signInWithPopup(provider)
@@ -100,8 +87,8 @@ export const googleSignIn = (provider) => {
           if (doc.data().uid === JSON.parse(sessionStorage.userBarkify).uid) {
             window.location.hash = '#/Home2';
           } else window.location.hash = '#/Home1';
-        })
-      })
+        });
+      });
     })
     .catch((error) => {
       console.log('error en loguearse con google');
@@ -124,58 +111,58 @@ export const uploadInfo = (nameDog, sexDog, ageDog, locationDog, placeDog1, plac
   sexDogPreference2, sizeDogPreference1, sizeDogPreference2, sizeDogPreference3, personalityDogPreference1, personalityDogPreference2, personalityDogPreference3,
   personalityDogPreference4, personalityDogPreference5, personalityDogPreference6, personalityDogPreference7, scheduleDogPreference1, scheduleDogPreference2,
   scheduleDogPreference3) => {
-  db.collection("doggys").doc(JSON.parse(sessionStorage.userBarkify).uid).set({
+  db.collection('doggys').doc(JSON.parse(sessionStorage.userBarkify).uid).set({
     uid: JSON.parse(sessionStorage.userBarkify).uid,
     like: 0,
     likedDog: [],
-    nameDog: nameDog,
-    sexDog: sexDog,
-    ageDog: ageDog,
+    nameDog,
+    sexDog,
+    ageDog,
     personalityDog: {
-      personalityDog1: personalityDog1,
-      personalityDog2: personalityDog2,
-      personalityDog3: personalityDog3,
-      personalityDog4: personalityDog4,
-      personalityDog5: personalityDog5,
-      personalityDog6: personalityDog6,
-      personalityDog7: personalityDog7,
+      personalityDog1,
+      personalityDog2,
+      personalityDog3,
+      personalityDog4,
+      personalityDog5,
+      personalityDog6,
+      personalityDog7,
     },
-    locationDog: locationDog,
+    locationDog,
     scheduleDog: {
-      scheduleDog1: scheduleDog1,
-      scheduleDog2: scheduleDog2,
-      scheduleDog3: scheduleDog3,
+      scheduleDog1,
+      scheduleDog2,
+      scheduleDog3,
     },
     placeDog: {
-      placeDog1: placeDog1,
-      placeDog2: placeDog2,
-      placeDog3: placeDog3,
+      placeDog1,
+      placeDog2,
+      placeDog3,
     },
-    sizeDog: sizeDog,
-    biographyDog: biographyDog,
+    sizeDog,
+    biographyDog,
     sexDogPreference: {
-      sexDogPreference1: sexDogPreference1,
-      sexDogPreference2: sexDogPreference2,
+      sexDogPreference1,
+      sexDogPreference2,
     },
     sizeDogPreference: {
-      sizeDogPreference1: sizeDogPreference1,
-      sizeDogPreference2: sizeDogPreference2,
-      sizeDogPreference3: sizeDogPreference3,
+      sizeDogPreference1,
+      sizeDogPreference2,
+      sizeDogPreference3,
     },
     personalityDogPreference: {
-      personalityDogPreference1: personalityDogPreference1,
-      personalityDogPreference2: personalityDogPreference2,
-      personalityDogPreference3: personalityDogPreference3,
-      personalityDogPreference4: personalityDogPreference4,
-      personalityDogPreference5: personalityDogPreference5,
-      personalityDogPreference6: personalityDogPreference6,
-      personalityDogPreference7: personalityDogPreference7,
+      personalityDogPreference1,
+      personalityDogPreference2,
+      personalityDogPreference3,
+      personalityDogPreference4,
+      personalityDogPreference5,
+      personalityDogPreference6,
+      personalityDogPreference7,
     },
     scheduleDogPreference: {
-      scheduleDogPreference1: scheduleDogPreference1,
-      scheduleDogPreference2: scheduleDogPreference2,
-      scheduleDogPreference3: scheduleDogPreference3,
-    }
+      scheduleDogPreference1,
+      scheduleDogPreference2,
+      scheduleDogPreference3,
+    },
   })
     .then(() => {
 
@@ -187,31 +174,31 @@ export const uploadInfo = (nameDog, sexDog, ageDog, locationDog, placeDog1, plac
 
 // subir fotos
 export const uploadProfilePhoto = (photoDog) => {
-  const storageRef = firebase.storage().ref('photo-dog/' + JSON.parse(sessionStorage.userBarkify).uid);
+  const storageRef = firebase.storage().ref(`photo-dog/${JSON.parse(sessionStorage.userBarkify).uid}`);
   const task = storageRef.put(photoDog);
   task.on('state_changed',
-    function progress(snapshot) {
+    (snapshot) => {
       const percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
       document.querySelector('#uploader').value = percentage;
     },
-    function error() {
-      console.log('no se subio tu foto')
+    () => {
+      console.log('no se subio tu foto');
     },
-    function complete() {
-      console.log('se subio tu foto')
+    () => {
+      console.log('se subio tu foto');
     });
-}
+};
 
 // bajar fotos
 export const downloadProfilePhoto = () => {
-  const storageRef = firebase.storage().ref('photo-dog/' + JSON.parse(sessionStorage.userBarkify).uid);
+  const storageRef = firebase.storage().ref(`photo-dog/${JSON.parse(sessionStorage.userBarkify).uid}`);
   storageRef.getDownloadURL()
-    .then(function (url) {
-      console.log('estoy trayendome la imagen')
+    .then((url) => {
+      console.log('estoy trayendome la imagen');
       const img = document.querySelector('#myProfilePic');
       img.src = url;
     })
-    .catch(function (error) {
+    .catch((error) => {
       // A full list of error codes is available at
       // https://firebase.google.com/docs/storage/web/handle-errors
       switch (error.code) {
@@ -230,9 +217,12 @@ export const downloadProfilePhoto = () => {
         case 'storage/unknown':
           // Unknown error occurred, inspect the server response
           break;
+        default:
+          // default error
+          break;
       }
     });
-}
+};
 
 // bajar data y mostrar en perfil
 export const accessData = () => {
@@ -265,10 +255,10 @@ export const accessData = () => {
 
 // bajar data y mostrar en el home (perros que no les he puesto like)
 export const showDogHome = () => {
-  const db = firebase.firestore();
+  // const db = firebase.firestore();
   const homeTwo = document.querySelector('#contentHometwo');
   db.collection('doggys').get().then((querySnapshot) => {
-    let sumShowDog = "";
+    let sumShowDog = '';
     querySnapshot.forEach((doc) => {
       let condition = 0;
       for (let i = 0; i < (doc.data().likedDog).length; i++) {
@@ -277,11 +267,11 @@ export const showDogHome = () => {
         }
       }
       if (condition !== 2 && doc.data().uid !== JSON.parse(sessionStorage.userBarkify).uid) {
-        firebase.storage().ref('photo-dog/' + doc.data().uid).getDownloadURL()
-          .then(function (url) {
-            let photoProfileDog = url
-            sumShowDog +=
-              `<div class="profilesDogsHome">
+        firebase.storage().ref(`photo-dog/${doc.data().uid}`).getDownloadURL()
+          .then((url) => {
+            const photoProfileDog = url;
+            sumShowDog
+              += `<div class="profilesDogsHome">
                   <h1 class="nameDogFeed">${doc.data().nameDog}</h1>
                   <div class="containerImgProfileDogFeed">
                     <img class="imgProfileDogFeed" src="${photoProfileDog}">
@@ -293,9 +283,9 @@ export const showDogHome = () => {
                     </div>
                     <p class="texts contentLikesFeed">${doc.data().like}</p>
                   </div>
-              </div>`
+              </div>`;
             homeTwo.innerHTML = sumShowDog;
-          })
+          });
       }
     });
   });
@@ -303,7 +293,7 @@ export const showDogHome = () => {
 
 // like a perros
 export const likeDog = (e) => {
-  const db = firebase.firestore();
+  // const db = firebase.firestore();
   db.collection('doggys').get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
       if (e.target.id === doc.data().uid) {
@@ -313,26 +303,26 @@ export const likeDog = (e) => {
         })
         window.location.hash = '#/LikedDogs'
       }
-    })
-  })
+    });
+  });
 };
 
-// mostrar los perros que les hice like 
+// mostrar los perros que les hice like
 export const showLikeDog = () => {
-  const db = firebase.firestore();
+  // const db = firebase.firestore();
   const screenLikedDog = document.querySelector('#likesProfiles');
   db.collection('doggys').get().then((querySnapshot) => {
-    let sumShowDogLikes = "";
-    // recorre toda la data de los perros 
+    let sumShowDogLikes = '';
+    // recorre toda la data de los perros
     querySnapshot.forEach((doc) => {
-      // for que recorre array todos los perros que han dado like a el mismo 
+      // for que recorre array todos los perros que han dado like a el mismo
       for (let i = 0; i < (doc.data().likedDog).length; i++) {
         if ((doc.data().likedDog)[i] === JSON.parse(sessionStorage.userBarkify).uid) {
-          firebase.storage().ref('photo-dog/' + doc.data().uid).getDownloadURL()
-            .then(function (url) {
-              let photoLikeDog = url
-              sumShowDogLikes +=
-                `<div class="containerDoggys">
+          firebase.storage().ref(`photo-dog/${doc.data().uid}`).getDownloadURL()
+            .then((url) => {
+              const photoLikeDog = url;
+              sumShowDogLikes
+                += `<div class="containerDoggys">
               <h1 class="nameDogLikedDogs">${doc.data().nameDog}</h1>
               <div class="containerImgProfileDog">
                 <img class="imgProfileDog" src="${photoLikeDog}">
@@ -344,9 +334,9 @@ export const showLikeDog = () => {
                 </div>
                 <p class="texts contentLikes">${doc.data().like}</p>
               </div>
-            </div>`
+            </div>`;
               screenLikedDog.innerHTML = sumShowDogLikes;
-            })
+            });
         }
       }
     });
@@ -356,8 +346,8 @@ export const showLikeDog = () => {
 // borrar perfil creado de mi perro
 export const deleteMyProfile = () => {
   // aca se borra
-  db.collection('doggys').doc( JSON.parse(sessionStorage.userBarkify).uid).delete().then(function() {
-    console.log("se borro");
+  db.collection('doggys').doc(JSON.parse(sessionStorage.userBarkify).uid).delete().then(() => {
+    console.log('se borro');
     window.location.hash = '#/Home1';
     // aca se borran todos los likes que hice y la información asociada a mi uid
     db.collection('doggys').get().then((querySnapshot) => {
@@ -366,21 +356,21 @@ export const deleteMyProfile = () => {
           if ((doc.data().likedDog)[i] === JSON.parse(sessionStorage.userBarkify).uid) {
             db.collection('doggys').doc(doc.data().uid).update({
               like: doc.data().like - 1,
-              likedDog: firebase.firestore.FieldValue.arrayRemove(JSON.parse(sessionStorage.userBarkify).uid)
+              likedDog: firebase.firestore.FieldValue.arrayRemove(JSON.parse(sessionStorage.userBarkify).uid),
             });
           }
         }
-      })
+      });
     })
-    .catch(function(error) {
-      console.error("se fue: ", error);
-    });
+      .catch((error) => {
+        console.error('se fue: ', error);
+      });
   });
 };
 
 // Dislike perritos
-export const dislikeDog= (e) => {
-  const db = firebase.firestore();
+export const dislikeDog = (e) => {
+  // const db = firebase.firestore();
   // en la info de los demas perros se resta el like que hice y se borra mi uid asociado a eso
   db.collection('doggys').get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
@@ -391,6 +381,6 @@ export const dislikeDog= (e) => {
         })
         window.location.hash = '#/Home2'
       }
-    })
-  })
+    });
+  });
 };

@@ -30,6 +30,8 @@ export const contentHomeTwo = () => {
     <div class="profile">
      <a href="#/myProfile" id="myProfileIcon"><img class="iconsFooter"  src="./img/iconProfile.png" alt="profile"></a>
     </div>
-  </footer>`
-  return homeTwo
+  </footer>
+    `;
+  return homeTwo;
+
 };

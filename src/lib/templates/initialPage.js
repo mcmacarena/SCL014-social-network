@@ -1,6 +1,5 @@
 export const contentInitialPage = () => {
-  const initialPage =
-    `<div id="initialPage">
+  const initialPage = `<div id="initialPage">
       <div id="logo">
         <img class="logoImg" src="./img/logo.png" alt="logo">
       </div>
@@ -26,6 +25,6 @@ export const contentInitialPage = () => {
       <p id="errogoogle" class="erromensaje"></p>
       <br>
       <a id="textSignIn" href="#/SignIn"><strong>¿No estas en Barkify aún? Regístrate</strong></a>
-    </div>`
+    </div>`;
   return initialPage;
 };
