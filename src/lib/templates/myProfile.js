@@ -79,7 +79,7 @@ export const contentMyProfile = () => {
         <div class="paw" id="iconPawMyprofile">
           <img class="iconsFooter" src="./img/iconPawLiked.png" alt="paw">
         </div>
-        <p id="contenidoDeLikes" class="texts">HOLAMUNDO</p>
+        <p id="contenidoDeLikes" class="texts"></p>
       </div>
     </main>
 
