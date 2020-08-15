@@ -257,6 +257,7 @@ export const accessData = () => {
         document.querySelector('#placeDogCloud1').innerHTML = doc.data().placeDog.placeDog1;
         document.querySelector('#placeDogCloud2').innerHTML = doc.data().placeDog.placeDog2;
         document.querySelector('#placeDogCloud3').innerHTML = doc.data().placeDog.placeDog3;
+        document.querySelector('#contenidoDeLikes').innerHTML = doc.data().like;
       }
     });
   });
@@ -288,7 +289,7 @@ export const showDogHome = () => {
                   <p class="locationFeed">${doc.data().locationDog}</p>
                   <div clas="containerLikesDogFeed">
                     <div class="pawLikedPawFeed">
-                      <a href="#/LikedDogs"><img id="${doc.data().uid}" class="iconPawLikesFeed" src="./img/iconPaw.png"  alt="paw"></a>
+                      <img id="${doc.data().uid}" class="iconPawLikesFeed" src="./img/iconPaw.png"  alt="paw">
                     </div>
                     <p class="texts contentLikesFeed">${doc.data().like}</p>
                   </div>
@@ -305,11 +306,12 @@ export const likeDog = (e) => {
   const db = firebase.firestore();
   db.collection('doggys').get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
-      if (e.target.id == doc.data().uid) {
+      if (e.target.id === doc.data().uid) {
         firebase.firestore().collection('doggys').doc(doc.data().uid).update({
           like: doc.data().like + 1,
           likedDog: firebase.firestore.FieldValue.arrayUnion(JSON.parse(sessionStorage.userBarkify).uid)
-        });
+        })
+        window.location.hash = '#/LikedDogs'
       }
     })
   })
@@ -382,11 +384,12 @@ export const dislikeDog= (e) => {
   // en la info de los demas perros se resta el like que hice y se borra mi uid asociado a eso
   db.collection('doggys').get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
-      if (e.target.id == doc.data().uid) {
+      if (e.target.id === doc.data().uid) {
         firebase.firestore().collection('doggys').doc(doc.data().uid).update({
           like: doc.data().like - 1,
           likedDog: firebase.firestore.FieldValue.arrayRemove(JSON.parse(sessionStorage.userBarkify).uid)
-        });
+        })
+        window.location.hash = '#/Home2'
       }
     })
   })

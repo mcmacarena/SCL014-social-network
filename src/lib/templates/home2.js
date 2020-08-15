@@ -13,8 +13,9 @@ export const contentHomeTwo = () => {
 <div id='menuBar'>
     <div><p id='emailLogOut'>${JSON.parse(sessionStorage.userBarkify).email}</p></div>
     <br>
-    <div><a href=" " class="btnLogOut" id="cerrarbtn">Cerrar sesión</a></div>
-</div>
+    <div>
+      <a href=" " class="btnLogOut" id="cerrarbtn">Cerrar sesión</a></div>
+  </div>
   <main>
     <div id="contentHometwo">
     </div>    
@@ -29,8 +30,6 @@ export const contentHomeTwo = () => {
     <div class="profile">
      <a href="#/myProfile" id="myProfileIcon"><img class="iconsFooter"  src="./img/iconProfile.png" alt="profile"></a>
     </div>
-  </footer>
-
-    `
+  </footer>`
   return homeTwo
 };
