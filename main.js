@@ -49,15 +49,15 @@ const render = (hash) => {
   }
   if (hash === '#/Home2') {
     screen.innerHTML = contentHomeTwo();
-    showDogHome();
-    document.querySelector('#contentHometwo').addEventListener('click', likeDog);
+    setTimeout(showDogHome,300)
+    document.querySelector('#contentHometwo').addEventListener('click', likeDog)
     document.querySelector('.toggle').addEventListener('click', () => {
       document.getElementById('menuBar').classList.toggle('active');
     });
   }
   if (hash === '#/LikedDogs') {
     screen.innerHTML = contentlikedDog();
-    showLikeDog();
+    setTimeout(showLikeDog,300);
     document.querySelector('#likesProfiles').addEventListener('click', dislikeDog);
   }
   if (hash === '#/createProfile') {
