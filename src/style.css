@@ -92,11 +92,8 @@ body{
     font-size: 14px;
     text-align: center;
     resize: none;
-    /* transition: height 0.4s ease-in-out; */
 }
-/* input[type=text]:focus {
-    height: 60px;
-} */
+
 #btnLogin, .btnContinue, .btnCreateProfile, .btnLogOut, .eliminateProfile{
     width: 236px;
     height: 25px;
@@ -131,14 +128,14 @@ body{
 .hide{
     display: none;
 }
-
 /* MAIN SCREEEN */
 #mainContentInitialPage{
     padding-top: 200px;
     background: white;
-    padding-bottom: 320px;
+    padding-bottom: 395px;
     text-align:center;
     font-weight:bold;
+    /* overflow-y: hidden; */
 }
 header{
     position: fixed;
@@ -325,8 +322,14 @@ footer{
     cursor: pointer;
 }
 /* botones del formualrio con estilo propio */
-#btnCreateProfile6, #btnCreateProfile8, #btnCreateProfile14{
+#btnCreateProfile6, #btnCreateProfile8{
     margin-top: 20px;
+}
+#btnCreateProfile14, #btnCreateProfile13,#btnCreateProfile12,#btnCreateProfile15{
+   margin-top:30px;
+}
+#btnCreateProfile14{
+    margin-top:10px;
 }
 /* perfil */
 .titleMyProfile{
@@ -424,17 +427,16 @@ footer{
     margin-top:59px;
     position: fixed;
     flex-direction: column;
-    top:-200px;
-    right:0px;
+    right:-300px;
     align-items: center;
     background-color:#D3BBF2;
     padding:10px;
     border-radius:5px;
-    transition: all 500ms linear;
+    transition: all 500ms ease-out;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 #menuBar.active{
-    top:0;
+    right:0;
 }
 .headerHome{
    display: flex;
@@ -460,3 +462,36 @@ textarea{
     border:1px solid #D3BBF2;
     border-radius:5px;
 }
+/*Parte de la barra de cada pregunta */
+#contentProgress{
+    width: 230px;
+    height: 7px;
+    margin-top: 40px;
+    margin-left:10px;
+    padding: 2px;
+    background: #E6E3F4;
+    border-radius: 2px;
+}
+#questOne, #questTwo, #questThree, #questFour, #questFive, #questSix,#questSeven, #questEight,#questNine,#questTen,#prefOne,#prefTwo,#prefThree,#prefFour,#signInOne,#signInTwo{
+    width: 20px;
+    height: 5.5px;
+    background: #583DD8;
+    border-radius: 2px;
+}
+#questTwo,#questThree, #questFour,#questFive, #questSix,#questSeven, #questEight,#questNine,#questTen{
+    margin-left:23px;
+}
+#prefOne, #prefTwo,#prefThree, #prefFour{
+    width:54px;
+}
+#prefTwo,#prefThree, #prefFour{
+    margin-left:58px; 
+}
+#signInOne,#signInTwo{
+    width:110px;
+}
+#signInTwo{
+    margin-left:115px;
+}
+
+
