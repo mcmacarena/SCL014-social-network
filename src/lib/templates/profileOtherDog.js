@@ -1,23 +1,24 @@
 export const contentProfileOtherDog = () => {
   const profileOtherDog = `<header class="header headerHome">
-      <div id="logoAndToggle">
-        <div id="logoHeader">
-          <img class="logoImg" src="img/logo.png" alt="logo">
+    <div id="logoAndToggle">
+      <div id="logoHeader">
+        <img class="logoImg" src="img/logo.png" alt="logo">
+      </div>
+      <div class="buttonsHeader">
+        <div class="paw">
+          <a href="#/LikedDogs" id="pawIconHeader"><img class="iconsFooter" src="./img/iconPawHeader.png" alt="paw"></a>
         </div>
-        <div class="buttonsHeader">
-          <div class="paw">
-            <a href="#/LikedDogs" id="pawIconHeader"><img class="iconsFooter" src="./img/iconPawHeader.png" alt="paw"></a>
-          </div>
-          <div class="home">
-            <a href="#/Home" id="homeIconHeader"><img class="iconsFooter" src="./img/homeIconLiked.png" alt="home"></a>
-          </div>
-          <div class="profile">
-            <a href="#/myProfile" id="myProfileIconHeader"><img class="iconsFooter" src="./img/iconProfileHeader.png" alt="profile"></a>
-          </div>
+        <div class="home">
+          <a href="#/Home" id="homeIconHeader"><img class="iconsFooter" src="./img/homeIconLiked.png" alt="home"></a>
         </div>
+        <div class="profile">
+          <a href="#/myProfile" id="myProfileIconHeader"><img class="iconsFooter" src="./img/iconProfileHeader.png" alt="profile"></a>
         </div>
-    </header>    
-    <main id="otherProfile">
+      </div>
+    </div>
+  </header>    
+  <main id="otherProfile">
+    <div>
       <div>
         <p class="titleMyProfile"></p>
         <div id="editIcon">
@@ -80,17 +81,22 @@ export const contentProfileOtherDog = () => {
           </p>
         </div>
       </div> 
-    </main>
-    <footer>
-      <div class="paw">
+    </div>
+    <div id="commentProfile">
+      <textarea id="inputComment" rows="4" cols="50" placeholder="Escriba un comentario"></textarea>
+      <button class="btnComment">Enviar</button>
+    </div>
+  </main>
+  <footer>
+    <div class="paw">
       <a href="#/LikedDogs" id="PawIcon"><img class="iconsFooter" src="./img/iconPawLiked.png" alt="paw"></a>
-      </div>
-      <div class="home">
+    </div>
+    <div class="home">
       <a href="#/Home" id="HomeIcon"><img class="iconsFooter" src="./img/homeIconNormal.png" alt="home"></a>
-      </div>
-      <div class="profile">
+    </div>
+    <div class="profile">
       <a href="#/myProfile" id="myProfileIcon"><img class="iconsFooter"  src="./img/iconProfile.png" alt="profile"></a>
-      </div>
-   </footer>`;
-  return profileOtherDog;
+    </div>
+  </footer>`;
+return profileOtherDog;
 };

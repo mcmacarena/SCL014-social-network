@@ -115,6 +115,8 @@ export const uploadInfo = (nameDog, sexDog, ageDog, locationDog, placeDog1, plac
     uid: JSON.parse(sessionStorage.userBarkify).uid,
     like: 0,
     likedDog: [],
+    commentDog: [],
+    nameCommentDog: [],
     nameDog,
     sexDog,
     ageDog,
@@ -300,7 +302,6 @@ export const showDogHome = () => {
 
 // like a perros
 export const likeDog = (e) => {
-  // const db = firebase.firestore();
   db.collection('doggys').get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
       if (e.target.id === doc.data().uid) {
@@ -316,7 +317,6 @@ export const likeDog = (e) => {
 
 // mostrar los perros que les hice like
 export const showLikeDog = () => {
-  // const db = firebase.firestore();
   const screenLikedDog = document.querySelector('#likesProfiles');
   db.collection('doggys').get().then((querySnapshot) => {
     let sumShowDogLikes = '';
@@ -395,7 +395,7 @@ export const dislikeDog = (e) => {
 export const otherProfile = (e) => {
   db.collection('doggys').get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
-      if (e.target.src.slice(87,115) === doc.data().uid) {
+      if (e.target.src.slice(87, 115) === doc.data().uid) {
         document.querySelector('#nameDogCloudOther').innerHTML = doc.data().nameDog;
         document.querySelector('#ageDogCloudOther').innerHTML = doc.data().ageDog;
         document.querySelector('#sexDogCloudOther').innerHTML = doc.data().sexDog;
@@ -415,15 +415,28 @@ export const otherProfile = (e) => {
         document.querySelector('#placeDogCloud2Other').innerHTML = doc.data().placeDog.placeDog2;
         document.querySelector('#placeDogCloud3Other').innerHTML = doc.data().placeDog.placeDog3;
         document.querySelector('#contenidoDeLikesOther').innerHTML = doc.data().like;
-      }   
+        document.querySelector('.btnComment').setAttribute("id", doc.data().uid)
+      }
     });
-    const storageRef = firebase.storage().ref(`photo-dog/${e.target.src.slice(87,115)}`);
+    const storageRef = firebase.storage().ref(`photo-dog/${e.target.src.slice(87, 115)}`);
     storageRef.getDownloadURL()
-    .then((url) => {
-      const img = document.querySelector('#profilePhotoOther');
-      img.src = url;
+      .then((url) => {
+        const img = document.querySelector('#profilePhotoOther');
+        img.src = url;
+      })
+  });
+
+  window.location.hash = '#/otherDogProfile'
+};
+
+export const commentDog = (e) => {
+  let myName = '';
+  db.collection('doggys').doc(JSON.parse(sessionStorage.userBarkify).uid).onSnapshot((doc) => {
+    myName = doc.data().nameDog;
+    const comment = document.querySelector('#inputComment').value;
+    firebase.firestore().collection('doggys').doc(e.target.id).update({
+      commentDog: firebase.firestore.FieldValue.arrayUnion(comment),
+      nameCommentDog: firebase.firestore.FieldValue.arrayUnion(myName)
     })
   });
-  
-  window.location.hash = '#/otherDogProfile'
 };
