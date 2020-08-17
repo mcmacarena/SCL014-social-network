@@ -162,7 +162,7 @@ header{
     align-self: flex-start;
     padding: 5px;
 }
-#buttonsHeader{
+.buttonsHeader{
     display: none;
 }
 
@@ -189,7 +189,6 @@ footer{
 
 #myProfile{
     background-color: white;
-    overflow: scroll;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -200,11 +199,13 @@ footer{
     display: flex;
     flex-direction: row;
     justify-self: space-around;
-    margin-top: -10px;
 }
+#containerPawLikes{
+    margin-top:15px;
+}
+
 .imgProfilePic{  
     width: 140px;
-    object-fit: cover;
 }
 #myProfilePic{
     width: 100%;
@@ -231,7 +232,6 @@ footer{
     font-size:16px;
     width: 95px;
     height: 75px;
-    margin-top: 15px;
     margin-right:40px;
 }
 .titleProfileSchedule{
@@ -267,12 +267,11 @@ footer{
     font-size: 16px;
 }
 #contenidoDeLikes{
-  margin-top: 30px;
-  margin-left: 10px;
+    margin-top:3px;
+    margin-left: 7px;
 }
 #iconPawMyprofile{
-    margin-left: -140px;
-    margin-top: 20px;
+    width: 25px;
 }
 /* google btn */
 .google-btn {
@@ -361,7 +360,6 @@ footer{
     flex-flow: row wrap;
     padding-top: 60px;
     padding-bottom: 75px;
-
 }
 .imgProfileDog, .imgProfileDogFeed, .iconPawLikesFeed{
     width: 100%;
@@ -370,7 +368,7 @@ footer{
     width:150px;
     height:140px;
 }
-/* creo que seria bueno cambiar el nombre de este */
+
 .containerDoggys{
     width: 150px;
     height: 218px;
@@ -449,7 +447,7 @@ footer{
     background-color:#D3BBF2;
     padding:10px;
     border-radius:5px;
-    transition: all 500ms ease-out;
+    transition: all 300ms ease-out;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 #menuBar.active{
@@ -473,7 +471,9 @@ footer{
     flex-direction: row;
 }
 #contentToggle{
-    padding-top: 10px;
+    margin-top: -44px;
+    align-self: flex-end;
+    padding-bottom:10px;
 }
 textarea{
     border:1px solid #D3BBF2;
@@ -512,7 +512,6 @@ textarea{
 }
 
 @media screen and (min-width:1024px){
-
     #photoInitialPage{
         display: block;
     }
@@ -534,7 +533,7 @@ textarea{
     .titles{
         font-size:22px;
     }
-    #buttonsHeader{
+    .btnCreateProfile{
         display: flex;
         align-content: space-evenly;
         margin-left: 20px;
@@ -542,12 +541,125 @@ textarea{
     footer{
         display: none;
     }
-    #logoAndToggle{
+    
+    #logoAndToggle, #headerLikeDogs{
         justify-content: space-around;
         align-items: center;
     }
-    .buttonsHeader, .home, .profile{
+    .paw, .home, .profile{
         margin-left: 20px;
+    }
+    .buttonsHeader{
+        display: flex;
+        align-content: space-evenly;
+        margin-left: 20px;
+    }
+    #contentHome, #likesProfiles {
+        padding-top: 80px;
+        flex-flow: row wrap;
+        justify-content:space-evenly;
+    }
+    .profilesDogsHome{
+        width: 350px;
+        height: 530px;
+        margin: 0px 90px 80px 90px;
+    }
+    #headerLikeDogs{
+        display: flex;
+        flex-direction: row;
+    }
+    #likesProfiles{
+        padding-top: 160px;
+        margin: 0px 90px 0px 90px;
+    }
+    .containerDoggys{
+        width: 250px;
+        height: 350px;
+        margin-left: 20px;
+        padding:10px 0px 40px 0px;
+        margin-bottom: 80px;
+        margin-top:20px;
+    }
+    .containerImgProfileDog{
+        width:250px;
+        height:140px;
+    }
+    .nameDogLikedDogs, .location, .nameDogFeed, .locationFeed{
+        font-size: 20px;
+        padding: 8px;
+        text-align: center;
+    }
+    .location{
+        font-size: 18px;
+        margin-top:120px;
+    }
+    .pawLikedPaw{
+        margin-left: 10px;
+        width: 30px;
+    }
+    .iconPawLikes{
+        margin-top:10px;
+        width:100%;
+    }
+    .contentLikes{
+        margin-left:55px;
+        margin-top:-32px; 
+    }
+    #myProfile{
+        width:50%;
+        height:100vh;
+        padding: 70px 0px 20px 70px;
+    }
+    .imgProfilePic{  
+        width: 240px;
+        height: 10px;
+    }
+    .nameInfo{
+        margin: 40px  60px 20px 100px;
+        width: auto;
+        height: 200px;
+    }
+    .nametitles{
+        font-size: 30px;
+        line-height: 28px;
+    }
+    .infoBasic{
+        font-size: 18px;
+        line-height: 20px;
+    }
+    .titleProfilePerso, .titleProfileSchedule, .titleProfilePlaces, .titleProfileBio{
+        font-size:16px;
+    }
+    #infoPersonality{
+        width: 200px;
+        height: 75px;
+        margin-top: 13px;
+    }
+    #infoSchedule{
+        width: 200px;
+        height: 75px;
+    }
+    #infoPlaces, #infoBio{
+        width: 450px;
+        height: 80px; 
+    }
+    #infoBio{
+        height:auto;
+    }
+    #iconPawMyprofile{
+        width:35px;
+    }
+    .textsShedule, .texts{
+        font-size: 19px;
+    }
+    #contentToggle{
+        align-self: right;
+    }
+    #containerPawLikes{
+        margin-top: 50px; 
+    }
+    #contenidoDeLikes{
+        margin-top: 8px;
     }
 
 }
