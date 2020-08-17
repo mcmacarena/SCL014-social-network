@@ -7,15 +7,16 @@ import { contentMyProfile } from './lib/templates/myProfile.js';
 import { contentlikedDog } from './lib/templates/likedDog.js';
 import { contentHome } from './lib/templates/home.js';
 import { contentCreateProfile } from './lib/templates/createProfile.js';
+import { contentProfileOtherDog } from './lib/templates/profileOtherDog.js'
 import {
   createProfileNext, disabledButton, createProfileBegin, closeCreateProfile,
 } from './lib/screensCreateProfile.js';
 import {
   signIn, logIn, signInGoogle, nextPage, finishRegistration, infoProfile,
-  photoProfileUpload, photoProfileDownload, closeSession,
+  photoProfileUpload, photoProfileDownload, closeSession, 
 } from './lib/index.js';
 import {
-  accessData, showDogHome, likeDog, showLikeDog, deleteMyProfile, dislikeDog,
+  accessData, showDogHome, likeDog, showLikeDog, deleteMyProfile, dislikeDog, otherProfile,
 } from './lib/firebase.js';
 
 const render = (hash) => {
@@ -49,7 +50,7 @@ const render = (hash) => {
   }
   if (hash === '#/Home') {
     screen.innerHTML = contentHome();
-    setTimeout(showDogHome,300)
+    setTimeout(showDogHome, 300)
     document.querySelector('#contentHome').addEventListener('click', likeDog)
     document.querySelector('.toggle').addEventListener('click', () => {
       document.getElementById('menuBar').classList.toggle('active');
@@ -57,8 +58,10 @@ const render = (hash) => {
   }
   if (hash === '#/LikedDogs') {
     screen.innerHTML = contentlikedDog();
-    setTimeout(showLikeDog,300);
+    setTimeout(showLikeDog, 300);
     document.querySelector('#likesProfiles').addEventListener('click', dislikeDog);
+    document.querySelector('#likesProfiles').addEventListener('click', otherProfile);
+
   }
   if (hash === '#/createProfile') {
     screen.innerHTML = contentCreateProfile();
@@ -70,6 +73,9 @@ const render = (hash) => {
     createProfileBegin();
     photoProfileUpload();
     closeCreateProfile();
+  }
+  if (hash === '#/otherDogProfile') {
+    screen.innerHTML = contentProfileOtherDog();
   }
 };
 
