@@ -37,8 +37,8 @@ export const logInUser = (email, password) => {
       db.collection('doggys').get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
           if (doc.data().uid === JSON.parse(sessionStorage.userBarkify).uid) {
-            window.location.hash = '#/Home2';
-          } else window.location.hash = '#/Home1';
+            window.location.hash = '#/Home';
+          } else window.location.hash = '#/myProfileEmpty';
         });
       });
     })
@@ -85,8 +85,8 @@ export const googleSignIn = (provider) => {
       db.collection('doggys').get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
           if (doc.data().uid === JSON.parse(sessionStorage.userBarkify).uid) {
-            window.location.hash = '#/Home2';
-          } else window.location.hash = '#/Home1';
+            window.location.hash = '#/Home';
+          } else window.location.hash = '#/myProfileEmpty';
         });
       });
     })
@@ -255,18 +255,25 @@ export const accessData = () => {
 
 // bajar data y mostrar en el home (perros que no les he puesto like)
 export const showDogHome = () => {
-  // const db = firebase.firestore();
-  const homeTwo = document.querySelector('#contentHometwo');
+  const home = document.querySelector('#contentHome');
+  // para acceder a mi ubicación y guardar mis datos
+  let myLocation = '';
+  db.collection('doggys').doc(JSON.parse(sessionStorage.userBarkify).uid).onSnapshot((doc) => {
+    myLocation = doc.data().locationDog;
+  });
+  // accediendo a todos los datos de la coleccion 
   db.collection('doggys').get().then((querySnapshot) => {
     let sumShowDog = '';
     querySnapshot.forEach((doc) => {
       let condition = 0;
+      // recorre todos los perros que han hecho like, y si aparece mi uid guarda la condicion
       for (let i = 0; i < (doc.data().likedDog).length; i++) {
         if ((doc.data().likedDog)[i] === JSON.parse(sessionStorage.userBarkify).uid) {
-          condition = 2;
+          condition = 'liked';
         }
       }
-      if (condition !== 2 && doc.data().uid !== JSON.parse(sessionStorage.userBarkify).uid) {
+      // me muestra si no le hecho like, no me muestra a mi mismo, y me muestra todos los de mi ubicacion 
+      if (condition !== 'liked' && doc.data().uid !== JSON.parse(sessionStorage.userBarkify).uid && doc.data().locationDog === myLocation) {
         firebase.storage().ref(`photo-dog/${doc.data().uid}`).getDownloadURL()
           .then((url) => {
             const photoProfileDog = url;
@@ -284,7 +291,7 @@ export const showDogHome = () => {
                     <p class="texts contentLikesFeed">${doc.data().like}</p>
                   </div>
               </div>`;
-            homeTwo.innerHTML = sumShowDog;
+            home.innerHTML = sumShowDog;
           });
       }
     });
@@ -348,7 +355,7 @@ export const deleteMyProfile = () => {
   // aca se borra
   db.collection('doggys').doc(JSON.parse(sessionStorage.userBarkify).uid).delete().then(() => {
     console.log('se borro');
-    window.location.hash = '#/Home1';
+    window.location.hash = '#/myProfileEmpty';
     // aca se borran todos los likes que hice y la información asociada a mi uid
     db.collection('doggys').get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
@@ -379,7 +386,7 @@ export const dislikeDog = (e) => {
           like: doc.data().like - 1,
           likedDog: firebase.firestore.FieldValue.arrayRemove(JSON.parse(sessionStorage.userBarkify).uid)
         })
-        window.location.hash = '#/Home2'
+        window.location.hash = '#/Home'
       }
     });
   });

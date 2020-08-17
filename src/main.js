@@ -2,10 +2,10 @@
 // Este es el punto de entrada de tu aplicacion
 import { contentInitialPage } from './lib/templates/initialPage.js';
 import { contentSignIn } from './lib/templates/signIn.js';
-import { contentHome } from './lib/templates/home.js';
+import { contentMyProfileEmpty } from './lib/templates/myProfileEmpty.js';
 import { contentMyProfile } from './lib/templates/myProfile.js';
 import { contentlikedDog } from './lib/templates/likedDog.js';
-import { contentHomeTwo } from './lib/templates/home2.js';
+import { contentHome } from './lib/templates/home.js';
 import { contentCreateProfile } from './lib/templates/createProfile.js';
 import {
   createProfileNext, disabledButton, createProfileBegin, closeCreateProfile,
@@ -31,8 +31,8 @@ const render = (hash) => {
     document.querySelector('#btnDoneSignIn').addEventListener('click', finishRegistration);
     document.querySelector('#btnDoneSignIn').addEventListener('mousedown', signIn);
   }
-  if (hash === '#/Home1') {
-    screen.innerHTML = contentHome();
+  if (hash === '#/myProfileEmpty') {
+    screen.innerHTML = contentMyProfileEmpty();
     document.querySelector('#cerrarbtn').addEventListener('click', closeSession);
     document.querySelector('.toggle').addEventListener('click', () => {
       document.getElementById('menuBar').classList.toggle('active');
@@ -47,10 +47,10 @@ const render = (hash) => {
     });
     document.querySelector('.eliminateProfile').addEventListener('click', deleteMyProfile);
   }
-  if (hash === '#/Home2') {
-    screen.innerHTML = contentHomeTwo();
+  if (hash === '#/Home') {
+    screen.innerHTML = contentHome();
     setTimeout(showDogHome,300)
-    document.querySelector('#contentHometwo').addEventListener('click', likeDog)
+    document.querySelector('#contentHome').addEventListener('click', likeDog)
     document.querySelector('.toggle').addEventListener('click', () => {
       document.getElementById('menuBar').classList.toggle('active');
     });
