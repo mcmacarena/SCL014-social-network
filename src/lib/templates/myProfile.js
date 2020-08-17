@@ -4,10 +4,21 @@ export const contentMyProfile = () => {
         <div id="logoHeader">
           <img class="logoImg" src="img/logo.png" alt="logo">
         </div>
+        <div class="buttonsHeader">
+          <div class="paw">
+            <a href="#/LikedDogs" id="pawIconHeader"><img class="iconsFooter" src="./img/iconPawHeader.png" alt="paw"></a>
+          </div>
+          <div class="home">
+            <a href="#/Home" id="homeIconHeader"><img class="iconsFooter" src="./img/homeIconLiked.png" alt="home"></a>
+          </div>
+          <div class="profile">
+            <a href="#/myProfile" id="myProfileIconHeader"><img class="iconsFooter"  src="./img/iconProfileHeader.png" alt="profile"></a>
+          </div>
+        </div>
+        </div>
         <div id="contentToggle">
           <span class="toggle">&#9776;</span>
         </div>
-      </div>
     </header>    
     <div id='menuBar'>
       <div>
@@ -36,6 +47,14 @@ export const contentMyProfile = () => {
           <p id="ageDogCloud" class="infoBasic"></p>
           <p id="sexDogCloud" class="infoBasic"></p>
           <p id="sizeDogCloud" class="infoBasic"></p>
+          <div id="containerPawLikes">
+            <div class="paw" id="iconPawMyprofile">
+              <img class="iconsFooter" src="./img/iconPawLiked.png" alt="paw">
+            </div>
+            <div>
+              <p id="contenidoDeLikes" class="texts"></p>
+            </div>
+          </div>
         </div>
       </div>
       <div id="personalitySchedule">
@@ -75,12 +94,7 @@ export const contentMyProfile = () => {
           </p>
         </div>
       </div>
-      <div id="containerPawLikes">
-        <div class="paw" id="iconPawMyprofile">
-          <img class="iconsFooter" src="./img/iconPawLiked.png" alt="paw">
-        </div>
-        <p id="contenidoDeLikes" class="texts"></p>
-      </div>
+      
     </main>
 
     <footer>

@@ -5,7 +5,7 @@ export const contentHome = () => {
     <div id="logoHeader">
       <img class="logoImg" src="img/logo.png" alt="logo">
     </div>
-    <div id="buttonsHeader">
+    <div class="buttonsHeader">
       <div class="paw">
         <a href="#/LikedDogs" id="pawIconHeader"><img class="iconsFooter" src="./img/iconPawHeader.png" alt="paw"></a>
       </div>

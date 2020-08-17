@@ -279,18 +279,18 @@ export const showDogHome = () => {
             const photoProfileDog = url;
             sumShowDog
               += `<div class="profilesDogsHome">
-                  <h1 class="nameDogFeed">${doc.data().nameDog}</h1>
-                  <div class="containerImgProfileDogFeed">
-                    <img class="imgProfileDogFeed" src="${photoProfileDog}">
-                  </div> 
-                  <p class="locationFeed">${doc.data().locationDog}</p>
-                  <div clas="containerLikesDogFeed">
-                    <div class="pawLikedPawFeed">
-                      <img id="${doc.data().uid}" class="iconPawLikesFeed" src="./img/iconPaw.png"  alt="paw">
-                    </div>
+                    <h1 class="nameDogFeed">${doc.data().nameDog}</h1>
+                    <div class="containerImgProfileDogFeed">
+                      <img class="imgProfileDogFeed" src="${photoProfileDog}">
+                    </div> 
+                    <p class="locationFeed">${doc.data().locationDog}</p>
+                    <div clas="containerLikesDogFeed">
+                      <div class="pawLikedPawFeed">
+                        <img id="${doc.data().uid}" class="iconPawLikesFeed" src="./img/iconPaw.png"  alt="paw">
+                      </div>
                     <p class="texts contentLikesFeed">${doc.data().like}</p>
                   </div>
-              </div>`;
+                </div>`;
             home.innerHTML = sumShowDog;
           });
       }
