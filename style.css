@@ -186,7 +186,7 @@ footer{
 
 /* PROFILE */
 
-#myProfile,#otherProfile{
+#myProfile, #otherProfile {
     background-color: white;
     display: flex;
     flex-flow: column nowrap;
@@ -209,6 +209,9 @@ footer{
 }
 #myProfilePic,#profilePhotoOther{
     width: 100%;
+}
+.btnComment{
+    padding-bottom: 50px;
 }
 .nametitles{
     font-size: 22px;

@@ -16,7 +16,7 @@ import {
   photoProfileUpload, photoProfileDownload, closeSession, 
 } from './lib/index.js';
 import {
-  accessData, showDogHome, likeDog, showLikeDog, deleteMyProfile, dislikeDog, otherProfile,
+  accessData, showDogHome, likeDog, showLikeDog, deleteMyProfile, dislikeDog, otherProfile, commentDog,
 } from './lib/firebase.js';
 
 const render = (hash) => {
@@ -52,9 +52,6 @@ const render = (hash) => {
     screen.innerHTML = contentHome();
     setTimeout(showDogHome, 300)
     document.querySelector('#contentHome').addEventListener('click', likeDog)
-    document.querySelector('.toggle').addEventListener('click', () => {
-      document.getElementById('menuBar').classList.toggle('active');
-    });
   }
   if (hash === '#/LikedDogs') {
     screen.innerHTML = contentlikedDog();
@@ -76,6 +73,7 @@ const render = (hash) => {
   }
   if (hash === '#/otherDogProfile') {
     screen.innerHTML = contentProfileOtherDog();
+    document.querySelector('.btnComment').addEventListener('mouseover',commentDog)
   }
 };
 
