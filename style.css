@@ -9,14 +9,17 @@ body{
     font-size: 14px;
     background: url('./img/fondo.jfif');
 }
-.backgroundChange{
+/* .backgroundChange{
     background-color: #D3BBF2;
-}
+} */
 
 /* PÁGINA DE INICIO */
 .titles, .titleProfile, .titleProfilePerso, .titleProfileSchedule, .titleProfilePlaces, .titleProfileBio{
     color: #393e46;
     font-size:18px;
+}
+.titleProfilePerso, .titleProfileSchedule, .titleProfilePlaces, .titleProfileBio{
+    font-size:12px;
 }
 #logo{
     width: 150px;
@@ -27,15 +30,24 @@ body{
 }
 #initialPage{
     background-color: white;
-    padding-bottom: 81px;
-    padding-top: 150px;
+    /* padding-bottom: 81px; */
+    height: 100vh;
     display: flex;
     flex-flow: column;
     align-items: center;
-    justify-self: center;
+    justify-content: center;
     color: rgba(0, 0, 0, 0.62);
 }
 /* SIGN IN */
+#photoInitialPage{
+    display: none;
+    width:60%;
+}
+
+#photoLogin{
+    width: auto;
+    height: 100vh;
+}
 #containerSignIn, #containerCreateProfile {
     margin-top: 80px;
     display: flex;
@@ -150,6 +162,9 @@ header{
     align-self: flex-start;
     padding: 5px;
 }
+#buttonsHeader{
+    display: none;
+}
 
 footer{
     width: 100%;
@@ -213,7 +228,8 @@ footer{
     margin-bottom: 5px;
 }
 #infoPersonality{
-    width: 80px;
+    font-size:16px;
+    width: 95px;
     height: 75px;
     margin-top: 15px;
     margin-right:40px;
@@ -223,7 +239,7 @@ footer{
     margin-bottom: 5px;
 }
 #infoSchedule{
-    width: 120px;
+    width: 150px;
     height: 75px;
 }
 .titleProfilePlaces, .titleProfileBio{
@@ -231,7 +247,8 @@ footer{
     margin-bottom: 5px;
 }
 #infoPlaces, #infoBio{
-    width: 266px;
+    font-size:16px;
+    width: 296px;
     height: 60px; 
 }
 #infoBio{
@@ -243,11 +260,11 @@ footer{
     padding: 5px 10px;
 }
 .texts, .infoBasic, .textsShedule{
-    font-size: 15px;
+    font-size: 16px;
     line-height: 18px;
 }
 .textsShedule{
-    font-size: 13px;
+    font-size: 16px;
 }
 #contenidoDeLikes{
   margin-top: 30px;
@@ -391,7 +408,7 @@ footer{
     margin-top:-22px; 
 }
 /* Home dos */
-#contentHometwo{
+#contentHome{
     padding-top: 80px;
     display: flex;
     flex-direction: column;
@@ -494,4 +511,43 @@ textarea{
     margin-left:115px;
 }
 
+@media screen and (min-width:1024px){
 
+    #photoInitialPage{
+        display: block;
+    }
+    #photoContentInitialPage{
+        display: flex;
+        flex-flow: row wrap;
+    }
+    #initialPage{
+        width:40%;
+    }
+    #signIn, #createProfile { 
+        width: 400px;
+        height: 580px;  
+        padding: 10px 20px;
+    }
+    #titleSignIn, #titleCreateProfile{
+        justify-content: space-between;
+    }
+    .titles{
+        font-size:22px;
+    }
+    #buttonsHeader{
+        display: flex;
+        align-content: space-evenly;
+        margin-left: 20px;
+    }
+    footer{
+        display: none;
+    }
+    #logoAndToggle{
+        justify-content: space-around;
+        align-items: center;
+    }
+    .buttonsHeader, .home, .profile{
+        margin-left: 20px;
+    }
+
+}
