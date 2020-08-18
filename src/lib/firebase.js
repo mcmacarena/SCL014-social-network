@@ -352,26 +352,36 @@ export const showLikeDog = () => {
 
 // borrar perfil creado de mi perro
 export const deleteMyProfile = () => {
+  const modalAceptacion = document.querySelector('#modalAceptation');
+  modalAceptacion.style.display = 'block';
+  document.querySelector('#answerYes').addEventListener('click', () => {
+  let answerYes = modalAceptacion.innerHTML;
+  // const answerNo = document.querySelector('#answerNo').addEventListener('click',);
+    if (answerYes) {
   // aca se borra
-  db.collection('doggys').doc(JSON.parse(sessionStorage.userBarkify).uid).delete().then(() => {
-    console.log('se borro');
-    window.location.hash = '#/myProfileEmpty';
+      db.collection('doggys').doc(JSON.parse(sessionStorage.userBarkify).uid).delete().then(() => {
+        console.log('se borro');
+        window.location.hash = '#/myProfileEmpty';
     // aca se borran todos los likes que hice y la información asociada a mi uid
-    db.collection('doggys').get().then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        for (let i = 0; i < (doc.data().likedDog).length; i++) {
-          if ((doc.data().likedDog)[i] === JSON.parse(sessionStorage.userBarkify).uid) {
-            db.collection('doggys').doc(doc.data().uid).update({
-              like: doc.data().like - 1,
-              likedDog: firebase.firestore.FieldValue.arrayRemove(JSON.parse(sessionStorage.userBarkify).uid),
-            });
+        db.collection('doggys').get().then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            for (let i = 0; i < (doc.data().likedDog).length; i++) {
+              if ((doc.data().likedDog)[i] === JSON.parse(sessionStorage.userBarkify).uid) {
+                db.collection('doggys').doc(doc.data().uid).update({
+                  like: doc.data().like - 1,
+                  likedDog: firebase.firestore.FieldValue.arrayRemove(JSON.parse(sessionStorage.userBarkify).uid),
+                });
+              }
           }
-        }
+          });
+       })
+        .catch((error) => {
+            console.error('se fue: ', error);
+          });
       });
-    })
-      .catch((error) => {
-        console.error('se fue: ', error);
-      });
+    } if (answerNo) {
+      modalAceptacion.style.display = 'none';
+    }
   });
 };
 
