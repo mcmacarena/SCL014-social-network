@@ -73,7 +73,7 @@ const render = (hash) => {
   }
   if (hash === '#/otherDogProfile') {
     screen.innerHTML = contentProfileOtherDog();
-    document.querySelector('.btnComment').addEventListener('mouseover',commentDog)
+    document.querySelector('.btnComment').addEventListener('click',commentDog)
   }
 };
 
