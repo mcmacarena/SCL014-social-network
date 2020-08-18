@@ -2,17 +2,12 @@
     padding: 0;
     margin: 0;
     color: #655C56;
-    
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 body{
     font-size: 14px;
     background: url('./img/fondo.jfif');
 }
-/* .backgroundChange{
-    background-color: #D3BBF2;
-} */
-
 /* PÁGINA DE INICIO */
 .titles, .titleProfile, .titleProfilePerso, .titleProfileSchedule, .titleProfilePlaces, .titleProfileBio{
     color: #393e46;
@@ -509,6 +504,48 @@ textarea{
 }
 #signInTwo{
     margin-left:115px;
+}
+/* mensajeconfirmacion */
+#modalAceptation{
+    display: none;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top:50px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+   
+}
+#contentModalAceptacion{
+    text-align: center;
+    color: rgba(0, 0, 0, 0.62);
+    margin: auto;
+    padding: 20px;
+    width: 70%;
+    background-color: white;
+    display: flex;
+    flex-flow:row wrap;
+    justify-content: center;
+    font-size: 18px;
+    border: 0.5px solid rgba(100, 116, 130, 0.5);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+#answerYes, #answerNo{
+    width: 100px;
+    height: 20px;
+    border:none;
+    background: #943DD8;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    color: white;  
+    text-align: center;
+    margin: 9px 5px 0px 0px;
+}
+#homeIconHeader:hover, #pawIconHeader:hover, #myProfileIconHeader:hover{
+    filter: drop-shadow(0px 2px 3px #943DD8);
 }
 
 @media screen and (min-width:1024px){

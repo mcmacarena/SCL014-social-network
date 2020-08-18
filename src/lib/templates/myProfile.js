@@ -9,10 +9,10 @@ export const contentMyProfile = () => {
             <a href="#/LikedDogs" id="pawIconHeader"><img class="iconsFooter" src="./img/iconPawHeader.png" alt="paw"></a>
           </div>
           <div class="home">
-            <a href="#/Home" id="homeIconHeader"><img class="iconsFooter" src="./img/homeIconLiked.png" alt="home"></a>
+            <a href="#/Home" id="homeIconHeader"><img class="iconsFooter" src="./img/homeIconHeader.png" alt="home"></a>
           </div>
           <div class="profile">
-            <a href="#/myProfile" id="myProfileIconHeader"><img class="iconsFooter"  src="./img/iconProfileHeader.png" alt="profile"></a>
+            <a href="#/myProfile" id="myProfileIconHeader"><img class="iconsFooter"  src="./img/iconProfileLiked.png" alt="profile"></a>
           </div>
         </div>
         </div>
@@ -25,7 +25,16 @@ export const contentMyProfile = () => {
         <p id='emailLogOut'>${JSON.parse(sessionStorage.userBarkify).email}</p>
       </div>
       <br>
-      <div><button class="eliminateProfile">Eliminar Perfil</button></div>
+      <div>
+        <button class="eliminateProfile">Eliminar Perfil</button>
+        <div id='modalAceptation'>
+          <div id='contentModalAceptacion'>
+            <p>¿Estas seguro de querer eliminar tu perfil?</p>
+            <button id="answerYes">Si</button>
+            <button id="answerNo">No</button>
+          </div>
+        </div>
+      </div>
       <br>
       <div>
         <a href=" " class="btnLogOut" id="cerrarbtn">Cerrar sesión</a>

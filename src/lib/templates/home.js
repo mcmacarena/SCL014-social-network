@@ -7,13 +7,13 @@ export const contentHome = () => {
     </div>
     <div class="buttonsHeader">
       <div class="paw">
-        <a href="#/LikedDogs" id="pawIconHeader"><img class="iconsFooter" src="./img/iconPawHeader.png" alt="paw"></a>
+        <a href="#/LikedDogs"><img class="iconsFooter" id="pawIconHeader"src="./img/iconPawHeader.png" alt="paw"></a>
       </div>
       <div class="home">
-        <a href="#/Home" id="homeIconHeader"><img class="iconsFooter" src="./img/homeIconLiked.png" alt="home"></a>
+        <a href="#/Home"><img class="iconsFooter" id="homeIconHeader"src="./img/homeIconLiked.png" alt="home"></a>
       </div>
       <div class="profile">
-        <a href="#/myProfile" id="myProfileIconHeader"><img class="iconsFooter"  src="./img/iconProfileHeader.png" alt="profile"></a>
+        <a href="#/myProfile"><img class="iconsFooter" id="myProfileIconHeader" src="./img/iconProfileHeader.png" alt="profile"></a>
       </div>
     </div>
     </div>
