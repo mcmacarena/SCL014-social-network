@@ -100,7 +100,6 @@ body{
     text-align: center;
     resize: none;
 }
-
 #btnLogin, .btnContinue, .btnCreateProfile, .btnLogOut, .eliminateProfile{
     width: 236px;
     height: 25px;
@@ -115,7 +114,6 @@ body{
 }
 .btnCreateProfile, #btnCreateProfile16{
     text-decoration: none;
-    padding: 5px 100px;
 }
 .btnLogOut, .hideButton, .btnContinue{
    margin-top: 100px;
@@ -137,10 +135,11 @@ body{
 }
 /* MAIN SCREEEN */
 #mainContentInitialPage{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
     padding-top: 200px;
-    background: white;
     padding-bottom: 395px;
-    text-align:center;
     font-weight:bold;
     /* overflow-y: hidden; */
 }
@@ -181,8 +180,9 @@ footer{
 }
 
 /* PROFILE */
-.mainMyProfile{
+.mainMyProfile, .mainMyProfileEmpty{
     background-color: white;
+    height: 100%;
 }
 #myProfile, #otherProfile{
     display: flex;
@@ -246,7 +246,7 @@ footer{
 }
 #infoPlaces, #infoBio{
     font-size:16px;
-    width: 296px;
+    width: 300px;
     height: 60px; 
 }
 #infoBio{
@@ -270,6 +270,7 @@ footer{
 }
 #iconPawMyprofile{
     width: 25px;
+    padding-left:20px;
 }
 /* google btn */
 .google-btn {
@@ -305,6 +306,13 @@ footer{
 }
 .google-btn:hover {
     box-shadow: 0 0 6px #1669F2;
+}
+#closeOtherProfile{
+    align-self:flex-end;
+    padding-top: 10px;
+    padding-right:20px;
+    font-size:20px;
+    text-decoration:none;
 }
 
 /* claramente un error mensaje */
@@ -545,9 +553,10 @@ textarea{
 }
 /* comentarios */
 .titlesComment{
-    font-size:20px;
-    padding-left:15px;
-    padding-bottom:10px;
+    font-size:18px;
+    padding-left:20px;
+    padding-bottom:8px;
+    color: #1E3250;
 }
 #commentProfile,#commentmyProfile{
     display:flex;
@@ -570,10 +579,10 @@ textarea{
     margin-bottom: 10px;
 }
 .nameDogComment{
-    font-size:18px;
+    font-size:15px;
 }
 .commentDog{
-    font-size: 14px;
+    font-size: 13px;
 }
 #inputComment, #inputmyComment{
     align-self:center;
@@ -604,7 +613,7 @@ textarea{
     #initialPage{
         width:40%;
     }
-    #signIn, #createProfile { 
+    #signIn, #createProfile, #forgetPassword{ 
         width: 400px;
         height: 580px;  
         padding: 10px 20px;
@@ -616,9 +625,7 @@ textarea{
         font-size:22px;
     }
     .btnCreateProfile{
-        display: flex;
-        align-content: space-evenly;
-        margin-left: 20px;
+        text-align:center;
     }
     footer{
         display: none;
@@ -751,24 +758,17 @@ textarea{
      }
     /* comentarios perfils */
     #commentProfile,#commentmyProfile{
-        display:flex;
-        flex-flow: column nowrap;
-        height: 100vh;
-        width:50%;
-        padding: 170px 0px 0px 0px;
-        margin-left:70px;
+        padding-top: 170px;
     }
-    #commentsDog{
-        display: flex;
-        flex-flow: column nowrap;
+    .titlesComment{
+        font-size:30px;
+        padding-left:20px;
+        padding-bottom:8px;
     }
     .individualComment{
         padding: 10px;
         width:400px;
         height: auto;
-        background: #FFFFFF;
-        border: 0.5px solid rgba(100, 116, 130, 0.5);
-        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 15px;
         margin-bottom: 10px;
     }
@@ -779,22 +779,36 @@ textarea{
         font-size: 16px;
     }
     #inputComment, #inputmyComment{
-        background: #E6E3F4;
         width:400px;
         height:60px;
         padding: 10px;
         font-size:16px;
     }
     .btnComment{
-        border:none;
-        background: #943DD8;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 10px;
-        color: white;  
-        text-align: center;
         width:200px;
         height:35px;
-        padding: 10px 10px 10px 10px;
     }
+    .mainMyProfile{
+        background-color: white;
+        height:100%;
+        display:flex;
+        flex-direction: row;
+    }
+    .mainMyProfileEmpty{
+        background-color: white;
+        height:100vh;
+    }
+    #myProfile, #otherProfile{
+        width:50%;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+        padding-top:60px;
+        padding-bottom:25px;
+    }
+   
+
+    
 
 }   
