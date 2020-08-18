@@ -89,6 +89,7 @@ export const contentProfileOtherDog = () => {
       </div>
       <textarea id="inputComment" rows="4" cols="50" placeholder="Escriba un comentario"></textarea>
       <button class="btnComment">Enviar</button>
+      <button class="btnBack">Volver</button>
     </div>
   </main>
   <footer>

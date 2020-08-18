@@ -8,16 +8,18 @@ import { contentlikedDog } from './lib/templates/likedDog.js';
 import { contentHome } from './lib/templates/home.js';
 import { contentCreateProfile } from './lib/templates/createProfile.js';
 import { contentProfileOtherDog } from './lib/templates/profileOtherDog.js'
+import { contentForget } from './lib/templates/forgetpassword.js';
 import {
   createProfileNext, disabledButton, createProfileBegin, closeCreateProfile,
 } from './lib/screensCreateProfile.js';
 import {
   signIn, logIn, signInGoogle, nextPage, finishRegistration, infoProfile,
-  photoProfileUpload, photoProfileDownload, closeSession, 
+  photoProfileUpload, photoProfileDownload, closeSession,
 } from './lib/index.js';
 import {
-  accessData, showDogHome, likeDog, showLikeDog, deleteMyProfile, dislikeDog, otherProfile, commentDog,
+  accessData, showDogHome, likeDog, showLikeDog, deleteMyProfile, dislikeDog, otherProfile, commentDog, forgetPassword,
 } from './lib/firebase.js';
+
 
 const render = (hash) => {
   const screen = document.getElementById('screens');
@@ -31,6 +33,10 @@ const render = (hash) => {
     document.querySelector('#btnToPassword').addEventListener('click', nextPage);
     document.querySelector('#btnDoneSignIn').addEventListener('click', finishRegistration);
     document.querySelector('#btnDoneSignIn').addEventListener('mousedown', signIn);
+  }
+  if (hash === '#/forgetPassword') {
+    screen.innerHTML = contentForget();
+    document.querySelector('#forgetPasswordBtn').addEventListener('click', forgetPassword)
   }
   if (hash === '#/myProfileEmpty') {
     screen.innerHTML = contentMyProfileEmpty();
@@ -73,7 +79,7 @@ const render = (hash) => {
   }
   if (hash === '#/otherDogProfile') {
     screen.innerHTML = contentProfileOtherDog();
-    document.querySelector('.btnComment').addEventListener('click',commentDog)
+    document.querySelector('.btnComment').addEventListener('click', commentDog)
 
   }
 };

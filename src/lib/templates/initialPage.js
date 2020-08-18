@@ -18,7 +18,7 @@ export const contentInitialPage = () => {
       <br>
       <a id="btnLogin" type="button">Log In</a>
       <br>
-      <p><u>¿Olvidaste tus datos de inicion de sesión? <strong>Recuperar</strong></u></p>
+      <a href='#/forgetPassword'>¿Olvidaste tus datos de inicion de sesión? <strong>Recuperar</strong></a>
       <br>
       <!-- ingresar con google -->
       <div id="btnGoogle" class="google-btn">
