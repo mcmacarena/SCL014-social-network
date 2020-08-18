@@ -116,7 +116,6 @@ export const uploadInfo = (nameDog, sexDog, ageDog, locationDog, placeDog1, plac
     like: 0,
     likedDog: [],
     commentDog: [],
-    nameCommentDog: [],
     nameDog,
     sexDog,
     ageDog,
@@ -250,6 +249,16 @@ export const accessData = () => {
         document.querySelector('#placeDogCloud2').innerHTML = doc.data().placeDog.placeDog2;
         document.querySelector('#placeDogCloud3').innerHTML = doc.data().placeDog.placeDog3;
         document.querySelector('#contenidoDeLikes').innerHTML = doc.data().like;
+        let sumCommentDog = ''
+        const commentsDog = document.querySelector('#commentsDog');
+        for (let i = 0; i < (doc.data().commentDog).length; i++) {
+          sumCommentDog
+          += `<div class="individualComment">
+                <h1 class="nameDogComment">${doc.data().commentDog[i].myName}</h1>
+                <p class="commentDog">${doc.data().commentDog[i].comment}</p>
+              </div>`;
+        commentsDog.innerHTML = sumCommentDog;
+        }
       }
     });
   });
@@ -427,15 +436,14 @@ export const otherProfile = (e) => {
     document.querySelector('.btnComment').setAttribute("id", doc.data().uid);
     let sumCommentDog = ''
     const commentsDog = document.querySelector('#commentsDog');
-    for (let i = 0; i < (doc.data().nameCommentDog).length; i++) {
+    for (let i = 0; i < (doc.data().commentDog).length; i++) {
       sumCommentDog
-        += `<div class="">
-              <h1 class="nameDogComment">${doc.data().nameCommentDog[i]}</h1>
-              <p class="commentDog">${doc.data().commentDog[i]}</p>
+        += `<div class="individualComment">
+              <h1 class="nameDogComment">${doc.data().commentDog[i].myName}</h1>
+              <p class="commentDog">${doc.data().commentDog[i].comment}</p>
             </div>`;
       commentsDog.innerHTML = sumCommentDog;
     }
-
   });
   const storageRef = firebase.storage().ref(`photo-dog/${e.target.src.slice(87, 115)}`);
   storageRef.getDownloadURL()
@@ -446,18 +454,6 @@ export const otherProfile = (e) => {
   window.location.hash = '#/otherDogProfile'
 };
 
-export const intentarmostrarcomentarios = (e) => {
-  
-  db.collection('doggys').doc(e.target.src.slice(87, 115)).onSnapshot((doc) => {
-    
-  });
-  window.location.hash = '#/otherDogProfile'
-};
-
-
-
-
-
 
 // comentarios de los perritos
 export const commentDog = (e) => {
@@ -465,21 +461,8 @@ export const commentDog = (e) => {
     const myName = doc.data().nameDog;
     const comment = document.querySelector('#inputComment').value;
     firebase.firestore().collection('doggys').doc(e.target.id).update({
-      commentDog: firebase.firestore.FieldValue.arrayUnion(comment),
-      nameCommentDog: firebase.firestore.FieldValue.arrayUnion(myName)
+      commentDog: firebase.firestore.FieldValue.arrayUnion({comment,myName})
     })
   });
 };
 
-// mostrar comentarios
-export const showCommentsOtherProfile = (e) => {
-  // // accediendo a todos los datos de la coleccion 
-  // db.collection('doggys').get().then((querySnapshot) => {
-  //   querySnapshot.forEach((doc) => {
-  //     if (e.target.id === doc.data().uid) {
-  //       document.querySelector('#commentDog').innerHTML = doc.data().commentDog
-  //       document.querySelector('#nameComment').innerHTML = doc.data().nameCommentDog
-  //     }
-  //   });
-  // });
-};
