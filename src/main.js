@@ -16,7 +16,7 @@ import {
   photoProfileUpload, photoProfileDownload, closeSession, 
 } from './lib/index.js';
 import {
-  accessData, showDogHome, likeDog, showLikeDog, deleteMyProfile, dislikeDog, otherProfile, commentDog, showCommentsOtherProfile,
+  accessData, showDogHome, likeDog, showLikeDog, deleteMyProfile, dislikeDog, otherProfile, commentDog,
 } from './lib/firebase.js';
 
 const render = (hash) => {
@@ -74,7 +74,6 @@ const render = (hash) => {
   if (hash === '#/otherDogProfile') {
     screen.innerHTML = contentProfileOtherDog();
     document.querySelector('.btnComment').addEventListener('click',commentDog)
-    document.querySelector('.btnComment').addEventListener('click',showCommentsOtherProfile)
 
   }
 };

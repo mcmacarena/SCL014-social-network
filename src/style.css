@@ -80,7 +80,7 @@ body{
     margin-bottom: 50px;
     font-weight: bold;
 }
-.inputs, .inputSelect, #biographyDog{
+.inputs, .inputSelect, #biographyDog,#inputComment{
     width: 230px;
     height: 25px;
     border: none;
@@ -180,15 +180,16 @@ footer{
 }
 
 /* PROFILE */
-
-#myProfile, #otherProfile {
+.mainMyProfile{
     background-color: white;
+}
+#myProfile, #otherProfile{
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    padding-bottom: 20px;
+    padding-top:60px;
+    padding-bottom:25px;
 }
 #profilePicInfo, #personalitySchedule, #containerPawLikes{
     display: flex;
@@ -205,13 +206,11 @@ footer{
 #myProfilePic,#profilePhotoOther{
     width: 100%;
 }
-.btnComment{
-    padding-bottom: 50px;
-}
 .nametitles{
     font-size: 22px;
     line-height: 26px;
     color: #1E3250;
+    font-weight: bold;
 }
 .nameInfo{
     margin: 20px  40px 0px 40px;
@@ -550,7 +549,56 @@ textarea{
 #homeIconHeader:hover, #pawIconHeader:hover, #myProfileIconHeader:hover{
     filter: drop-shadow(0px 2px 3px #943DD8);
 }
-
+/* comentarios */
+.titlesComment{
+    font-size:20px;
+    padding-left:15px;
+    padding-bottom:10px;
+}
+#commentProfile,#commentmyProfile{
+    display:flex;
+    flex-flow: column nowrap;
+    padding: 0px;
+    padding-bottom:100px;
+}
+#commentsDog{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+.individualComment{
+    padding: 10px;
+    width:300px;
+    height: auto;
+    background: #FFFFFF;
+    border: 0.5px solid rgba(100, 116, 130, 0.5);
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+.nameDogComment{
+    font-size:18px;
+}
+.commentDog{
+    font-size: 14px;
+}
+#inputComment, #inputmyComment{
+    align-self:center;
+    background: #E6E3F4;
+    width:300px;
+    height:60px;
+    padding: 10px;
+    font-size:16px;
+}
+.btnComment{
+    align-self:center;
+    border:none;
+    background: #943DD8;
+    border-radius: 10px;
+    color: white;  
+    text-align: center;
+    width:310px;
+    height:25px;
+}
 @media screen and (min-width:1024px){
     #photoInitialPage{
         display: block;
@@ -581,7 +629,6 @@ textarea{
     footer{
         display: none;
     }
-    
     #logoAndToggle, #headerLikeDogs{
         justify-content: space-around;
         align-items: center;
@@ -645,11 +692,6 @@ textarea{
         margin-left:55px;
         margin-top:-32px; 
     }
-    #myProfile{
-        width:50%;
-        height:100vh;
-        padding: 70px 0px 20px 70px;
-    }
     .imgProfilePic{  
         width: 240px;
         height: 10px;
@@ -660,6 +702,7 @@ textarea{
         height: 200px;
     }
     .nametitles{
+        
         font-size: 30px;
         line-height: 28px;
     }
@@ -701,5 +744,63 @@ textarea{
     #contenidoDeLikes{
         margin-top: 8px;
     }
+    #otherProfile, #myProfile{
+        padding-top:50px;
+        height: 100vh;
+        display:flex;
+        flex-flow: row nowrap;
+    }
+    .titleMyProfile{
+        margin-top: 10px;
+        text-align: center;
+        font-size: 24px;
+     }
+    /* comentarios perfils */
+    #commentProfile,#commentmyProfile{
+        display:flex;
+        flex-flow: column nowrap;
+        height: 100vh;
+        width:50%;
+        padding: 170px 0px 0px 0px;
+        margin-left:70px;
+    }
+    #commentsDog{
+        display: flex;
+        flex-flow: column nowrap;
+    }
+    .individualComment{
+        padding: 10px;
+        width:400px;
+        height: auto;
+        background: #FFFFFF;
+        border: 0.5px solid rgba(100, 116, 130, 0.5);
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
+        margin-bottom: 10px;
+    }
+    .nameDogComment{
+        font-size:22px;
+    }
+    .commentDog{
+        font-size: 16px;
+    }
+    #inputComment, #inputmyComment{
+        background: #E6E3F4;
+        width:400px;
+        height:60px;
+        padding: 10px;
+        font-size:16px;
+    }
+    .btnComment{
+        border:none;
+        background: #943DD8;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        color: white;  
+        text-align: center;
+        width:200px;
+        height:35px;
+        padding: 10px 10px 10px 10px;
+    }
 
-}
+}   

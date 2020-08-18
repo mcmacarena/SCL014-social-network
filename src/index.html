@@ -1,48 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="../vanilla-image-cropper-master/dist/css/imagecrop.min.css"> -->
+    <title>Barkify</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css">
-  <!-- <link rel="stylesheet" href="../vanilla-image-cropper-master/dist/css/imagecrop.min.css"> -->
-  <title>Barkify</title>
-</head>
+  <body>
+    <div id="screens"></div>
+    <!-- <script src="../vanilla-image-cropper-master/src/js/imagecrop.js"></script> -->
+    
+    <!-- FIREBASE -->
 
-<body>
-  <div id='screens'>
-  </div>
-  <!-- <script src="../vanilla-image-cropper-master/src/js/imagecrop.js"></script> -->
-  
-  <!-- FIREBASE -->
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
 
-  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-storage.js"></script>
 
-  <!-- Add Firebase products that you want to use -->
-  <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-storage.js"></script>
-  
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAdYSEqzvHf9EPW4xSTjIJ6yNlyjN4ZUNE",
+        authDomain: "social-media-dog.firebaseapp.com",
+        databaseURL: "https://social-media-dog.firebaseio.com",
+        projectId: "social-media-dog",
+        storageBucket: "social-media-dog.appspot.com",
+        messagingSenderId: "1072828033940",
+        appId: "1:1072828033940:web:0750faa2cac5bbf4aafd81",
+        measurementId: "G-GMTJEHC95Q",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
 
-  <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-      apiKey: "AIzaSyAdYSEqzvHf9EPW4xSTjIJ6yNlyjN4ZUNE",
-      authDomain: "social-media-dog.firebaseapp.com",
-      databaseURL: "https://social-media-dog.firebaseio.com",
-      projectId: "social-media-dog",
-      storageBucket: "social-media-dog.appspot.com",
-      messagingSenderId: "1072828033940",
-      appId: "1:1072828033940:web:0750faa2cac5bbf4aafd81",
-      measurementId: "G-GMTJEHC95Q"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-  </script>
-  
-  <script type='module' src='main.js'></script>
-</body>
-
+    <script type="module" src="main.js"></script>
+  </body>
 </html>
