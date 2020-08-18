@@ -1,57 +1,57 @@
 export const contentMyProfile = () => {
   const myProfile = 
   `<header class="header headerHome">
-      <div id="logoAndToggle">
-        <div id="logoHeader">
-          <img class="logoImg" src="img/logo.png" alt="logo">
-        </div>
-        <div class="buttonsHeader">
-          <div class="paw">
-            <a href="#/LikedDogs" id="pawIconHeader"><img class="iconsFooter" src="./img/iconPawHeader.png" alt="paw"></a>
-          </div>
-          <div class="home">
-            <a href="#/Home" id="homeIconHeader"><img class="iconsFooter" src="./img/homeIconHeader.png" alt="home"></a>
-          </div>
-          <div class="profile">
-            <a href="#/myProfile" id="myProfileIconHeader"><img class="iconsFooter"  src="./img/iconProfileLiked.png" alt="profile"></a>
-          </div>
-        </div>
-        </div>
-        <div id="contentToggle">
-          <span class="toggle">&#9776;</span>
-        </div>
-    </header>    
-    <div id='menuBar'>
-      <div>
-        <p id='emailLogOut'>${JSON.parse(sessionStorage.userBarkify).email}</p>
+    <div id="logoAndToggle">
+      <div id="logoHeader">
+        <img class="logoImg" src="img/logo.png" alt="logo">
       </div>
-      <br>
-      <div>
-        <button class="eliminateProfile">Eliminar Perfil</button>
-        <div id='modalAceptation'>
-          <div id='contentModalAceptacion'>
-            <p>¿Estas seguro de querer eliminar tu perfil?</p>
-            <button id="answerYes">Si</button>
-            <button id="answerNo">No</button>
-          </div>
+      <div class="buttonsHeader">
+        <div class="paw">
+          <a href="#/LikedDogs" id="pawIconHeader"><img class="iconsFooter" src="./img/iconPawHeader.png" alt="paw"></a>
+        </div>
+        <div class="home">
+          <a href="#/Home" id="homeIconHeader"><img class="iconsFooter" src="./img/homeIconHeader.png" alt="home"></a>
+        </div>
+        <div class="profile">
+          <a href="#/myProfile" id="myProfileIconHeader"><img class="iconsFooter"  src="./img/iconProfileLiked.png" alt="profile"></a>
         </div>
       </div>
-      <br>
-      <div>
-        <a href=" " class="btnLogOut" id="cerrarbtn">Cerrar sesión</a>
-      </div>
-    </div> 
-    <main class="mainMyProfile">
-      <div id="myProfile">
-        <div>
-          <p class="titleMyProfile">Mi perfil</p>
-          <div id="editIcon">
-            <img id="iconEdit" />
-          </div>
+    </div>
+    <div id="contentToggle">
+      <span class="toggle">&#9776;</span>
+    </div>
+  </header>    
+  <div id='menuBar'>
+    <div>
+      <p id='emailLogOut'>${JSON.parse(sessionStorage.userBarkify).email}</p>
+    </div>
+    <br>
+    <div>
+      <button class="eliminateProfile">Eliminar Perfil</button>
+      <div id='modalAceptation'>
+        <div id='contentModalAceptacion'>
+          <p>¿Estas seguro de querer eliminar tu perfil?</p>
+          <button id="answerYes">Si</button>
+          <button id="answerNo">No</button>
         </div>
-        <div id="profilePicInfo">
-          <div class="imgProfilePic">
-            <img id="myProfilePic" />
+      </div>
+    </div>
+    <br>
+    <div>
+      <a href=" " class="btnLogOut" id="cerrarbtn">Cerrar sesión</a>
+    </div>
+  </div> 
+  <main class="mainMyProfile">
+    <div id="myProfile">
+      <div>
+        <p class="titleMyProfile">Mi perfil</p>
+        <div id="editIcon">
+          <img id="iconEdit" />
+        </div>
+      </div>
+      <div id="profilePicInfo">
+        <div class="imgProfilePic">
+      <img id="myProfilePic" />
           </div>
           <div class="nameInfo">
             <p id="nameDogCloud" class="nametitles"></p>
@@ -113,7 +113,7 @@ export const contentMyProfile = () => {
         </div>
       </div>
       <div id="commentmyProfile">
-        <h1 class="titlesComment">Comentarios</h1>
+        <h1 class="titlesComment">Mis comentarios</h1>
     
         <div id="commentsDog"></div>
       </div>

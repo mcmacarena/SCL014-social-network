@@ -477,6 +477,7 @@ export const commentDog = (e) => {
     const comment = document.querySelector('#inputComment').value;
     firebase.firestore().collection('doggys').doc(e.target.id).update({
       commentDog: firebase.firestore.FieldValue.arrayUnion({ comment, myName })
-    })
+    }).then(document.querySelector('#inputComment').value = "")
   });
+  
 };
