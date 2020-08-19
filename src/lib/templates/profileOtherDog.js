@@ -2,7 +2,7 @@ export const contentProfileOtherDog = () => {
   const profileOtherDog = `<header class="header headerHome">
     <div id="logoAndToggle">
       <div id="logoHeader">
-        <img class="logoImg" src="img/logo.png" alt="logo">
+        <a href="#/Home"><img class="logoImg" src="img/logo.png" alt="logo"></a>
       </div>
       <div class="buttonsHeader">
         <div class="paw">

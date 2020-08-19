@@ -20,21 +20,59 @@ export const signInGoogle = () => {
 
 // SIGN IN
 // Movernos en el signIn del correo a la contraseña
-export const nextPage = () => {
-  document.querySelector('#mailQuestionSignIn').classList.add('hide');
-  document.querySelector('#passwordQuestionSignIn').classList.remove('hide');
+export const firstPageSignIn = () => {
+  document.querySelector('#btnToPassword').disabled = true
+  document.querySelector('#mailQuestionSignIn').classList.remove('hide');
+  document.querySelector('#newUserEmail').addEventListener('keyup', () => {
+    if (document.querySelector('#newUserEmail').value !== '') {
+      document.querySelector('#btnToPassword').disabled = false;
+      document.querySelector('#btnToPassword').classList.remove('hideButton');
+      document.querySelector('#btnToPassword').classList.add('btnContinue');
+    } else {
+      document.querySelector('#btnToPassword').disabled = true;
+      document.querySelector('#btnToPassword').classList.add('hideButton');
+      document.querySelector('#btnToPassword').classList.remove('btnContinue');
+    }
+  });
 };
 
-// LOG OUT
-export const closeSession = () => {
-  close();
+export const nextPage = () => {
+  document.querySelector('#btnDoneSignIn').disabled = true
+  document.querySelector('#mailQuestionSignIn').classList.add('hide');
+  document.querySelector('#passwordQuestionSignIn').classList.remove('hide');
+  document.querySelector('#newUserPassword').addEventListener('keyup', () => {
+    if (document.querySelector('#newUserPassword').value !== '') {
+      document.querySelector('#btnDoneSignIn').disabled = false;
+      document.querySelector('#btnDoneSignIn').classList.remove('hideButton');
+      document.querySelector('#btnDoneSignIn').classList.add('btnContinue');
+    } else {
+      document.querySelector('#btnDoneSignIn').disabled = true;
+      document.querySelector('#btnDoneSignIn').classList.add('hideButton');
+      document.querySelector('#btnDoneSignIn').classList.remove('btnContinue');
+    }
+  });
+  document.querySelector('#back').addEventListener('click', () => {
+    firstPageSignIn();
+    document.querySelector('#passwordQuestionSignIn').classList.add('hide');
+  });
 };
 
 // Movernos en el SignIn de la contraseña a pantalla final registro
 export const finishRegistration = () => {
   document.querySelector('#passwordQuestionSignIn').classList.add('hide');
   document.querySelector('#doneSignIn').classList.remove('hide');
+  document.querySelector('#back').addEventListener('click', () => {
+    nextPage();
+    document.querySelector('#doneSignIn').classList.add('hide');
+  });
 };
+
+
+// LOG OUT
+export const closeSession = () => {
+  close();
+};
+
 
 // Funcionalidad del Sign in (con firebase)
 export const signIn = () => {
