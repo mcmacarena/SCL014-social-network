@@ -113,7 +113,7 @@ export const contentMyProfile = () => {
         </div>
       </div>
       <div id="commentmyProfile">
-        <h1 class="titlesComment">Mis comentarios</h1>
+        <h1 class="titlesComment">Mis comentarios 🐶</h1>
     
         <div id="commentsDog"></div>
       </div>
