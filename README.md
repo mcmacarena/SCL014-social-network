@@ -3,7 +3,7 @@
 ## Índice
 
 * [1. Resumen del proyecto](##1.-Resumen-del-proyecto)
-* [2. Imágen final del proyecto](##2.-imágen-final-del-proyecto)
+* [2. Imágen final del proyecto](##2.-imagen-final-del-producto)
 * [3. Investigación UX](##3.-investigación-ux)
 * [3.1. Quienes son los usuarios y objetivos en relación al producto](###.3.1.-Quiénes-son-los-usuarios-objetivos-en-relación-al-producto)
 * [3.2. Cómo el producto soluciona los problemas](###3.2.-Cómo-el-producto-soluciona-los-problemas)
@@ -64,9 +64,8 @@ Desde un comienzo se pensó en una app con una interfaz muy simple y fácil de u
 Se escogieron colores fríos y pasteles, generando un ambiente amigable y acogedor donde las personas que naveguen en la webapp centraran su atención en las mascotas.
 
 ### 4.1. Primer sketch
-
 ![sketch]( https://raw.githubusercontent.com/mcmacarena/SCL014-social-network/master/src/img/sketch.jpg) 
 
 ### 4.2. Prototipo de alta fidelidad
 
-![figma] (https://raw.githubusercontent.com/mcmacarena/SCL014-social-network/master/src/img/prototipo%20alta.png)
+![figma] ( https://raw.githubusercontent.com/mcmacarena/SCL014-social-network/master/src/img/prototipoalta.png)
