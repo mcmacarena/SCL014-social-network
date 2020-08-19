@@ -68,4 +68,4 @@ Se escogieron colores fríos y pasteles, generando un ambiente amigable y acoged
 
 ### 4.2. Prototipo de alta fidelidad
 
-![figma] ( https://raw.githubusercontent.com/mcmacarena/SCL014-social-network/master/src/img/prototipoalta.png)
+![figma]( https://raw.githubusercontent.com/mcmacarena/SCL014-social-network/master/src/img/prototipoalta.png)
