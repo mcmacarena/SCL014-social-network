@@ -14,7 +14,7 @@ import {
 } from './lib/screensCreateProfile.js';
 import {
   signIn, logIn, signInGoogle, nextPage, finishRegistration, infoProfile,
-  photoProfileUpload, photoProfileDownload, closeSession,
+  photoProfileUpload, photoProfileDownload, closeSession, firstPageSignIn,
 } from './lib/index.js';
 import {
   accessData, showDogHome, likeDog, showLikeDog, deleteMyProfile, dislikeDog, otherProfile, commentDog, forgetPassword,
@@ -30,6 +30,7 @@ const render = (hash) => {
   }
   if (hash === '#/SignIn') {
     screen.innerHTML = contentSignIn();
+    firstPageSignIn();
     document.querySelector('#btnToPassword').addEventListener('click', nextPage);
     document.querySelector('#btnDoneSignIn').addEventListener('click', finishRegistration);
     document.querySelector('#btnDoneSignIn').addEventListener('mousedown', signIn);
