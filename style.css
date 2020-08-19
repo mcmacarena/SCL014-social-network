@@ -218,6 +218,9 @@ footer{
     font-style: italic;
 }
 .nameInfo{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
     margin: 0px  40px 0px 40px;
     width: auto;
     height: 100px;
@@ -275,7 +278,6 @@ footer{
 }
 #iconPawMyprofile{
     width: 25px;
-    padding-left:10px;
 }
 #contenidoDeLikesOther{
     padding:2px 0px 0px 2px;
@@ -578,7 +580,6 @@ textarea{
 #commentProfile,#commentmyProfile{
     display:flex;
     flex-flow: column nowrap;
-    padding: 0px;
     padding-bottom:100px;
 }
 #commentsDog{
@@ -624,7 +625,6 @@ textarea{
     align-self: flex-end;
     padding-right: 10px;
 }
-
 #closeOtherProfileDesktop{
    display:none;
 }
@@ -752,13 +752,13 @@ textarea{
     }
     #infoPersonality{
         width: 200px;
-        height: 75px;
+        height: 100px;
         margin-top: 13px;
         line-height: 100px; 
     }
     #infoSchedule{
         width: 200px;
-        height: 75px;
+        height: 100px;
     }
     #infoPlaces, #infoBio{
         width: 450px;
@@ -793,16 +793,17 @@ textarea{
     .titleMyProfile{
         padding: 25px 0px 0px 0px;
         text-align: center;
-        font-size: 31px;
+        font-size: 30px;
      }
     /* comentarios perfils */
     #commentProfile,#commentmyProfile{
         padding-top: 100px;
     }
     .titlesComment{
-        font-size:24px;
+        font-size:21px;
         padding-left:5px;
         padding-bottom:8px;
+        padding-top: 30px;
     }
     .individualComment{
         line-height: 25px; 
@@ -871,7 +872,7 @@ textarea{
         margin: -65px 0px 0px 75px;
     }
     .imgProfileDog:hover{
-        border: 2px solid #943DD8;
+        border: 2px solid #ad72dac9
     }
     #contentModalAceptacion{
         margin: auto;
