@@ -183,6 +183,7 @@ footer{
 .mainMyProfile, .mainMyProfileEmpty{
     background-color: white;
     height: 100%;
+    padding-top: 10px;
 }
 #myProfile, #otherProfile{
     display: flex;
@@ -196,6 +197,7 @@ footer{
     display: flex;
     flex-direction: row;
     justify-self: space-around;
+
 }
 #containerPawLikes{
     margin-top:15px;
@@ -209,12 +211,14 @@ footer{
 }
 .nametitles{
     font-size: 22px;
+    padding-bottom:1px;
     line-height: 26px;
     color: #1E3250;
     font-weight: bold;
+    font-style: italic;
 }
 .nameInfo{
-    margin: 20px  40px 0px 40px;
+    margin: 0px  40px 0px 40px;
     width: auto;
     height: 100px;
     color: #1E3250;
@@ -260,6 +264,7 @@ footer{
 .texts, .infoBasic, .textsShedule{
     font-size: 16px;
     line-height: 18px;
+    
 }
 .textsShedule{
     font-size: 16px;
@@ -270,7 +275,10 @@ footer{
 }
 #iconPawMyprofile{
     width: 25px;
-    padding-left:20px;
+    padding-left:10px;
+}
+#contenidoDeLikesOther{
+    padding:2px 0px 0px 2px;
 }
 /* google btn */
 .google-btn {
@@ -313,6 +321,7 @@ footer{
     padding-right:20px;
     font-size:20px;
     text-decoration:none;
+    position: absolute;
 }
 
 /* claramente un error mensaje */
@@ -349,8 +358,9 @@ footer{
 /* perfil */
 .titleMyProfile{
    margin-top: 10px;
-    color: #647482;
-    font-size: 22px;
+    color: rgba(0, 0, 0, 0.767);
+    font-size: 24px;
+    font-weight: bold;
 }
 
 /* Liked Dogs */
@@ -394,15 +404,15 @@ footer{
 }
 .pawLikedPaw{
     margin-left: 10px;
-    width: 20px;
+    width: 24px;
 }
 .iconPawLikes{
     margin-top: 10px;
     width:100%;
 }
 .contentLikes{
-    margin-left:35px;
-    margin-top:-22px; 
+    margin-left:40px;
+    margin-top:-24px; 
 }
 /* Home dos */
 #contentHome{
@@ -429,12 +439,12 @@ footer{
     font-weight: normal;
 }
 .pawLikedPawFeed{
-    width: 30px;
-    margin: 40px 0px 20px 20px;
+    width: 35px;
+    padding: 40px 0px 25px 20px;
 }
 .contentLikesFeed{
-    font-size: 16px;
-    margin: -50px 0px 0px 60px;
+    font-size: 18px;
+    margin: -55px 0px 0px 65px;
 }
 #menuBar{
     display:flex;
@@ -520,7 +530,6 @@ textarea{
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
-   
 }
 #contentModalAceptacion{
     text-align: center;
@@ -551,12 +560,20 @@ textarea{
 #homeIconHeader:hover, #pawIconHeader:hover, #myProfileIconHeader:hover{
     filter: drop-shadow(0px 2px 3px #943DD8);
 }
+.iconPawLikes:hover{
+    filter: sepia(90%);
+}
+.iconPawLikesFeed:hover{
+    filter: hue-rotate(341deg) saturate(4000%);
+}
+
 /* comentarios */
 .titlesComment{
-    font-size:18px;
+    font-size:16px;
     padding-left:20px;
     padding-bottom:8px;
     color: #1E3250;
+    font-weight: 400;
 }
 #commentProfile,#commentmyProfile{
     display:flex;
@@ -580,6 +597,7 @@ textarea{
 }
 .nameDogComment{
     font-size:15px;
+    font-weight: 600;
 }
 .commentDog{
     font-size: 13px;
@@ -677,39 +695,44 @@ textarea{
         padding: 8px;
         text-align: center;
     }
+    .nameDogFeed{
+        font-size:26px;
+    }
     .location{
         font-size: 18px;
         margin-top:120px;
     }
     .pawLikedPaw{
-        margin-left: 10px;
-        width: 30px;
+        margin-left: 20px;
+        width: 35px;
     }
     .iconPawLikes{
         margin-top:10px;
         width:100%;
     }
     .contentLikes{
-        margin-left:55px;
+        margin-left:60px;
         margin-top:-32px; 
+    }
+    .containerLikesDog{
+        margin: -10px 0px 0px 0px;
     }
     .imgProfilePic{  
         width: 240px;
         height: 10px;
     }
     .nameInfo{
-        margin: 40px  60px 20px 100px;
+        margin: 20px  60px 20px 100px;
         width: auto;
         height: 200px;
     }
     .nametitles{
-        
         font-size: 30px;
-        line-height: 28px;
+        padding-bottom:10px;
     }
     .infoBasic{
         font-size: 18px;
-        line-height: 20px;
+        line-height:22px;
     }
     .titleProfilePerso, .titleProfileSchedule, .titleProfilePlaces, .titleProfileBio{
         font-size:16px;
@@ -718,6 +741,7 @@ textarea{
         width: 200px;
         height: 75px;
         margin-top: 13px;
+        line-height: 100px; 
     }
     #infoSchedule{
         width: 200px;
@@ -732,9 +756,11 @@ textarea{
     }
     #iconPawMyprofile{
         width:35px;
+        padding-left: 0px;
     }
     .textsShedule, .texts{
         font-size: 19px;
+        line-height: 25px; 
     }
     #contentToggle{
         align-self: right;
@@ -746,53 +772,56 @@ textarea{
         margin-top: 8px;
     }
     #otherProfile, #myProfile{
-        padding-top:50px;
+        /* padding-top:100px; */
         height: 100vh;
         display:flex;
         flex-flow: row nowrap;
     }
     .titleMyProfile{
-        margin-top: 10px;
+        padding: 25px 0px 0px 0px;
         text-align: center;
-        font-size: 24px;
+        font-size: 31px;
      }
     /* comentarios perfils */
     #commentProfile,#commentmyProfile{
-        padding-top: 170px;
+        padding-top: 100px;
     }
     .titlesComment{
-        font-size:30px;
-        padding-left:20px;
+        font-size:24px;
+        padding-left:5px;
         padding-bottom:8px;
     }
     .individualComment{
+        line-height: 25px; 
         padding: 10px;
-        width:400px;
-        height: auto;
+        width:500px;
+        min-height: 60px;
         border-radius: 15px;
         margin-bottom: 10px;
     }
     .nameDogComment{
-        font-size:22px;
+        font-size:18px;
     }
     .commentDog{
-        font-size: 16px;
+        font-size: 14px;
     }
     #inputComment, #inputmyComment{
-        width:400px;
+        width:500px;
         height:60px;
         padding: 10px;
         font-size:16px;
     }
     .btnComment{
-        width:200px;
+        width:500px;
         height:35px;
+        font-size:16px;
     }
     .mainMyProfile{
         background-color: white;
         height:100%;
         display:flex;
         flex-direction: row;
+        padding-top: 10px;
     }
     .mainMyProfileEmpty{
         background-color: white;
@@ -804,10 +833,38 @@ textarea{
         flex-flow: column nowrap;
         align-items: center;
         justify-content: center;
-        padding-top:60px;
+        padding-top:20px;
         padding-bottom:25px;
     }
-   
+    #closeOtherProfile{
+        position: relative;
+        float:right;
+        padding:5px 10px 5px 10px;
+        font-size:30px;
+        text-decoration:none;
+        border: 0.5px solid #393e46;
+        text-align: right;
+        border-radius: 50%;
+    }
+    #contenidoDeLikesOther{
+        padding:8px 0px 0px 5px;
+    }
+    .pawLikedPawFeed{
+        width: 42px;
+        padding: 30px 0px 30px 25px;
+    }
+    .contentLikesFeed{
+        font-size: 18px;
+        margin: -65px 0px 0px 75px;
+    }
+    .imgProfileDog:hover{
+        border: 2px solid #943DD8;
+    }
+    #contentModalAceptacion{
+        margin: auto;
+        padding: 20px;
+        width: 400px;
+    }
 
     
 
