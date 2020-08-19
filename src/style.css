@@ -60,7 +60,7 @@ body{
     border-radius: 20px;
     padding:10px;
 }
-.questionSignIn, .questionCreateProfile{
+.questionSignIn, .questionCreatreProfile{
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -620,6 +620,19 @@ textarea{
     width:310px;
     height:25px;
 }
+#closeOtherProfileMobile{
+    align-self: flex-end;
+    padding-right: 10px;
+}
+
+#closeOtherProfileDesktop{
+   display:none;
+}
+.checkboxOrder{
+    display:flex;
+    flex-flow: column;
+    align-items: flex-start;
+}
 @media screen and (min-width:1024px){
     #photoInitialPage{
         display: block;
@@ -865,7 +878,20 @@ textarea{
         padding: 20px;
         width: 400px;
     }
-
+    #closeOtherProfileDesktop{
+        display: block;
+        align-self:flex-end;
+        text-decoration:none;
+        position: relative;
+        float:right;
+        padding:5px 10px 5px 10px;
+        font-size:22px;
+        text-decoration:none;
+        text-align: right;
+    }
+ #closeOtherProfileMobile{
+        display:none;
+    }
     
 
 }   

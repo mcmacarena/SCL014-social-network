@@ -19,6 +19,7 @@ export const contentProfileOtherDog = () => {
   </header>    
   <main class="mainMyProfile" >
     <div id="otherProfile">
+      <a href="#/LikedDogs" id="closeOtherProfileMobile" class="titles"> &#10006;</a>
       <div id="profilePicInfo">
         <div class="imgProfilePic">
           <img id="profilePhotoOther">
@@ -78,7 +79,7 @@ export const contentProfileOtherDog = () => {
       </div> 
     </div>
     <div id="commentProfile">
-    <a href="#/LikedDogs" id="closeOtherProfile" class="titles"> &#10006;</a>
+    <a href="#/LikedDogs" id="closeOtherProfileDesktop" class="titles"> &#10006;</a>
       <h1 class="titlesComment">Comentarios</h1>
   
       <div id="commentsDog">

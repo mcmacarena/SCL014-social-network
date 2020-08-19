@@ -80,13 +80,15 @@ export const contentCreateProfile = () => {
       <div id="personalityDogQuestion" class="hide questionCreatreProfile">
         <p><strong> Indica las características de la personalidad de tu perro</strong></p>
         <br>
-        <p><input type="checkbox" name="personality" id="personality1" value="Dormilón"> Dormilón </p> 
-        <p><input type="checkbox" name="personality" id="personality2" value="Juguetón"> Juguetón </p>
-        <p><input type="checkbox" name="personality" id="personality3" value="Tranquilo"> Tranquilo </p>
-        <p><input type="checkbox" name="personality" id="personality4" value="Sociable"> Sociable </p>
-        <p><input type="checkbox" name="personality" id="personality5" value="Atlético"> Atlético </p>
-        <p><input type="checkbox" name="personality" id="personality6" value="Solitario"> Solitario </p>
-        <p><input type="checkbox" name="personality" id="personality7" value="Entusiasta"> Entusiasta </p>
+        <div class="checkboxOrder">
+          <p><input type="checkbox" name="personality" id="personality1" value="Dormilón"> Dormilón </p> 
+          <p><input type="checkbox" name="personality" id="personality2" value="Juguetón"> Juguetón </p>
+          <p><input type="checkbox" name="personality" id="personality3" value="Tranquilo"> Tranquilo </p>
+          <p><input type="checkbox" name="personality" id="personality4" value="Sociable"> Sociable </p>
+          <p><input type="checkbox" name="personality" id="personality5" value="Atlético"> Atlético </p>
+          <p><input type="checkbox" name="personality" id="personality6" value="Solitario"> Solitario </p>
+          <p><input type="checkbox" name="personality" id="personality7" value="Entusiasta"> Entusiasta </p>
+        </div>
         <button class="hideButton" id="btnCreateProfile8">Siguiente</button>
         <div id="contentProgress"><div id="questOne"><div id="questTwo"><div id="questThree"><div id="questFour"><div id="questFive"><div id="questSix"><div id="questSeven"><div id="questEight"></div></div></div></div></div></div></div></div></div>
       </div>
@@ -117,8 +119,10 @@ export const contentCreateProfile = () => {
         <p><strong>¿Con qué sexo de perro prefiere estar tu mascota?</strong></p>
         <p>Selecciona las todas las preferencias que quieras</p>
         <br>
-        <p><input type='checkbox' name='sexPreference' id='femalePreference' value='Hembra'> Hembras </p>
-        <p><input type='checkbox' name='sexPreference' id='malePreference' value='Macho'> Machos </p>
+        <div class="checkboxOrder">
+          <p><input type='checkbox' name='sexPreference' id='femalePreference' value='Hembra'> Hembras </p>
+          <p><input type='checkbox' name='sexPreference' id='malePreference' value='Macho'> Machos </p>
+        </div>
         <button id='btnCreateProfile12' class='hideButton'>Siguiente</button>
         <div id="contentProgress"><div id="prefOne"></div></div>
       </div> 
@@ -126,9 +130,11 @@ export const contentCreateProfile = () => {
         <p><strong>¿Con qué tamaño de perro prefiere estar tu mascota?</strong></p>
         <p>Selecciona las todas las preferencias que quieras</p>
         <br>
-        <p><input type='checkbox' name='sizePreference' id='smallPreference' value='Pequeño'> Pequeños </p>
-        <p><input type='checkbox' name='sizePreference' id='mediumPreference' value='Mediano'> Medianos </p>
-        <p><input type='checkbox' name='sizePreference' id='bigPreference' value='Grande'> Grandes </p>
+        <div class="checkboxOrder">
+          <p><input type='checkbox' name='sizePreference' id='smallPreference' value='Pequeño'> Pequeños </p>
+          <p><input type='checkbox' name='sizePreference' id='mediumPreference' value='Mediano'> Medianos </p>
+          <p><input type='checkbox' name='sizePreference' id='bigPreference' value='Grande'> Grandes </p>
+        </div>
         <button id='btnCreateProfile13' class='hideButton' >Siguiente</button>
         <div id="contentProgress"><div id="prefOne"><div id="prefTwo"></div></div></div>
       </div>
@@ -136,13 +142,15 @@ export const contentCreateProfile = () => {
         <p><strong> Indica las características de la personalidad de los perros que buscas</strong></p>
         <p>Selecciona las todas las preferencias que quieras</p>
         <br>
-        <p><input type='checkbox' name='personalityPreference' id='personality1Preference' value='Dormilón'> Dormilones</p>
-        <p><input type='checkbox' name='personalityPreference' id='personality2Preference' value='Juguetón'> Juguetones </p>
-        <p><input type='checkbox' name='personalityPreference' id='personality3Preference' value='Tranquilo'> Tranquilos </p>
-        <p><input type='checkbox' name='personalityPreference' id='personality4Preference' value='Sociable'> Sociables </p>
-        <p><input type='checkbox' name='personalityPreference' id='personality5Preference' value='Atlético'> Atléticos </p>
-        <p><input type='checkbox' name='personalityPreference' id='personality6Preference' value='Solitario'> Solitarios </p>
-        <p><input type='checkbox' name='personalityPreference' id='personality7Preference' value='Entusiasta'> Entusiastas </p>
+        <div class="checkboxOrder">
+          <p><input type='checkbox' name='personalityPreference' id='personality1Preference' value='Dormilón'> Dormilones</p>
+          <p><input type='checkbox' name='personalityPreference' id='personality2Preference' value='Juguetón'> Juguetones </p>
+          <p><input type='checkbox' name='personalityPreference' id='personality3Preference' value='Tranquilo'> Tranquilos </p>
+          <p><input type='checkbox' name='personalityPreference' id='personality4Preference' value='Sociable'> Sociables </p>
+          <p><input type='checkbox' name='personalityPreference' id='personality5Preference' value='Atlético'> Atléticos </p>
+          <p><input type='checkbox' name='personalityPreference' id='personality6Preference' value='Solitario'> Solitarios </p>
+          <p><input type='checkbox' name='personalityPreference' id='personality7Preference' value='Entusiasta'> Entusiastas </p>
+        </div>
         <button id='btnCreateProfile14' class='hideButton' >Siguiente</button>
         <div id="contentProgress"><div id="prefOne"><div id="prefTwo"><div id="prefThree"></div></div></div></div>
       </div>
