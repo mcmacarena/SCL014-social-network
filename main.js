@@ -1,5 +1,4 @@
-/* eslint-disable no-plusplus */
-// Este es el punto de entrada de tu aplicacion
+// templates
 import { contentInitialPage } from './lib/templates/initialPage.js';
 import { contentSignIn } from './lib/templates/signIn.js';
 import { contentMyProfileEmpty } from './lib/templates/myProfileEmpty.js';
@@ -9,13 +8,16 @@ import { contentHome } from './lib/templates/home.js';
 import { contentCreateProfile } from './lib/templates/createProfile.js';
 import { contentProfileOtherDog } from './lib/templates/profileOtherDog.js'
 import { contentForget } from './lib/templates/forgetpassword.js';
+// crear perfil 
 import {
   createProfileNext, disabledButton, createProfileBegin, closeCreateProfile,
 } from './lib/screensCreateProfile.js';
+// index
 import {
   signIn, logIn, signInGoogle, nextPage, finishRegistration, infoProfile,
   photoProfileUpload, photoProfileDownload, closeSession, firstPageSignIn,
 } from './lib/index.js';
+// firebase
 import {
   accessData, showDogHome, likeDog, showLikeDog, deleteMyProfile, dislikeDog, otherProfile, commentDog, forgetPassword,
 } from './lib/firebase.js';
@@ -70,6 +72,7 @@ const render = (hash) => {
   if (hash === '#/createProfile') {
     screen.innerHTML = contentCreateProfile();
     disabledButton();
+    // llamar a todas las funciones de crear perfil 
     for (let i = 1; i < 16; i++) {
       document.querySelector(`#btnCreateProfile${i}`).addEventListener('click', createProfileNext[i - 1]);
     }
@@ -80,8 +83,7 @@ const render = (hash) => {
   }
   if (hash === '#/otherDogProfile') {
     screen.innerHTML = contentProfileOtherDog();
-    document.querySelector('.btnComment').addEventListener('click', commentDog)
-
+    document.querySelector('.btnComment').addEventListener('click', commentDog);
   }
 };
 
