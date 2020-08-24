@@ -1,6 +1,3 @@
-/* eslint-disable max-len */
-/* eslint-disable no-loop-func */
-/* eslint-disable no-plusplus */
 // registrar nuevo usuario
 export const registerNewUser = (email, password) => {
   firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -23,6 +20,7 @@ export const registerNewUser = (email, password) => {
       }
     });
 };
+
 const db = firebase.firestore();
 
 // log in
@@ -35,8 +33,10 @@ export const logInUser = (email, password) => {
         email: user.email,
         uid: user.uid,
       }));
+      // pantalla que muestra al inicio en el caso que tenga o no perrito creado
       db.collection('doggys').get().then((querySnapshot) => {
         let userExist = '';
+        // busca si existe el uid de mi usuario
         querySnapshot.forEach((doc) => {
           if (doc.data().uid === JSON.parse(sessionStorage.userBarkify).uid) userExist = 'yes'
         });
@@ -57,7 +57,6 @@ export const logInUser = (email, password) => {
       if (errorCode === 'auth/user-disabled') {
         errorMessageShow = 'Tu acceso a Barkify ha sido bloqueado.';
       }
-
       document.getElementById('errormensaje').innerText = errorMessageShow;
     });
 };
@@ -108,6 +107,7 @@ export const forgetPassword = () => {
     });
 };
 
+// funcion log out
 export const close = () => {
   sessionStorage.removeItem('userBarkify');
   firebase.auth().signOut()
@@ -263,6 +263,7 @@ export const accessData = () => {
         document.querySelector('#placeDogCloud2').innerHTML = doc.data().placeDog.placeDog2;
         document.querySelector('#placeDogCloud3').innerHTML = doc.data().placeDog.placeDog3;
         document.querySelector('#contenidoDeLikes').innerHTML = doc.data().like;
+        // comentarios de otros perritos en mi perfil
         let sumCommentDog = ''
         const commentsDog = document.querySelector('#commentsDog');
         for (let i = 0; i < (doc.data().commentDog).length; i++) {
@@ -470,7 +471,7 @@ export const otherProfile = (e) => {
 };
 
 
-// comentarios de los perritos
+// comentarios de los perritos 
 export const commentDog = (e) => {
   db.collection('doggys').doc(JSON.parse(sessionStorage.userBarkify).uid).onSnapshot((doc) => {
     const myName = doc.data().nameDog;
@@ -479,5 +480,4 @@ export const commentDog = (e) => {
       commentDog: firebase.firestore.FieldValue.arrayUnion({ comment, myName })
     }).then(document.querySelector('#inputComment').value = "")
   });
-  
 };

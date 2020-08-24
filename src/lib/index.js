@@ -3,23 +3,8 @@ import {
   downloadProfilePhoto, close,
 } from './firebase.js';
 
-
-// INITIAL PAGE
-// Funcionalidad Log in
-export const logIn = () => {
-  const buttonLogin = document.querySelector('#btnLogin');
-  const email = document.querySelector('#userEmail').value;
-  const password = document.querySelector('#userPassword').value;
-  buttonLogin.addEventListener('click', logInUser(email, password));
-};
-// Funcionalidad Register/LogIn con Google
-export const signInGoogle = () => {
-  const provider = new firebase.auth.GoogleAuthProvider();
-  googleSignIn(provider);
-};
-
 // SIGN IN
-// Movernos en el signIn del correo a la contraseña
+// primera pregunta del registro (correo)
 export const firstPageSignIn = () => {
   document.querySelector('#btnToPassword').disabled = true
   document.querySelector('#mailQuestionSignIn').classList.remove('hide');
@@ -35,7 +20,7 @@ export const firstPageSignIn = () => {
     }
   });
 };
-
+// segunda pregunta del registro (contraseña)
 export const nextPage = () => {
   document.querySelector('#btnDoneSignIn').disabled = true
   document.querySelector('#mailQuestionSignIn').classList.add('hide');
@@ -56,8 +41,7 @@ export const nextPage = () => {
     document.querySelector('#passwordQuestionSignIn').classList.add('hide');
   });
 };
-
-// Movernos en el SignIn de la contraseña a pantalla final registro
+// Pantalla final registro
 export const finishRegistration = () => {
   document.querySelector('#passwordQuestionSignIn').classList.add('hide');
   document.querySelector('#doneSignIn').classList.remove('hide');
@@ -67,10 +51,18 @@ export const finishRegistration = () => {
   });
 };
 
-
-// LOG OUT
-export const closeSession = () => {
-  close();
+// INITIAL PAGE
+// Funcionalidad Log in
+export const logIn = () => {
+  const buttonLogin = document.querySelector('#btnLogin');
+  const email = document.querySelector('#userEmail').value;
+  const password = document.querySelector('#userPassword').value;
+  buttonLogin.addEventListener('click', logInUser(email, password));
+};
+// Funcionalidad Register/LogIn con Google
+export const signInGoogle = () => {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  googleSignIn(provider);
 };
 
 
@@ -79,6 +71,10 @@ export const signIn = () => {
   const email = document.querySelector('#newUserEmail').value;
   const password = document.querySelector('#newUserPassword').value;
   document.querySelector('#btnDoneSignIn').addEventListener('mouseup', registerNewUser(email, password));
+};
+// LOG OUT
+export const closeSession = () => {
+  close();
 };
 
 // Guarda toda la información de la creación del perfil
@@ -95,6 +91,7 @@ export const infoProfile = () => {
 
   // Array de personalidades del perro checkeadas
   const personalityDogLocal = document.querySelectorAll('input[name=personality]:checked');
+  // array de los valores elegidos 
   const personalityDogLocalValues = [];
   for (let i = 0; i < 7; i += 1) {
     if (personalityDogLocal[i] !== undefined) {
@@ -102,10 +99,6 @@ export const infoProfile = () => {
     } else {
       personalityDogLocalValues[i] = '';
     }
-    document.querySelector('#back').addEventListener('click', () => {
-      // createProfileNext4();
-      document.querySelector('#placesDogQuestion').classList.add('hide');
-    });
   }
 
   // Array de horarios de personalidades del perro checkeadas
@@ -163,6 +156,7 @@ export const infoProfile = () => {
     }
   }
 
+  // llamo a mi funcion del firebase y le asigno los valores que puso el usuario
   uploadInfo(nameDogLocal, sexDogLocal, ageDogLocal, locationDogLocal, placeDog1Local,
     placeDog2Local, placeDog3Local, sizeDogLocal, biographyDogLocal,
     personalityDogLocalValues[0], personalityDogLocalValues[1],
@@ -181,7 +175,6 @@ export const infoProfile = () => {
 };
 
 // SUBIR FOTO
-
 export const photoProfileUpload = () => {
   document.querySelector('#photoDog').addEventListener('change', (e) => {
     const photoDogLocal = e.target.files[0]
@@ -189,6 +182,7 @@ export const photoProfileUpload = () => {
   })
 };
 
+//bajar foto al perfil
 export const photoProfileDownload = () => {
   downloadProfilePhoto();
 };
